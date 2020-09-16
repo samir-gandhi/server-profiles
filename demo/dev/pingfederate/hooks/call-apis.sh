@@ -17,6 +17,8 @@ function apiprops {
 API_DROPIN_FOLDER=/opt/out/instance/server/default/drop-in-config
 
 apiFolder=
+echo "sleeping 20"
+sleep 20
 
 if test -d "${API_DROPIN_FOLDER}" ; then
     for apiFolderName in $( find "${API_DROPIN_FOLDER}/" -type d ! -name "drop*" 2>/dev/null | sort | uniq ) ; do
