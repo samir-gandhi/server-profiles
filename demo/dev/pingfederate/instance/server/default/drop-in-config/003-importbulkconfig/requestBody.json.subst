@@ -330,21 +330,21 @@
             "resourceType": "/dataStores"
         },
         {
-            “operationType”: “SAVE”,
-            “items”: [{
-                “password”: “${administrativeAccounts_items_Administrator_password}“,
-                “roles”: [
-                    “EXPRESSION_ADMINISTRATOR”,
-                    “USER_ADMINISTRATOR”,
-                    “ADMINISTRATOR”,
-                    “CRYPTO_ADMINISTRATOR”
+            "operationType": "SAVE",
+            "items": [{
+                "password": "${administrativeAccounts_items_Administrator_password}",
+                "roles": [
+                    "EXPRESSION_ADMINISTRATOR",
+                    "USER_ADMINISTRATOR",
+                    "ADMINISTRATOR",
+                    "CRYPTO_ADMINISTRATOR"
                 ],
-                “auditor”: false,
-                “description”: “Initial administrator user.“,
-                “active”: true,
-                “username”: “Administrator”
+                "auditor": false,
+                "description": "Initial administrator user.",
+                "active": true,
+                "username": "Administrator"
             }],
-            “resourceType”: “/administrativeAccounts”
+            "resourceType": "/administrativeAccounts"
         },
         {
             "operationType": "SAVE",
