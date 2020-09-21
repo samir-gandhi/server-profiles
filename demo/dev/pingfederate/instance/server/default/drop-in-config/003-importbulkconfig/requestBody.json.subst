@@ -266,9 +266,9 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "password": "${keyPairs_signing_items_v8m5h9qrw85dgmndgv47k76xz_v8m5h9qrw85dgmndgv47k76xz_password}",
-                "fileData": "${keyPairs_signing_items_v8m5h9qrw85dgmndgv47k76xz_v8m5h9qrw85dgmndgv47k76xz_fileData}",
-                "id": "v8m5h9qrw85dgmndgv47k76xz"
+                "password": "${keyPairs_signing_items_devsigningcert_devsigningcert_password}",
+                "fileData": "${keyPairs_signing_items_devsigningcert_devsigningcert_fileData}",
+                "id": "devsigningcert"
             }],
             "resourceType": "/keyPairs/signing"
         },
@@ -757,7 +757,7 @@
                                     },
                                     {
                                         "name": "Certificate",
-                                        "value": "v8m5h9qrw85dgmndgv47k76xz"
+                                        "value": "devsigningcert"
                                     }
                                 ]
                             }]
@@ -1325,8 +1325,8 @@
                         "certs": [],
                         "signingSettings": {
                             "signingKeyPairRef": {
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz",
-                                "id": "v8m5h9qrw85dgmndgv47k76xz"
+                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/devsigningcert",
+                                "id": "devsigningcert"
                             },
                             "includeRawKeyInSignature": false,
                             "includeCertInSignature": false,
@@ -1347,8 +1347,8 @@
                         "certs": [],
                         "signingSettings": {
                             "signingKeyPairRef": {
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz",
-                                "id": "v8m5h9qrw85dgmndgv47k76xz"
+                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/devsigningcert",
+                                "id": "devsigningcert"
                             },
                             "includeRawKeyInSignature": false,
                             "includeCertInSignature": false,
