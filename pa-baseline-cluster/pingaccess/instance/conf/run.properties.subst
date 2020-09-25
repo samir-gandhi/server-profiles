@@ -19,7 +19,7 @@
 #                       - Configuration is queried from Console at startup.
 #
 
-pa.operational.mode=STANDALONE
+pa.operational.mode=${OPERATIONAL_MODE}
 
 #-------------------------------------------------------------------------------
 # Admin Properties
@@ -137,10 +137,10 @@ engine.ssl.ciphers=${tls.default.cipherSuites}
 client.ioThreads=0
 
 # By default, include no information in heartbeat, for security purposes
-enable.detailed.heartbeat.response=true
+enable.detailed.heartbeat.response=false
 # When detailed heartbeat response is enabled, number of seconds back to collect response statistics.
 # Set to a value less than 1 to disable.
-pa.statistics.window.seconds=10
+pa.statistics.window.seconds=0
 
 # Content Rewrite
 pa.default.contentRewrite.buffer.min=1024
@@ -274,8 +274,8 @@ pf.api.readTimeout=-1
 #-------------------------------------------------------------------------------
 
 pa.backup.filesToKeep=25
-pa.admin.user.password.regex=((?\=.*\\d)(?\=.*[a-z])(?\=.*[A-Z]).{6,64})
-pa.admin.user.password.error.message=Password must be 6 to 64 characters in length, and contain at least one upper-case letter, one lower-case letter and one digit.
+pa.admin.user.password.regex=((?\=.*\\d)(?\=.*[a-z])(?\=.*[A-Z]).{6,20})
+pa.admin.user.password.error.message=Password must be 8 to 64 characters in length, and contain at least one upper-case letter, one lower-case letter and one digit.
 pa.admin.test.connections=true
 
 account.locking.max.consecutive.failures=3
