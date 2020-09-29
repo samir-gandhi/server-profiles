@@ -1,6 +1,5 @@
 ldap.url=ldap://${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAP_PORT}
 ldap.username=cn=pingfederate
-ldap.password=2FederateM0re
 ldap.connectTimeout=10000
 ldap.readTimeout=3000
 search.base=ou=people,${USER_BASE_DN}
