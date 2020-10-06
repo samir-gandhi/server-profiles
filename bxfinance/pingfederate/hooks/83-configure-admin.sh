@@ -18,12 +18,10 @@ _acceptLicenseAgreement=$(
       -v \
       --request PUT \
       --write-out '%{http_code}' \
-      # --output /tmp/license.acceptance \
       --header "X-XSRF-Header: PingFederate" \
       --header 'Content-Type: application/json' \
       --data '{"accepted":true}' \
       "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/license/agreement" \
-      # 2>/dev/null
 )
 
 case "${_acceptLicenseAgreement}" in
@@ -35,7 +33,6 @@ case "${_acceptLicenseAgreement}" in
         --insecure \
         -v \
         --write-out '%{http_code}' \
-        # --output /dev/null \
         --request POST \
         --user "${ROOT_USER}:${_initialPassword}" \
         --header "X-XSRF-Header: PingFederate" \
@@ -45,7 +42,6 @@ case "${_acceptLicenseAgreement}" in
             "auditor": false,"active": true, 
             "roles": ["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]}' \
         "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts" \
-        # 2>/dev/null
     )
     if test "${_createAdminUser}" != "200" ; then
       echo_red "error attempting to create admin - check PING_IDENTITY_PASSWORD"
