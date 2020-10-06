@@ -23,7 +23,7 @@ _acceptLicenseAgreement=$(
       --data '{"accepted":true}' \
       "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/license/agreement" \
 )
-
+echo "${_acceptLicenseAgreement}"
 case "${_acceptLicenseAgreement}" in
   200)
     # is new pf, create admin user. 
