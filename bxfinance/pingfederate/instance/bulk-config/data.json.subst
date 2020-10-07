@@ -411,22 +411,6 @@
         },
         {
             "operationType": "SAVE",
-            "items": [{
-                "password": "${PING_IDENTITY_PASSWORD}",
-                "roles": [
-                    "USER_ADMINISTRATOR",
-                    "ADMINISTRATOR",
-                    "CRYPTO_ADMINISTRATOR"
-                ],
-                "auditor": false,
-                "description": "Used to perform Admin API calls",
-                "active": true,
-                "username": "api-admin"
-            }],
-            "resourceType": "/administrativeAccounts"
-        },
-        {
-            "operationType": "SAVE",
             "items": [{"crlSettings": {
                 "nextRetryMinsWhenNextUpdateInPast": 60,
                 "verifyCrlSignature": true,
