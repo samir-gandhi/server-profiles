@@ -48,7 +48,7 @@ case "${_acceptLicenseAgreement}" in
         2>/dev/null
     )
     if test "${_createAdminUser}" != "200" ; then
-      cat /tmp/create.admin
+      jq -r . "/tmp/create.admin"
       echo_red "error attempting to create admin - check PING_IDENTITY_PASSWORD"
       exit 83
     fi
