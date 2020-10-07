@@ -35,7 +35,7 @@ case "${_acceptLicenseAgreement}" in
         --insecure \
         --silent \
         --write-out '%{http_code}' \
-        --output /dev/null \
+        --output /tmp/create.admin \
         --request POST \
         --user "${ROOT_USER}:${_initialPassword}" \
         --header "X-XSRF-Header: PingFederate" \
@@ -48,6 +48,7 @@ case "${_acceptLicenseAgreement}" in
         2>/dev/null
     )
     if test "${_createAdminUser}" != "200" ; then
+      cat /tmp/create.admin
       echo_red "error attempting to create admin - check PING_IDENTITY_PASSWORD"
       exit 83
     fi
