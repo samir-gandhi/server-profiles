@@ -6,7 +6,7 @@
 _initialPassword=$(get_value PING_IDENTITY_PASSWORD_INITIAL true)
 
 _password=$(get_value PING_IDENTITY_PASSWORD true)
-if test -n "${_initialPassword}" -a test -z "${_password}"; then
+if test -n "${_initialPassword}" -a -z "${_password}"; then
   echo_red "found initial password, but no new password"
   exit 83
 fi
