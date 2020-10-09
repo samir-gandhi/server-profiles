@@ -14,4 +14,4 @@
 # 
 
 export PF_LOG_LEVEL=${PF_LOG_LEVEL:=INFO}
-export PF_LOG_DIR=${PF_LOG_DIR:=\${sys:pf.log.dir}}
+export PF_LOG_DIR=${PF_LOG_DIR:=\${sys:pf.log.dir\}}
