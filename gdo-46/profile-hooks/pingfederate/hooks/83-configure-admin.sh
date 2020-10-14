@@ -2,6 +2,7 @@
 # shellcheck source=../../../../pingcommon/opt/staging/hooks/pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
+
 ## set script vars
 _initialPassword=$(get_value PING_IDENTITY_PASSWORD_INITIAL true)
 
@@ -30,6 +31,11 @@ case "${_acceptLicenseAgreement}" in
   200)
     # is new pf, create admin user. 
     echo "INFO: new server found, creating admin"
+    if test "$(isImageVersionGt 10.1.0)" -eq 0 ; then
+      adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]'
+    else
+      adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR"]'
+    fi
     _createAdminUser=$( 
     curl \
         --insecure \
@@ -40,10 +46,7 @@ case "${_acceptLicenseAgreement}" in
         --user "${ROOT_USER}:${_initialPassword}" \
         --header "X-XSRF-Header: PingFederate" \
         --header 'Content-Type: application/json' \
-        --data '{"username": "administrator", "password": "'"${_password}"'", 
-"description": "Initial administrator user.",
-            "auditor": false,"active": true, 
-            "roles": ["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]}' \
+        --data '{"username": "administrator", "password": "'"${_password}"'", "description": "Initial administrator user.", "auditor": false,"active": true, "roles": "'"${adminRoles}"'" }' \
         "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts" \
         2>/dev/null
     )
