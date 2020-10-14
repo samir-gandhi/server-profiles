@@ -43,7 +43,7 @@ case "${_acceptLicenseAgreement}" in
         --data '{"username": "administrator", "password": "'"${_password}"'", 
 "description": "Initial administrator user.",
             "auditor": false,"active": true, 
-            "roles": ["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]}' \
+            "roles": ["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR"]}' \
         "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts" \
         2>/dev/null
     )
