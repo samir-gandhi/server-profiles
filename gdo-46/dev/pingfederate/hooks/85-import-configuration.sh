@@ -10,7 +10,6 @@ if test -z "${_password}"; then
   die_on_error 83 "bulk import file found, but no PING_IDENTITY_PASSWORD" || exit ${?}
 fi
 
-_out="/tmp/import.status.out"
 _importBulkConfig=$(
     curl \
         --insecure \
@@ -22,7 +21,7 @@ _importBulkConfig=$(
         --header 'X-XSRF-Header: PingFederate' \
         --header 'X-BypassExternalValidation: true' \
         --data "@${BULK_CONFIG_DIR}/${BULK_CONFIG_FILE}" \
-        --output "${_out}" \
+        --output "import.status.out" \
         "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/bulk/import?failFast=false" \
         2>/dev/null
 )
@@ -53,7 +52,7 @@ then
     fi
   fi
 else 
-  cat "${_out}"
+  cat "import.status.out"
   echo_red "Unable to import bulk config"
   exit 85
 fi
