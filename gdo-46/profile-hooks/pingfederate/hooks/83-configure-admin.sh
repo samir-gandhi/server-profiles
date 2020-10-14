@@ -32,9 +32,9 @@ case "${_acceptLicenseAgreement}" in
     # is new pf, create admin user. 
     echo "INFO: new server found, creating admin"
     if test "$(isImageVersionGt 10.1.0)" -eq 0 ; then
-      adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]'
+      _adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]'
     else
-      adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR"]'
+      _adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR"]'
     fi
     _createAdminUser=$( 
     curl \
@@ -49,7 +49,7 @@ case "${_acceptLicenseAgreement}" in
         --data '{"username": "administrator", "password": "'"${_password}"'",
           "description": "Initial administrator user.", 
           "auditor": false,"active": true, 
-          "roles": '"${adminRoles}"' }' \
+          "roles": '"${_adminRoles}"' }' \
         "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts" \
         2>/dev/null
     )
