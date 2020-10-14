@@ -40,7 +40,7 @@ case "${_acceptLicenseAgreement}" in
         --user "${ROOT_USER}:${_initialPassword}" \
         --header "X-XSRF-Header: PingFederate" \
         --header 'Content-Type: application/json' \
-        --data '{"username": "Administrator", "password": "'"${_password}"'", 
+        --data '{"username": "administrator", "password": "'"${_password}"'", 
 "description": "Initial administrator user.",
             "auditor": false,"active": true, 
             "roles": ["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR"]}' \
@@ -67,7 +67,7 @@ case "${_acceptLicenseAgreement}" in
             --user "${ROOT_USER}:${_initialPassword}" \
             --header "X-XSRF-Header: PingFederate" \
             --header 'Content-Type: application/json' \
-            --data '{"currentPassword": "'"${_initialPassword}"'","newPassword": "'"${_password}"'"}' \
+            --data '{"newPassword": "'"${_password}"'"}' \
             "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts/changePassword" \
             2>/dev/null
       )
