@@ -334,6 +334,7 @@
             "items": [{
                 "password": "${administrativeAccounts_items_Administrator_password}",
                 "roles": [
+                    "EXPRESSION_ADMINISTRATOR",
                     "USER_ADMINISTRATOR",
                     "ADMINISTRATOR",
                     "CRYPTO_ADMINISTRATOR"
