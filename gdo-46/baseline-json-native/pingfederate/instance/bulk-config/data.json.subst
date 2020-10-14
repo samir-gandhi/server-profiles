@@ -289,7 +289,7 @@
                   "binaryAttributes": [],
                   "ldapType": "PING_DIRECTORY",
                   "type": "LDAP",
-                  "password": "${dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password}",
+                  "password": "asdfasdf${dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password}",
                   "minConnections": 10,
                   "createIfNecessary": true,
                   "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
