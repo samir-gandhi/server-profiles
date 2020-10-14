@@ -1,0 +1,85 @@
+# happy path
+apiVersion: v1
+data:
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  SERVER_PROFILE_HOOKS_PATH: gdo-46/hooks/pingfederate
+  SERVER_PROFILE_HOOKS_URL: https://www.github.com/samir-gandhi/server-profiles.git
+  SERVER_PROFILE_PARENT: "HOOKS" 
+  SERVER_PROFILE_PATH: gdo-46/baseline-json-native/pingfederate
+  SERVER_PROFILE_URL: https://www.github.com/samir-gandhi/server-profiles.git
+  PING_IDENTITY_PASSWORD: 2FederateM0re
+  VERBOSE: "true"
+  # PING_IDENTITY_PASSWORD_INITIAL: 2FederateL3ss
+kind: ConfigMap
+metadata:
+  annotations: {}
+  labels:
+    role: pingfederate
+  name: pingfederate-environment-variables
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: pingfederate
+  name: pingfederate
+spec:
+  ports:
+  - name: pf-console
+    port: 9999
+  - name: pf-runtime
+    port: 9031
+  selector:
+    role: pingfederate
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    role: pingfederate
+  name: pingfederate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: pingfederate
+  template:
+    metadata:
+      labels:
+        role: pingfederate
+      name: pingfederate
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: pingfederate-environment-variables
+        - secretRef:
+            name: devops-secret
+            optional: true
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-410866be
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /pingfederate/app
+            port: 9999
+            scheme: HTTPS
+          initialDelaySeconds: 100
+          periodSeconds: 1
+        name: pingfederate
+        ports:
+        - containerPort: 9999
+        - containerPort: 9031
+        readinessProbe:
+          httpGet:
+            path: /pingfederate/app
+            port: 9999
+            scheme: HTTPS
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: "2"
+            memory: 1.5Gi
+          requests:
+            cpu: "2"
+            memory: 1.5Gi
