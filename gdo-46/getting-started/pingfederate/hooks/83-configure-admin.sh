@@ -67,7 +67,7 @@ case "${_acceptLicenseAgreement}" in
             --user "${ROOT_USER}:${_initialPassword}" \
             --header "X-XSRF-Header: PingFederate" \
             --header 'Content-Type: application/json' \
-            --data '{"newPassword": "'"${_password}"'"}' \
+            --data '{"currentPassword": "'"${_initialPassword}"'","newPassword": "'"${_password}"'"}' \
             "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/administrativeAccounts/changePassword" \
             2>/dev/null
       )
