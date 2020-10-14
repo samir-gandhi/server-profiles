@@ -7,7 +7,8 @@
 
 _password=$(get_value PING_IDENTITY_PASSWORD true)
 if test -z "${_password}"; then
-  die_on_error 83 "bulk import file found, but no PING_IDENTITY_PASSWORD" || exit ${?}
+  echo_red "bulk import file found, but no PING_IDENTITY_PASSWORD"
+  exit 85
 fi
 
 _importBulkConfig=$(
@@ -30,8 +31,7 @@ if test "${_importBulkConfig}" = "200"
 then
   if test "${OPERATIONAL_MODE}" = "CLUSTERED_CONSOLE"
   then
-    _out="/tmp/replicate.status.out"
-    _importBulkConfig=$(
+    _replicateConfig=$(
         curl \
             --insecure \
             --silent \
@@ -40,13 +40,12 @@ then
             --user "${ROOT_USER}:${_password}" \
             --header 'Content-Type: application/json' \
             --header 'X-XSRF-Header: PingFederate' \
-            --data "@${BULK_CONFIG_DIR}/${BULK_CONFIG_FILE}" \
             --output "${_out}" \
             "https://localhost:${PF_ADMIN_PORT}/pf-admin-api/v1/cluster/replicate" \
             2>/dev/null
     )
-    if test "${_importBulkConfig}" != "200" ; then
-      jq -r . "${_out}"
+    if test "${_replicateConfig}" != "200" ; then
+      jq -r . "/tmp/replicate.status.out"
       echo_red "Unable replicate config"
       exit 85
     fi
