@@ -7,7 +7,7 @@ data:
   SERVER_PROFILE_PARENT: "HOOKS" 
   SERVER_PROFILE_PATH: gdo-46/baseline-json-native/pingfederate
   SERVER_PROFILE_URL: https://www.github.com/samir-gandhi/server-profiles.git
-  PING_IDENTITY_PASSWORD: 2FederateM0re
+  PING_IDENTITY_PASSWORD: 2FederateL3ss
   VERBOSE: "true"
   PING_IDENTITY_PASSWORD_INITIAL: 2FederateM0re
 kind: ConfigMap
@@ -56,7 +56,7 @@ spec:
         - secretRef:
             name: devops-secret
             optional: true
-        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-410866be
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-0defffc7
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 1

@@ -56,7 +56,7 @@ spec:
         - secretRef:
             name: devops-secret
             optional: true
-        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-410866be
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-0defffc7
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 1

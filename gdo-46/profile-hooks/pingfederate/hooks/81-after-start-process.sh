@@ -3,7 +3,7 @@
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
 # check if admin password is to be changed by looking for an 'initial' password
-if test -n "$(get_value PING_IDENTITY_PASSWORD_INITIAL true)" || test -f "${BULK_CONFIG_DIR}/${BULK_CONFIG_FILE}"; then
+if test -f "${BULK_CONFIG_DIR}/${BULK_CONFIG_FILE}"; then
   run_hook 83-configure-admin.sh
 fi
 
@@ -11,3 +11,9 @@ fi
 if test -f "${BULK_CONFIG_DIR}/${BULK_CONFIG_FILE}"; then
   run_hook 85-import-configuration.sh
 fi
+
+# placeholder
+# # check if admin password is to be changed by looking for an 'initial' password
+# if test -n "$(get_value PING_IDENTITY_PASSWORD_INITIAL true)"; then
+#   run_hook 86-change-admin-password.sh
+# fi
