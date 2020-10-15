@@ -14,7 +14,7 @@ then
     _adminReady=false
     until "${_adminReady}" ; do
       _success=$(
-        curl -k \
+        curl -ksS \
           --write-out '%{http_code}' \
           https://localhost:${PF_ADMIN_PORT}/pingfederate/app
         )
