@@ -81,11 +81,12 @@ case "${_acceptLicenseAgreement}" in
       422)
         # error code returned when trying to change pw on LDAP auth pf. 
         jq -r . "/tmp/change.password"
-        # echo_red "pf.admin.api.authentication != NATIVE. Cannot change password via API."
+        echo_red "Unable to change password via API"
         exit 83 ;;
       200)
         echo "INFO: Successfully changed admin password" ;;
       *)
+        jq -r . "/tmp/change.password"
         echo_red "Unable to change password - check PING_IDENTITY_PASSWORD or PING_IDENTITY_PASSWORD_INITIAL"
         exit 83 ;;
       esac
