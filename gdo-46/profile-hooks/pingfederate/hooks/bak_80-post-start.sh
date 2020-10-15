@@ -16,7 +16,7 @@ then
       _success=$(
         curl -ksS \
           --write-out '%{http_code}' \
-          --output /tmp/admin.ready \
+          --output /dev/null \
           https://localhost:${PF_ADMIN_PORT}/pingfederate/app
         )
       if test "${_success}" = "200" ; then

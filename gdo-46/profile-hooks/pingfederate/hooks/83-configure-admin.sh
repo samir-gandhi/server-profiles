@@ -68,7 +68,7 @@ case "${_acceptLicenseAgreement}" in
             --insecure \
             --silent \
             --write-out '%{http_code}' \
-            --output /dev/null \
+            --output /tmp/change.password \
             --request POST \
             --user "${ROOT_USER}:${_initialPassword}" \
             --header "X-XSRF-Header: PingFederate" \
@@ -80,7 +80,8 @@ case "${_acceptLicenseAgreement}" in
       case "${_changeAdminPassword}" in
       422)
         # error code returned when trying to change pw on LDAP auth pf. 
-        echo_red "pf.admin.api.authentication != NATIVE. Cannot change password via API."
+        jq -r . "/tmp/change.password"
+        # echo_red "pf.admin.api.authentication != NATIVE. Cannot change password via API."
         exit 83 ;;
       200)
         echo "INFO: Successfully changed admin password" ;;
