@@ -330,6 +330,23 @@
           "resourceType": "/dataStores"
       },
       {
+            "operationType": "SAVE",
+            "items": [{
+                "password": "2FederateM0re",
+                "roles": [
+                    "EXPRESSION_ADMINISTRATOR",
+                    "USER_ADMINISTRATOR",
+                    "ADMINISTRATOR",
+                    "CRYPTO_ADMINISTRATOR"
+                ],
+                "auditor": false,
+                "description": "Initial administrator user.",
+                "active": true,
+                "username": "Administrator"
+            }],
+            "resourceType": "/administrativeAccounts"
+        },
+      {
           "operationType": "SAVE",
           "items": [{}],
           "resourceType": "/notificationPublishers/settings"

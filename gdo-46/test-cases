@@ -1,24 +1,24 @@
 Profiles:
   - 1. GettingStarted - file based - NATIVE
   - 2. Baseline - data.json - NATIVE
-  - 2. Baseline - data.json - LDAP
-  - 3. bxfinance data.json - NATIVE
+  - 3. Baseline - data.json - LDAP
+  - 4. bxfinance data.json - NATIVE
 
 Scenarios: 
   Positive Tests
-  - a. "happy path" Native Auth with PING_IDENTITY_PASSWORD
-  - b. "happy path" Change Password Native Auth with PING_IDENTITY_PASSWORD+ PING_IDENTITY_PASSWORD_INITIAL
-  - c. LDAP admin auth - supplied PING_IDENTITY_PASSWORD
-  - d. separate administrator and api-admin
-  - e. replicate baseline config, cluster
+  - a. PING_IDENTITY_PASSWORD supplied
+  - b. replicate config, cluster
+  - c. separate administrator and api-admin
+    ## Not supported- d. Change NATIVE auth Password PING_IDENTITY_PASSWORD + PING_IDENTITY_PASSWORD_INITIAL
 
   Negative Tests
   - z. "happy path" native auth NO Password
-  - y. "happy path" Change Password Native Auth PING_IDENTITY_PASSWORD_INITIAL ONLY
+## not supported- y. "happy path" Change Password Native Auth PING_IDENTITY_PASSWORD_INITIAL ONLY
   - x. LDAP admin - NO PASSWORD
   - w. LDAP ADMIN - PING_IDENTITY_PASSWORD_INITIAL
 
 [√] 1a. 
-[√] 1b. 
-[√] 2a.
-[] 2b.
+[] 1b. - No longer supported
+[√] 2a.2
+[] 2b. - no longer supported
+[] 3a. - 
