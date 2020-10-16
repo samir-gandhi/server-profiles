@@ -258,7 +258,7 @@
             "operationType": "SAVE",
             "items": [
                 {
-                    "licenseAgreementUrl": "https://localhost:9999/pf-admin-api/license-agreement",
+                    "licenseAgreementUrl": "https://pingfederate-admin:9999/pf-admin-api/license-agreement",
                     "accepted": true
                 }
             ]
@@ -291,22 +291,22 @@
                 {
                     "runtimeServerCertRef": {
                         "id": "t9vezrmnn5ntdoq6bzfzbtg0j",
-                        "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
                     },
                     "adminConsoleCertRef": {
                         "id": "t9vezrmnn5ntdoq6bzfzbtg0j",
-                        "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
                     },
                     "activeRuntimeServerCerts": [
                         {
                             "id": "t9vezrmnn5ntdoq6bzfzbtg0j",
-                            "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
+                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
                         }
                     ],
                     "activeAdminConsoleCerts": [
                         {
                             "id": "t9vezrmnn5ntdoq6bzfzbtg0j",
-                            "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
+                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j"
                         }
                     ]
                 }
@@ -437,7 +437,7 @@
                         "enableIdpDiscovery": true
                     },
                     "federationInfo": {
-                        "baseUrl": "https://localhost:9031",
+                        "baseUrl": "https://pingfederate:9031",
                         "saml2EntityId": "docker",
                         "saml1xIssuerId": "localhost:default:entityId",
                         "saml1xSourceId": "",
@@ -472,7 +472,7 @@
                 {
                     "dataStoreRef": {
                         "id": "",
-                        "location": "https://localhost:9999/pf-admin-api/v1/dataStores"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/dataStores"
                     },
                     "synchronizationFrequency": 60
                 }
@@ -583,7 +583,7 @@
                     "name": "pingdirectory",
                     "pluginDescriptorRef": {
                         "id": "org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator",
-                        "location": "https://localhost:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator"
                     },
                     "configuration": {
                         "tables": [
@@ -670,7 +670,7 @@
                     "name": "simple",
                     "pluginDescriptorRef": {
                         "id": "org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator",
-                        "location": "https://localhost:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator"
                     },
                     "configuration": {
                         "tables": [
@@ -722,7 +722,7 @@
                     "name": "pingdirectory",
                     "apcId": {
                         "id": "Zxp6N6W5PH9onACT",
-                        "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
                     },
                     "authSources": [],
                     "authSourceUpdatePolicy": {
@@ -812,7 +812,7 @@
                         "type": "LDAP",
                         "dataStoreRef": {
                             "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
-                            "location": "https://localhost:9999/pf-admin-api/v1/dataStores/LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
+                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/dataStores/LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
                         },
                         "baseDn": "ou=people,dc=example,dc=com",
                         "createPattern": "uid=${mail}",
@@ -863,7 +863,7 @@
                     "name": "JSON Web Tokens",
                     "pluginDescriptorRef": {
                         "id": "com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/descriptors/com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/descriptors/com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin"
                     },
                     "configuration": {
                         "tables": [
@@ -1027,7 +1027,7 @@
                 {
                     "defaultAccessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     }
                 }
             ]
@@ -1051,7 +1051,7 @@
                     "name": "HTMLFormPD",
                     "pluginDescriptorRef": {
                         "id": "com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter",
-                        "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
                     },
                     "configuration": {
                         "tables": [
@@ -1325,7 +1325,7 @@
                     "name": "UsernameTokenProcessor",
                     "pluginDescriptorRef": {
                         "id": "com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor",
-                        "location": "https://localhost:9999/pf-admin-api/v1/idp/tokenProcessors/descriptors/com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/idp/tokenProcessors/descriptors/com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor"
                     },
                     "configuration": {
                         "tables": [
@@ -1403,7 +1403,7 @@
                     "entityId": "docker",
                     "active": true,
                     "contactInfo": {},
-                    "baseUrl": "https://localhost:9031",
+                    "baseUrl": "https://pingfederate:9031",
                     "loggingMode": "STANDARD",
                     "virtualEntityIds": [],
                     "credentials": {
@@ -1468,7 +1468,7 @@
                                 },
                                 "accessTokenManagerRef": {
                                     "id": "jwt",
-                                    "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                                    "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                                 }
                             }
                         ]
@@ -1487,7 +1487,7 @@
                     "entityId": "docker",
                     "active": true,
                     "contactInfo": {},
-                    "baseUrl": "https://localhost:9031",
+                    "baseUrl": "https://pingfederate:9031",
                     "loggingMode": "STANDARD",
                     "virtualEntityIds": [],
                     "credentials": {
@@ -1495,7 +1495,7 @@
                         "signingSettings": {
                             "signingKeyPairRef": {
                                 "id": "v8m5h9qrw85dgmndgv47k76xz",
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz"
+                                "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz"
                             },
                             "includeCertInSignature": false,
                             "includeRawKeyInSignature": false,
@@ -1537,7 +1537,7 @@
                                 },
                                 "idpTokenProcessorRef": {
                                     "id": "UsernameTokenProcessor",
-                                    "location": "https://localhost:9999/pf-admin-api/v1/idp/tokenProcessors/UsernameTokenProcessor"
+                                    "location": "https://pingfederate-admin:9999/pf-admin-api/v1/idp/tokenProcessors/UsernameTokenProcessor"
                                 },
                                 "restrictedVirtualEntityIds": []
                             }
@@ -1559,7 +1559,7 @@
                         "signingSettings": {
                             "signingKeyPairRef": {
                                 "id": "v8m5h9qrw85dgmndgv47k76xz",
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz"
+                                "location": "https://pingfederate-admin:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz"
                             },
                             "includeCertInSignature": false,
                             "includeRawKeyInSignature": false,
@@ -1619,7 +1619,7 @@
                                 },
                                 "authenticationPolicyContractRef": {
                                     "id": "Zxp6N6W5PH9onACT",
-                                    "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
+                                    "location": "https://pingfederate-admin:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
                                 },
                                 "restrictVirtualEntityIds": false,
                                 "restrictedVirtualEntityIds": [],
@@ -1785,7 +1785,7 @@
                     "id": "Zxp6N6W5PH9onACT",
                     "authenticationPolicyContractRef": {
                         "id": "Zxp6N6W5PH9onACT",
-                        "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
                     }
                 }
             ]
@@ -1810,7 +1810,7 @@
                     "id": "pingdirectory",
                     "passwordValidatorRef": {
                         "id": "pingdirectory",
-                        "location": "https://localhost:9999/pf-admin-api/v1/passwordCredentialValidators/pingdirectory"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/passwordCredentialValidators/pingdirectory"
                     }
                 }
             ]
@@ -2075,7 +2075,7 @@
                     "returnIdTokenOnRefreshGrant": false,
                     "accessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     },
                     "scopeAttributeMappings": {}
                 },
@@ -2111,7 +2111,7 @@
                     "returnIdTokenOnRefreshGrant": false,
                     "accessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     },
                     "scopeAttributeMappings": {}
                 },
@@ -2147,7 +2147,7 @@
                     "returnIdTokenOnRefreshGrant": false,
                     "accessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     },
                     "scopeAttributeMappings": {}
                 }
@@ -2160,7 +2160,7 @@
                 {
                     "defaultPolicyRef": {
                         "id": "OAuthPlayground",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/openIdConnect/policies/OAuthPlayground"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/openIdConnect/policies/OAuthPlayground"
                     },
                     "sessionSettings": {
                         "trackUserSessionsForLogout": false,
@@ -2221,12 +2221,12 @@
                         "type": "AUTHENTICATION_POLICY_CONTRACT",
                         "contextRef": {
                             "id": "Zxp6N6W5PH9onACT",
-                            "location": "https://localhost:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
+                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT"
                         }
                     },
                     "accessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     }
                 },
                 {
@@ -2253,12 +2253,12 @@
                         "type": "PCV",
                         "contextRef": {
                             "id": "pingdirectory",
-                            "location": "https://localhost:9999/pf-admin-api/v1/passwordCredentialValidators/pingdirectory"
+                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/passwordCredentialValidators/pingdirectory"
                         }
                     },
                     "accessTokenManagerRef": {
                         "id": "jwt",
-                        "location": "https://localhost:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                        "location": "https://pingfederate-admin:9999/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
                     }
                 }
             ]
@@ -2288,7 +2288,7 @@
                                         "type": "IDP_ADAPTER",
                                         "sourceRef": {
                                             "id": "HTMLFormPD",
-                                            "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/HTMLFormPD"
+                                            "location": "https://pingfederate-admin:9999/pf-admin-api/v1/idp/adapters/HTMLFormPD"
                                         }
                                     }
                                 },
@@ -2305,7 +2305,7 @@
                                             "context": "Success",
                                             "localIdentityRef": {
                                                 "id": "RBSQIwi5KWYN9ZGK",
-                                                "location": "https://localhost:9999/pf-admin-api/v1/localIdentity/identityProfiles/RBSQIwi5KWYN9ZGK"
+                                                "location": "https://pingfederate-admin:9999/pf-admin-api/v1/localIdentity/identityProfiles/RBSQIwi5KWYN9ZGK"
                                             },
                                             "inboundMapping": {
                                                 "attributeSources": [],
