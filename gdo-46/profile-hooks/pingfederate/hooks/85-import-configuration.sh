@@ -5,7 +5,7 @@
 # shellcheck source=../../../../pingcommon/opt/staging/hooks/pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-_password=$(get_value PING_IDENTITY_PASSWORD true)
+_password="$(get_value PING_IDENTITY_PASSWORD true)"
 if test -z "${_password}"; then
   echo_yellow "No PING_IDENITY_PASSWORD found. Using default password"
   _password=2Federate

@@ -22,7 +22,7 @@ case "${_acceptLicenseAgreement}" in
     # is new pf, create admin user. 
     echo "INFO: new server found, must create admin"
     ## set script vars
-    _password=$(get_value PING_IDENTITY_PASSWORD true)
+    _password="$(get_value PING_IDENTITY_PASSWORD true)"
     _password=${_password:=2Federate}
     if test "$(isImageVersionGt 10.1.0)" -eq 0 ; then
       _adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]'
