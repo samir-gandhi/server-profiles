@@ -51,7 +51,7 @@ then
     fi
   fi
 else 
-  jq -r . "/tmp/import.status.out"
+  echo_red "$(jq -r . /tmp/import.status.out)"
   echo_red "Unable to import bulk config"
   exit 85
 fi
