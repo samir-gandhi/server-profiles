@@ -7,8 +7,8 @@
 
 _password=$(get_value PING_IDENTITY_PASSWORD true)
 if test -z "${_password}"; then
-  echo_red "Bulk import file found, but no PING_IDENTITY_PASSWORD"
-  exit 85
+  echo_yellow "No PING_IDENITY_PASSWORD found. Using default password"
+  _password=2Federate
 fi
 
 _importBulkConfig=$(

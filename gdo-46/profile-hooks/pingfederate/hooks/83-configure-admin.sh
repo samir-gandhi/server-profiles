@@ -2,16 +2,6 @@
 # shellcheck source=../../../../pingcommon/opt/staging/hooks/pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-
-## set script vars
-_initialPassword=$(get_value PING_IDENTITY_PASSWORD_INITIAL true)
-
-_password=$(get_value PING_IDENTITY_PASSWORD true)
-if test -n "${_initialPassword}" -a -z "${_password}"; then
-  echo_red "found initial password, but no new password"
-  exit 83
-fi
-
 ## attempt to accept license, works if new server, fails if admin exists. 
 _acceptLicenseAgreement=$( 
   curl \
@@ -30,7 +20,10 @@ _acceptLicenseAgreement=$(
 case "${_acceptLicenseAgreement}" in
   200)
     # is new pf, create admin user. 
-    echo "INFO: new server found, creating admin"
+    echo "INFO: new server found, must create admin"
+    ## set script vars
+    _password=$(get_value PING_IDENTITY_PASSWORD true)
+    _password=${_password:=2Federate}
     if test "$(isImageVersionGt 10.1.0)" -eq 0 ; then
       _adminRoles='["ADMINISTRATOR","USER_ADMINISTRATOR","CRYPTO_ADMINISTRATOR","EXPRESSION_ADMINISTRATOR"]'
     else
