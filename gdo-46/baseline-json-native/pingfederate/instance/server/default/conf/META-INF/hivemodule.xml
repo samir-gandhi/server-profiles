@@ -81,7 +81,7 @@
                         org.sourceid.saml20.service.impl.AccountLinkingServiceDBImpl    : Use this service-point for a database implementation
                         org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl  : Use this service-point for an LDAP implementation
         -->
-        <create-instance model="autoreloadable" class="org.sourceid.saml20.service.impl.AccountLinkingServiceDBImpl"/>
+        <create-instance model="autoreloadable" class="org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl"/>
     </service-point>
 
     <!-- Service for storage of access grants -->
@@ -93,7 +93,7 @@
                         org.sourceid.oauth20.token.AccessGrantManagerLDAPOracleImpl         : Use this service-point for a Oracle Directory Server Enterprise Edition implementation
                         org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl  : Use this service-point for a PingDirectory implementation
         -->
-        <create-instance model="autoreloadable" class="org.sourceid.oauth20.token.AccessGrantManagerJdbcImpl"/>
+        <create-instance model="autoreloadable" class="org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl"/>
     </service-point>
 
     <!-- Service/adapter for creating pseudonym name ids -->
@@ -152,7 +152,7 @@
                         org.sourceid.oauth20.domain.ClientManagerLdapImpl               : Use this service-point for a LDAP implementation.
                         org.sourceid.oauth20.domain.ClientManagerGenericImpl            : Use this service-point if you have specified a custom ClientStorageManager implementation above.
             -->
-            <construct class="org.sourceid.oauth20.domain.ClientManagerXmlFileImpl"/>
+            <construct class="org.sourceid.oauth20.domain.ClientManagerLdapImpl"/>
         </invoke-factory>
     </service-point>
 
@@ -164,7 +164,7 @@
                         org.sourceid.saml20.service.session.data.impl.SessionStorageManagerJdbcImpl : Use this service-point for a Jdbc implementation.
                         org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl : Use this service-point for a LDAP implementation.
             -->
-            <construct class="org.sourceid.saml20.service.session.data.impl.SessionStorageManagerJdbcImpl"/>
+            <construct class="org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl"/>
         </invoke-factory>
     </service-point>
 
