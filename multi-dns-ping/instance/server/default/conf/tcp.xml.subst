@@ -62,8 +62,7 @@
             DNS_RECORD_TYPE=A
     -->
 
-    <dns.DNS_PING
-		 dns_query="${DNS_QUERY_LOCATION}" />
+    <dns.DNS_PING dns_query="tmp-pf-pingfederate-cluster-us-east-2.ping-devops.com,tmp-pf-pingfederate-cluster-us-west-2.ping-devops.com" />
 
 
     <!-- To enable discovery of EC2 instances in AWS dynamically, comment out TCPPING, and uncomment the section below.
