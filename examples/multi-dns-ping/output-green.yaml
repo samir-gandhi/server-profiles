@@ -56,9 +56,9 @@ data:
   PF_ENGINE_PUBLIC_HOSTNAME: tmp-pf-pingfederate-engine.ping-devops.com
   PF_ENGINE_PUBLIC_PORT: "443"
   PING_IDENTITY_ACCEPT_EULA: "YES"
-  SERVER_PROFILE_TCP_PATH: multi-dns-ping
-  SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
-  SERVER_PROFILE_PARENT: "TCP"
+  # SERVER_PROFILE_TCP_PATH: multi-dns-ping
+  # SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
+  # SERVER_PROFILE_PARENT: "TCP"
   SERVER_PROFILE_PATH: baseline/pingfederate
   SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
 kind: ConfigMap
@@ -96,9 +96,9 @@ data:
   PF_ENGINE_PUBLIC_HOSTNAME: tmp-pf-pingfederate-engine.ping-devops.com
   PF_ENGINE_PUBLIC_PORT: "443"
   PING_IDENTITY_ACCEPT_EULA: "YES"
-  SERVER_PROFILE_TCP_PATH: multi-dns-ping
-  SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
-  SERVER_PROFILE_PARENT: "TCP"
+  # SERVER_PROFILE_TCP_PATH: multi-dns-ping
+  # SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
+  # SERVER_PROFILE_PARENT: "TCP"
   SERVER_PROFILE_PATH: getting-started/pingfederate
   SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
 kind: ConfigMap
