@@ -1,0 +1,645 @@
+# Source: devops/charts/pingdirectory/templates/configmap.yaml
+apiVersion: v1
+data:
+  K8S_STATEFUL_SET_NAME: pingdirectory
+  K8S_STATEFUL_SET_SERVICE_NAME: pingdirectory-cluster
+  ORCHESTRATION_TYPE: KUBERNETES
+  PA_ADMIN_PRIVATE_HOSTNAME: pingaccess-admin
+  PA_ENGINE_PRIVATE_HOSTNAME: pingaccess-engine
+  PD_DELEGATOR_PUBLIC_HOSTNAME: tmp-pf-pingdelegator.ping-devops.com
+  PD_DELEGATOR_PUBLIC_PORT: "443"
+  PD_ENGINE_PRIVATE_HOSTNAME: pingdirectory
+  PDG_ENGINE_PRIVATE_HOSTNAME: pingdatagovernance
+  PDGP_ENGINE_PRIVATE_HOSTNAME: pingdatagovernancepap
+  PDP_ENGINE_PRIVATE_HOSTNAME: pingdirectoryproxy
+  PDS_ENGINE_PRIVATE_HOSTNAME: pingdatasync
+  PF_ADMIN_PRIVATE_HOSTNAME: localhost
+  PF_ADMIN_PUBLIC_HOSTNAME: tmp-pf-pingfederate-admin.ping-devops.com
+  PF_ADMIN_PUBLIC_PORT: "443"
+  PF_ENGINE_PRIVATE_HOSTNAME: pingfederate-engine
+  PF_ENGINE_PUBLIC_HOSTNAME: tmp-pf-pingfederate-engine.ping-devops.com
+  PF_ENGINE_PUBLIC_PORT: "443"
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  SERVER_PROFILE_PATH: baseline/pingdirectory
+  SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingdirectory
+    helm.sh/chart: pingdirectory-0.1.1
+  name: pingdirectory-env-vars
+---
+# Source: devops/charts/pingfederate-admin/templates/configmap.yaml
+apiVersion: v1
+data:
+  CLUSTER_BIND_ADDRESS: NON_LOOPBACK
+  CLUSTER_NAME: tmp-pf
+  DNS_QUERY_LOCATION: "pingfederate-cluster.tmp-pdog.svc.cluster.local,tmp-pf-pingfederate-cluster-us-west-2.ping-devops.com"
+  # DNS_RECORD_TYPE: A
+  OPERATIONAL_MODE: CLUSTERED_CONSOLE
+  PA_ADMIN_PRIVATE_HOSTNAME: pingaccess-admin
+  PA_ENGINE_PRIVATE_HOSTNAME: pingaccess-engine
+  PD_DELEGATOR_PUBLIC_HOSTNAME: tmp-pf-pingdelegator.ping-devops.com
+  PD_DELEGATOR_PUBLIC_PORT: "443"
+  PD_ENGINE_PRIVATE_HOSTNAME: pingdirectory
+  PDG_ENGINE_PRIVATE_HOSTNAME: pingdatagovernance
+  PDGP_ENGINE_PRIVATE_HOSTNAME: pingdatagovernancepap
+  PDP_ENGINE_PRIVATE_HOSTNAME: pingdirectoryproxy
+  PDS_ENGINE_PRIVATE_HOSTNAME: pingdatasync
+  PF_ADMIN_PRIVATE_HOSTNAME: localhost
+  PF_ADMIN_PUBLIC_HOSTNAME: tmp-pf-pingfederate-admin.ping-devops.com
+  PF_ADMIN_PUBLIC_PORT: "443"
+  PF_ENGINE_PRIVATE_HOSTNAME: pingfederate-engine
+  PF_ENGINE_PUBLIC_HOSTNAME: tmp-pf-pingfederate-engine.ping-devops.com
+  PF_ENGINE_PUBLIC_PORT: "443"
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  SERVER_PROFILE_TCP_PATH: multi-dns-ping
+  SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
+  SERVER_PROFILE_PARENT: "TCP"
+  SERVER_PROFILE_PATH: getting-started/pingfederate
+  SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-admin
+    helm.sh/chart: pingfederate-admin-0.1.1
+  name: pingfederate-admin-env-vars
+---
+# Source: devops/charts/pingfederate-engine/templates/configmap.yaml
+apiVersion: v1
+data:
+  CLUSTER_BIND_ADDRESS: NON_LOOPBACK
+  CLUSTER_NAME: tmp-pf
+  # DNS_QUERY_LOCATION: "tmp-pf-pingfederate-cluster-us-east-2.ping-devops.com,tmp-pf-pingfederate-cluster-us-west-2.ping-devops.com"
+  DNS_QUERY_LOCATION: "pingfederate-cluster.tmp-pdog.svc.cluster.local,tmp-pf-pingfederate-cluster-us-west-2.ping-devops.com"
+  # DNS_RECORD_TYPE: A
+  OPERATIONAL_MODE: CLUSTERED_ENGINE
+  PA_ADMIN_PRIVATE_HOSTNAME: pingaccess-admin
+  PA_ENGINE_PRIVATE_HOSTNAME: pingaccess-engine
+  PD_DELEGATOR_PUBLIC_HOSTNAME: tmp-pf-pingdelegator.ping-devops.com
+  PD_DELEGATOR_PUBLIC_PORT: "443"
+  PD_ENGINE_PRIVATE_HOSTNAME: pingdirectory
+  PDG_ENGINE_PRIVATE_HOSTNAME: pingdatagovernance
+  PDGP_ENGINE_PRIVATE_HOSTNAME: pingdatagovernancepap
+  PDP_ENGINE_PRIVATE_HOSTNAME: pingdirectoryproxy
+  PDS_ENGINE_PRIVATE_HOSTNAME: pingdatasync
+  PF_ADMIN_PORT: "9999"
+  PF_ADMIN_PRIVATE_HOSTNAME: localhost
+  PF_ADMIN_PUBLIC_HOSTNAME: tmp-pf-pingfederate-admin.ping-devops.com
+  PF_ADMIN_PUBLIC_PORT: "443"
+  PF_ENGINE_PRIVATE_HOSTNAME: pingfederate-engine
+  PF_ENGINE_PUBLIC_HOSTNAME: tmp-pf-pingfederate-engine.ping-devops.com
+  PF_ENGINE_PUBLIC_PORT: "443"
+  PF_LOG_LEVEL: DEBUG
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  SERVER_PROFILE_TCP_PATH: multi-dns-ping
+  SERVER_PROFILE_TCP_URL: https://github.com/samir-gandhi/server-profiles.git
+  SERVER_PROFILE_PARENT: "TCP"
+  SERVER_PROFILE_PATH: getting-started/pingfederate
+  SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-engine
+    helm.sh/chart: pingfederate-engine-0.1.1
+  name: pingfederate-engine-env-vars
+---
+# Source: devops/charts/pingdirectory/templates/service-cluster.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingdirectory
+    helm.sh/chart: pingdirectory-0.1.1
+  name: pingdirectory-cluster
+spec:
+  clusterIP: None
+  ports:
+  - name: ldaps
+    port: 636
+    protocol: TCP
+    targetPort: 636
+  selector:
+    clusterIdentifier: pingdirectory
+  type: ClusterIP
+---
+# Source: devops/charts/pingdirectory/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingdirectory
+    helm.sh/chart: pingdirectory-0.1.1
+  name: pingdirectory
+spec:
+  ports:
+  - name: apis
+    port: 2443
+    protocol: TCP
+    targetPort: 2443
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  - name: ldap
+    port: 389
+    protocol: TCP
+    targetPort: 389
+  - name: ldaps
+    port: 636
+    protocol: TCP
+    targetPort: 636
+  selector:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/name: pingdirectory
+---
+# Source: devops/charts/pingfederate-admin/templates/service-admin.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-admin
+    helm.sh/chart: pingfederate-admin-0.1.1
+  name: pingfederate-admin
+spec:
+  ports:
+  - name: admin
+    port: 9999
+    protocol: TCP
+    targetPort: 9999
+  selector:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/name: pingfederate-admin
+---
+# Source: devops/charts/pingfederate-admin/templates/service-cluster.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    external-dns.alpha.kubernetes.io/hostname: "tmp-pf-pingfederate-cluster-us-east-2.ping-devops.com"
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-admin
+    helm.sh/chart: pingfederate-admin-0.1.1
+  name: pingfederate-cluster
+spec:
+  clusterIP: None
+  ports:
+  - name: clusterbind
+    port: 7600
+    protocol: TCP
+    targetPort: 7600
+  - name: clusterfail
+    port: 7700
+    protocol: TCP
+    targetPort: 7700
+  publishNotReadyAddresses: true
+  selector:
+    clusterIdentifier: pingfederate
+  type: ClusterIP
+---
+# Source: devops/charts/pingfederate-engine/templates/service-engine.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-engine
+    helm.sh/chart: pingfederate-engine-0.1.1
+  name: pingfederate-engine
+spec:
+  ports:
+  - name: engine
+    port: 9031
+    protocol: TCP
+    targetPort: 9031
+  selector:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/name: pingfederate-engine
+---
+# Source: devops/charts/pingfederate-admin/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-admin
+    helm.sh/chart: pingfederate-admin-0.1.1
+  name: pingfederate-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: tmp-pf
+      app.kubernetes.io/name: pingfederate-admin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        checksum/config: bf4decf14661a5b0ec36a9cfd5a110b1fb437f29a39642c3003cf01a1d2705d6
+      labels:
+        app.kubernetes.io/instance: tmp-pf
+        app.kubernetes.io/name: pingfederate-admin
+        clusterIdentifier: pingfederate
+    spec:
+      containers:
+      - env: []
+        envFrom:
+        - configMapRef:
+            name: pingfederate-admin-env-vars
+        - configMapRef:
+            name: tmp-pf-env-vars
+            optional: true
+        - secretRef:
+            name: devops-secret
+            optional: true
+        - secretRef:
+            name: pingfederate-admin-git-secret
+            optional: true
+        - secretRef:
+            name: vault-secret
+            optional: true
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/snapshot-builds/pingfederate:10.2.0-SNAPSHOT-alpine-az11-20201110
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - /opt/liveness.sh
+          failureThreshold: 4
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: pingfederate-admin
+        ports:
+        - containerPort: 9999
+          name: admin
+        - containerPort: 7600
+          name: clusterbind
+        - containerPort: 7700
+          name: clusterfail
+        readinessProbe:
+          exec:
+            command:
+            - /opt/liveness.sh
+          failureThreshold: 4
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 4
+            memory: 8Gi
+          requests:
+            cpu: 500m
+            memory: 500Mi
+      nodeSelector: {}
+      terminationGracePeriodSeconds: 60
+      tolerations: []
+---
+# Source: devops/charts/pingfederate-engine/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-engine
+    helm.sh/chart: pingfederate-engine-0.1.1
+  name: pingfederate-engine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: tmp-pf
+      app.kubernetes.io/name: pingfederate-engine
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/config: 2ca7c603b035dd4dd71a7390d1e1949e1a2491d624056104a71190de7f4dcef1
+      labels:
+        app.kubernetes.io/instance: tmp-pf
+        app.kubernetes.io/name: pingfederate-engine
+        clusterIdentifier: pingfederate
+    spec:
+      containers:
+      - env: []
+        envFrom:
+        - configMapRef:
+            name: pingfederate-engine-env-vars
+        - configMapRef:
+            name: tmp-pf-env-vars
+            optional: true
+        - secretRef:
+            name: devops-secret
+            optional: true
+        - secretRef:
+            name: pingfederate-engine-git-secret
+            optional: true
+        - secretRef:
+            name: vault-secret
+            optional: true
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/snapshot-builds/pingfederate:10.2.0-SNAPSHOT-alpine-az11-20201110
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - /opt/liveness.sh
+          failureThreshold: 4
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: pingfederate-engine
+        ports:
+        - containerPort: 7600
+          name: clusterbind
+        - containerPort: 7700
+          name: clusterfail
+        - containerPort: 9031
+          name: engine
+        readinessProbe:
+          exec:
+            command:
+            - /opt/liveness.sh
+          failureThreshold: 4
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 4
+            memory: 8Gi
+          requests:
+            cpu: 500m
+            memory: 500Mi
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until curl --connect-timeout 1 --silent -k https://pingfederate-admin:9999/pingfederate/app
+          ; do echo waiting for https://pingfederate-admin:9999/pingfederate/app ;
+          sleep 2 ; done
+        image: curlimages/curl:latest
+        name: init
+      nodeSelector: {}
+      terminationGracePeriodSeconds: 60
+      tolerations: []
+# ---
+# # Source: devops/charts/pingfederate-engine/templates/hpa.yaml
+# apiVersion: autoscaling/v2beta2
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   labels:
+#     app.kubernetes.io/instance: tmp-pf
+#     app.kubernetes.io/managed-by: Helm
+#     app.kubernetes.io/name: pingfederate-engine
+#     helm.sh/chart: pingfederate-engine-0.1.1
+#   name: pingfederate-engine
+# spec:
+#   maxReplicas: 4
+#   metrics:
+#   - resource:
+#       name: cpu
+#       target:
+#         averageUtilization: 75
+#         type: Utilization
+#     type: Resource
+#   minReplicas: 1
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: pingfederate-engine
+---
+# Source: devops/charts/pingdirectory/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  labels:
+    app.kubernetes.io/name: pingdirectory
+    app.kubernetes.io/instance: tmp-pf
+    helm.sh/chart: pingdirectory-0.1.1
+    app.kubernetes.io/managed-by: Helm
+  name: pingdirectory
+spec:
+  serviceName: pingdirectory-cluster
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pingdirectory
+      app.kubernetes.io/instance: tmp-pf
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      partition: 0
+  podManagementPolicy: OrderedReady
+  template:
+    metadata:
+      annotations:
+        checksum/config: 1f841f7116f045d88974186318554c3618ed01ae6ead9defde6765fae3b7f3d8
+      labels:
+        app.kubernetes.io/name: pingdirectory
+        app.kubernetes.io/instance: tmp-pf
+        clusterIdentifier: pingdirectory
+    spec:
+      terminationGracePeriodSeconds: 300
+      containers:
+      - name: pingdirectory
+        image: "574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingdirectory:8.1.0.0-alpine-az11-2010-31fb148c"
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: out-dir-tmp-pf
+          mountPath: /opt/out
+        ports:
+        - containerPort: 2443
+          name: apis
+        - containerPort: 443
+          name: https
+        - containerPort: 389
+          name: ldap
+        - containerPort: 636
+          name: ldaps
+        envFrom:
+        envFrom:
+        - configMapRef:
+            name: pingdirectory-env-vars
+        - configMapRef:
+            name: tmp-pf-env-vars
+            optional: true
+        - secretRef:
+            name: devops-secret
+            optional: true
+        - secretRef:
+            name: pingdirectory-git-secret
+            optional: true
+        - secretRef:
+            name: vault-secret
+            optional: true
+        livenessProbe:
+          exec:
+            command: [ /opt/liveness.sh ]
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 120
+        readinessProbe:
+          exec:
+            command: [ /opt/liveness.sh ]
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 120
+        resources: 
+          limits:
+            cpu: 8
+            memory: 8Gi
+          requests:
+            cpu: 500m
+            memory: 2Gi
+      nodeSelector: 
+        {}
+      tolerations: 
+        []
+      volumes:
+      - name: out-dir-tmp-pf
+        persistentVolumeClaim:
+          claimName: out-dir-tmp-pf
+      
+  volumeClaimTemplates:
+  - metadata:
+      name: out-dir-tmp-pf
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      storageClassName: 
+      resources:
+        requests:
+          storage: 8Gi
+---
+# Source: devops/charts/pingdirectory/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx-public
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingdirectory
+    helm.sh/chart: pingdirectory-0.1.1
+  name: pingdirectory
+spec:
+  rules:
+  - host: tmp-pf-pingdirectory.ping-devops.com
+    http:
+      paths:
+      - backend:
+          serviceName: pingdirectory
+          servicePort: 443
+        path: /
+  tls:
+  - hosts:
+    - tmp-pf-pingdirectory.ping-devops.com
+    secretName: ""
+---
+# Source: devops/charts/pingfederate-admin/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx-public
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-admin
+    helm.sh/chart: pingfederate-admin-0.1.1
+  name: pingfederate-admin
+spec:
+  rules:
+  - host: tmp-pf-pingfederate-admin.ping-devops.com
+    http:
+      paths:
+      - backend:
+          serviceName: pingfederate-admin
+          servicePort: 9999
+        path: /
+  tls:
+  - hosts:
+    - tmp-pf-pingfederate-admin.ping-devops.com
+    secretName: ""
+---
+# Source: devops/charts/pingfederate-engine/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx-public
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  labels:
+    app.kubernetes.io/instance: tmp-pf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: pingfederate-engine
+    helm.sh/chart: pingfederate-engine-0.1.1
+  name: pingfederate-engine
+spec:
+  rules:
+  - host: tmp-pf-pingfederate-engine.ping-devops.com
+    http:
+      paths:
+      - backend:
+          serviceName: pingfederate-engine
+          servicePort: 9031
+        path: /
+  tls:
+  - hosts:
+    - tmp-pf-pingfederate-engine.ping-devops.com
+    secretName: ""
+
+NOTES:
+#-------------------------------------------------------------------------------------
+# Ping DevOps devops Chart (ver 0.1.1)
+#
+# Description: All Ping Identity product images with integration
+#-------------------------------------------------------------------------------------
+#
+#  Chart                    chartEnabled
+#  ------------------------ ------------
+#  pingaccess               false       
+#  pingdataconsole          false       
+#  pingdatagovernance       false       
+#  pingdelegator            false       
+#  pingdirectory            true        
+#  pingfederate-admin       true        
+#  pingfederate-engin       true        
+#  ldap-sdk-tools           false       
+#
+
+#-------------------------------------------------------------------------------------
