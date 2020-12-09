@@ -1,5 +1,5 @@
 {
-    "metadata": {"pfVersion": "10.1.2.0"},
+    "metadata": {"pfVersion": "10.1.3.0"},
     "operations": [
         {
             "operationType": "SAVE",
@@ -254,9 +254,9 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "password": "${keyPairs_sslServer_items_sslservercert_sslservercert_password}",
-                "fileData": "${keyPairs_sslServer_items_sslservercert_sslservercert_fileData}",
-                "id": "sslservercert"
+                "password": "${keyPairs_sslServer_items_t9vezrmnn5ntdoq6bzfzbtg0j_t9vezrmnn5ntdoq6bzfzbtg0j_password}",
+                "fileData": "${keyPairs_sslServer_items_t9vezrmnn5ntdoq6bzfzbtg0j_t9vezrmnn5ntdoq6bzfzbtg0j_fileData}",
+                "id": "t9vezrmnn5ntdoq6bzfzbtg0j"
             }],
             "resourceType": "/keyPairs/sslServer"
         },
@@ -264,20 +264,20 @@
             "operationType": "SAVE",
             "items": [{
                 "activeRuntimeServerCerts": [{
-                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
-                    "id": "sslservercert"
+                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j",
+                    "id": "t9vezrmnn5ntdoq6bzfzbtg0j"
                 }],
                 "activeAdminConsoleCerts": [{
-                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
-                    "id": "sslservercert"
+                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j",
+                    "id": "t9vezrmnn5ntdoq6bzfzbtg0j"
                 }],
                 "adminConsoleCertRef": {
-                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
-                    "id": "sslservercert"
+                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j",
+                    "id": "t9vezrmnn5ntdoq6bzfzbtg0j"
                 },
                 "runtimeServerCertRef": {
-                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
-                    "id": "sslservercert"
+                    "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/sslServer/t9vezrmnn5ntdoq6bzfzbtg0j",
+                    "id": "t9vezrmnn5ntdoq6bzfzbtg0j"
                 }
             }],
             "resourceType": "/keyPairs/sslServer/settings"
@@ -285,9 +285,9 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "password": "${keyPairs_signing_items_devsigningcert_devsigningcert_password}",
-                "fileData": "${keyPairs_signing_items_devsigningcert_devsigningcert_fileData}",
-                "id": "devsigningcert"
+                "password": "${keyPairs_signing_items_v8m5h9qrw85dgmndgv47k76xz_v8m5h9qrw85dgmndgv47k76xz_password}",
+                "fileData": "${keyPairs_signing_items_v8m5h9qrw85dgmndgv47k76xz_v8m5h9qrw85dgmndgv47k76xz_fileData}",
+                "id": "v8m5h9qrw85dgmndgv47k76xz"
             }],
             "resourceType": "/keyPairs/signing"
         },
@@ -360,7 +360,7 @@
                     "saml2EntityId": "docker",
                     "saml1xIssuerId": "localhost:default:entityId",
                     "wsfedRealm": "",
-                    "baseUrl": "https://localhost:9031",
+                    "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT}",
                     "saml1xSourceId": ""
                 },
                 "contactInfo": {},
@@ -425,11 +425,11 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "password": "${administrativeAccounts_items_Administrator_password}",
+                "password": "${PING_IDENTITY_PASSWORD}",
                 "roles": [
+                    "EXPRESSION_ADMINISTRATOR",
                     "CRYPTO_ADMINISTRATOR",
                     "ADMINISTRATOR",
-                    "EXPRESSION_ADMINISTRATOR",
                     "USER_ADMINISTRATOR"
                 ],
                 "auditor": false,
@@ -779,7 +779,7 @@
                                     },
                                     {
                                         "name": "Certificate",
-                                        "value": "devsigningcert"
+                                        "value": "v8m5h9qrw85dgmndgv47k76xz"
                                     }
                                 ]
                             }]
@@ -1116,7 +1116,7 @@
                         },
                         {
                             "name": "PingID Properties",
-                            "value": ""
+                            "value": "${idp_adapters_items_HTMLFormPD_configuration_fields_PingID_Properties_value}"
                         },
                         {
                             "name": "Require Verified Email",
@@ -1242,7 +1242,7 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "baseUrl": "https://localhost:9031",
+                "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT}",
                 "contactInfo": {},
                 "virtualEntityIds": [],
                 "credentials": {"certs": [{
@@ -1311,7 +1311,7 @@
             "operationType": "SAVE",
             "items": [
                 {
-                    "baseUrl": "https://localhost:9031",
+                    "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT}",
                     "contactInfo": {},
                     "wsTrust": {
                         "generateKey": false,
@@ -1347,8 +1347,8 @@
                         "certs": [],
                         "signingSettings": {
                             "signingKeyPairRef": {
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/devsigningcert",
-                                "id": "devsigningcert"
+                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz",
+                                "id": "v8m5h9qrw85dgmndgv47k76xz"
                             },
                             "includeRawKeyInSignature": false,
                             "includeCertInSignature": false,
@@ -1369,8 +1369,8 @@
                         "certs": [],
                         "signingSettings": {
                             "signingKeyPairRef": {
-                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/devsigningcert",
-                                "id": "devsigningcert"
+                                "location": "https://localhost:9999/pf-admin-api/v1/keyPairs/signing/v8m5h9qrw85dgmndgv47k76xz",
+                                "id": "v8m5h9qrw85dgmndgv47k76xz"
                             },
                             "includeRawKeyInSignature": false,
                             "includeCertInSignature": false,
@@ -1485,7 +1485,7 @@
                 "rollRefreshTokenValues": false,
                 "allowedOrigins": [
                     "https://localhost",
-                    "https://localhost:9031"
+                    "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT}"
                 ],
                 "allowUnidentifiedClientExtensionGrants": false,
                 "devicePollingInterval": 5,
