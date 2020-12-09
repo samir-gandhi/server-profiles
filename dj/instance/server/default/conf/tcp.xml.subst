@@ -1,0 +1,28 @@
+<config>
+    <TCP
+        external_addr="${JGROUPS_EXTERNAL_ADDR:match-interface:eth0}"
+	      bind_addr="site_local,match-interface:eth0"
+        bind_port="${TCP_PORT:7800}"
+    />
+    <!--
+      Uses an S3 bucket to discover members in the cluster.
+      - If "mybucket" doesn't exist, it will be created (requires permissions)
+    -->
+    <org.jgroups.aws.s3.NATIVE_S3_PING
+        region_name="us-west-2"
+        bucket_name="chrisa-pf-clustertests"
+     />
+    <MERGE3 max_interval="30000" min_interval="10000"/>
+    <FD_SOCK external_addr="${JGROUPS_EXTERNAL_ADDR}"
+             start_port="${FD_SOCK_PORT:9000}"/>
+    <FD_ALL timeout="10000" interval="3000"/>
+    <pbcast.NAKACK2/>
+    <UNICAST3/>
+    <pbcast.STABLE desired_avg_gossip="50000"
+                   max_bytes="8m"/>
+    <pbcast.GMS print_local_addr="true" join_timeout="3000"
+                view_bundling="true"/>
+    <UFC max_credits="2M" min_threshold="0.4"/>
+    <MFC max_credits="2M" min_threshold="0.4"/>
+    <FRAG2 frag_size="60K"  />
+</config>

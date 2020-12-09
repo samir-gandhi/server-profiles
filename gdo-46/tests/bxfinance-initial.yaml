@@ -1,0 +1,237 @@
+apiVersion: v1
+data:
+  K8S_STATEFUL_SET_NAME: pingdirectory
+  K8S_STATEFUL_SET_SERVICE_NAME: pingdirectory
+  MAX_HEAP_SIZE: 768m
+  ORCHESTRATION_TYPE: KUBERNETES
+  SERVER_PROFILE_PATH: pingdirectory
+kind: ConfigMap
+metadata:
+  annotations: {}
+  labels:
+    role: pingdirectory
+  name: pingdirectory-environment-variables
+---
+apiVersion: v1
+data:
+  SERVER_PROFILE_PATH: pingfederate
+kind: ConfigMap
+metadata:
+  labels:
+    role: pingfederate
+  name: pingfederate-environment-variables
+---
+apiVersion: v1
+data:
+  BXFINANCEAPP_HOST: bxfinanceapp
+  BXFINANCEAPP_PORT: "5000"
+  PD_DELEGATOR_HTTP_PORT: "6080"
+  PD_DELEGATOR_HTTPS_PORT: "6443"
+  PD_DELEGATOR_PUBLIC_HOSTNAME: sg-dev.ping-devops.org
+  PD_ENGINE_PUBLIC_HOSTNAME: sg-dev.ping-devops.org
+  PD_ENGINE_PUBLIC_PORT: "443"
+  PD_HOST: sg-dev.ping-devops.org
+  PD_PORT: "443"
+  PF_BASE_HOST: sg-dev.ping-devops.org
+  PF_BASE_URL: https://sg-dev.ping-devops.org
+  PF_CLIENT_ID: Delegator
+  PF_DELEGATOR_CLIENTID: Delegator
+  PF_ENGINE_PUBLIC_HOSTNAME: sg-dev.ping-devops.org
+  PF_ENGINE_PUBLIC_PORT: ""
+  PF_HOST: sg-dev.ping-devops.org
+  PF_LOG_LEVEL: DEBUG
+  PF_USER_PWD: 2FederateM0re
+  PING_EXTERNAL_BASE_URL: pingdatagovernancepap:9443
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  SERVER_PROFILE_BRANCH: master
+  USER_BASE_DN: dc=bxfinance.org
+kind: ConfigMap
+metadata:
+  name: shared-vars
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: pingdirectory
+  name: pingdirectory
+spec:
+  clusterIP: None
+  ports:
+  - name: ldaps
+    port: 636
+    targetPort: 1636
+  - name: ssl
+    port: 443
+    targetPort: 1443
+  - name: consent
+    port: 2443
+    targetPort: 2443
+  - name: ldap
+    port: 389
+    targetPort: 389
+  selector:
+    role: pingdirectory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: pingfederate
+  name: pingfederate
+spec:
+  ports:
+  - name: pf-console
+    port: 9999
+  - name: pf-runtime
+    port: 9031
+  selector:
+    role: pingfederate
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    role: pingfederate
+  name: pingfederate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: pingfederate
+  template:
+    metadata:
+      labels:
+        role: pingfederate
+      name: pingfederate
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: shared-vars
+        - secretRef:
+            name: server-profile-url
+            optional: false
+        - secretRef:
+            name: devops-secret
+            optional: true
+        - configMapRef:
+            name: pingfederate-environment-variables
+        image: pingidentity/pingfederate:2006-10.0.4
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /pingfederate/app
+            port: 9999
+            scheme: HTTPS
+          initialDelaySeconds: 100
+          periodSeconds: 1
+        name: pingfederate
+        ports:
+        - containerPort: 9999
+        - containerPort: 9031
+        readinessProbe:
+          httpGet:
+            path: /pingfederate/app
+            port: 9999
+            scheme: HTTPS
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: "2"
+            memory: 2.5Gi
+          requests:
+            cpu: "2"
+            memory: 2.5Gi
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until curl --connect-timeout 1 --silent -k https://pingdirectory:443/directory/v1 ; do echo waiting for pingdirectory ; sleep 3 ; done
+        image: curlimages/curl:latest
+        name: init
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    role: pingdirectory
+  name: pingdirectory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: pingdirectory
+  serviceName: pingdirectory
+  template:
+    metadata:
+      labels:
+        role: pingdirectory
+      name: pingdirectory
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: shared-vars
+        - secretRef:
+            name: server-profile-url
+            optional: false
+        - secretRef:
+            name: devops-secret
+            optional: true
+        - configMapRef:
+            name: pingdirectory-environment-variables
+        image: pingidentity/pingdirectory:2008-8.1.0.0
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - /preStop.sh
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - /opt/liveness.sh
+          initialDelaySeconds: 300
+          periodSeconds: 30
+        name: pingdirectory
+        ports:
+        - containerPort: 636
+        - containerPort: 443
+        - containerPort: 2443
+        - containerPort: 389
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - /opt/liveness.sh
+        resources:
+          limits:
+            cpu: "4"
+            memory: 8Gi
+          requests:
+            cpu: "4"
+            memory: 8Gi
+        volumeMounts:
+        - mountPath: /opt/out
+          name: out-dir
+      terminationGracePeriodSeconds: 300
+      volumes:
+      - name: out-dir
+        persistentVolumeClaim:
+          claimName: out-dir
+  volumeClaimTemplates:
+  - metadata:
+      name: out-dir
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+      storageClassName: gp2

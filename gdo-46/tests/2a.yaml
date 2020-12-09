@@ -1,13 +1,18 @@
 # happy path
 apiVersion: v1
 data:
+  PF_ADMIN_PUBLIC_HOST: pingfederate-admin-tmp-pdog.ping-devops.com
+  PF_ADMIN_PUBLIC_PORT: "443"
+  PF_ENGINE_PUBLIC_HOST: pingfederate-tmp-pdog.ping-devops.com
+  PF_ENGINE_PUBLIC_PORT: "443"
   PING_IDENTITY_ACCEPT_EULA: "YES"
   SERVER_PROFILE_HOOKS_PATH: gdo-46/profile-hooks/pingfederate
   SERVER_PROFILE_HOOKS_URL: https://www.github.com/samir-gandhi/server-profiles.git
   SERVER_PROFILE_PARENT: "HOOKS" 
   SERVER_PROFILE_PATH: gdo-46/baseline-json-native/pingfederate
   SERVER_PROFILE_URL: https://www.github.com/samir-gandhi/server-profiles.git
-  PING_IDENTITY_PASSWORD: 2FederateM0re
+  # PING_IDENTITY_PASSWORD: 2FederateM0re
+  PING_IDENTITY_PASSWORD_FILE: /opt/staging/pwd
   VERBOSE: "true"
   # PING_IDENTITY_PASSWORD_INITIAL: 2FederateL3ss
 kind: ConfigMap
@@ -56,7 +61,7 @@ spec:
         - secretRef:
             name: devops-secret
             optional: true
-        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-0defffc7
+        image: 574076504146.dkr.ecr.us-west-2.amazonaws.com/docker-builds/pingfederate:10.1.1-alpine-az11-GDO-46-81f3bd8a
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 1

@@ -7,6 +7,7 @@ Profiles:
 Scenarios: 
   Positive Tests
   - a. PING_IDENTITY_PASSWORD supplied
+  - a2. PING_IDENTITY_PASSWORD_FILE supplied
   - b. replicate config, cluster
   - c. separate administrator and api-admin
     ## Not supported- d. Change NATIVE auth Password PING_IDENTITY_PASSWORD + PING_IDENTITY_PASSWORD_INITIAL
@@ -18,7 +19,8 @@ Scenarios:
   - w. LDAP ADMIN - PING_IDENTITY_PASSWORD_INITIAL
 
 [√] 1a. 
-[] 1b. - No longer supported
-[√] 2a.2
-[] 2b. - no longer supported
+[√] 2a
+[] 2b - this is causing some clustering issues. 
 [] 3a. - 
+[] 4a.
+[] 4b.

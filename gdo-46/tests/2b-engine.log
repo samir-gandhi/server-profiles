@@ -1,0 +1,731 @@
+Alias Expansion: [1mkubectl logs -f pingfederate-5846c66f59-4nvc7(B[m
+    k8s Context: [1mping-devops-gte(B[m
+  k8s Namespace: [1mtmp-pdog(B[m
+--------------------------------------
+[0;32m----- Starting hook: ./bootstrap.sh[0m
+### Bootstrap
+[0;32m----- Starting hook: /opt/entrypoint.sh[0m
+[0;32mCommand: start-server[0m
+################################################################################
+#    Ping Identity DevOps Docker Image
+#     IMAGE_VERSION: pingfederate-alpine-az11-10.1.1-201014-0deff
+#     IMAGE_GIT_REV: 0defffc73609d8cd468e3278cba389a4fa639d29
+#           STARTED: Mon Oct 19 14:05:53 UTC 2020
+#          HOSTNAME: pingfederate-5846c66f59-4nvc7
+#        DOMAINNAME: 
+################################################################################
+no local IN_DIR files (/opt/in) found.
+
+[0;32m----- Starting hook: /opt/staging/hooks/01-start-server.sh[0m
+
+[0;32m----- Starting hook: /opt/staging/hooks/02-get-remote-server-profile.sh[0m
+Getting SERVER_PROFILE_BASELINE
+  git url: *** REDACTED ***
+     path: gdo-46/baseline-json-native/pingfederate
+Cloning into '/tmp/server-profile'...
+warning: redirecting to https://github.com/samir-gandhi/server-profiles.git/
+Checking for security filename issues...*.jwk *.pin
+[0;32mSECURITY_CHECKS_FILENAME: 6 files found matching file pattern *.jwk[0m
+    ./gdo-46/baseline-json-cluster-native/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-data-ldap/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-ldap/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-native/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/bxfinance/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/getting-started/pingfederate/instance/server/default/data/pf.jwk
+[0;32mSecurity Violations Allowed! (total=6) SECURITY_CHECKS_STRICT=false[0m
+Getting SERVER_PROFILE_HOOKS
+  git url: *** REDACTED ***
+     path: gdo-46/profile-hooks/pingfederate
+Cloning into '/tmp/server-profile'...
+warning: redirecting to https://github.com/samir-gandhi/server-profiles.git/
+Checking for security filename issues...*.jwk *.pin
+[0;32mSECURITY_CHECKS_FILENAME: 6 files found matching file pattern *.jwk[0m
+    ./gdo-46/baseline-json-cluster-native/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-data-ldap/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-ldap/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/baseline-json-native/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/bxfinance/pingfederate/instance/server/default/data/pf.jwk
+    ./gdo-46/getting-started/pingfederate/instance/server/default/data/pf.jwk
+[0;32mSecurity Violations Allowed! (total=12) SECURITY_CHECKS_STRICT=false[0m
+Getting SERVER_PROFILE
+  git url: *** REDACTED ***
+     path: pf-dns-ping-clustering/pingfederate
+Cloning into '/tmp/server-profile'...
+Checking for security filename issues...*.jwk *.pin
+[0;32mSECURITY_CHECKS_FILENAME: 6 files found matching file pattern *.jwk[0m
+    ./baseline/pingaccess/instance/conf/pa.jwk
+    ./baseline/pingfederate/instance/server/default/data/pf.jwk
+    ./ci-tests/pa-bad-import/instance/conf/pa.jwk
+    ./ci-tests/pa-h2-2FedM0re/instance/conf/pa.jwk
+    ./getting-started/pingfederate/instance/server/default/data/pf.jwk
+    ./pa-clustering/pingaccess/instance/conf/pa.jwk
+[0;32mSECURITY_CHECKS_FILENAME: 3 files found matching file pattern *.pin[0m
+    ./baseline/pingdataconsole/.sec/.keystore.pin
+    ./baseline/pingdirectory/instance/config/keystore.pin
+    ./baseline/pingdirectory/instance/config/truststore.pin
+[0;32mSecurity Violations Allowed! (total=21) SECURITY_CHECKS_STRICT=false[0m
+
+[0;31mWARNING: Found an 'env_vars' file in server profile.  Variables set[0m
+[0;31m         in 'env_vars' may override image and orchestration variables.[0m
+
+[0;31m         To suppress this warning in the future, include the following[0m
+[0;31m         string in a comment[0m
+
+[0;31m         # .suppress-container-warning[0m
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/03-build-run-plan.sh[0m
+Missing SERVER_ROOT: /opt/out/instance
+################################################################################
+#    Run Plan Information
+################################################################################
+                          RUN_PLAN : START 
+################################################################################
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/04-check-variables.sh[0m
+[0;33m################################################################################[0m
+[0;33m################################################################################[0m
+[0;33m###################### WARNING - DEPRECATED VARIABLES ##########################[0m
+[0;33m#  The following deprecated variables were found. These variables may be removed[0m
+[0;33m#  in a future release.[0m
+[0;33m[0m
+                            DOLLAR : $ 
+[0;33m[0m
+[0;33m################################################################################[0m
+[0;33m[0m
+################################################################################
+#    Docker Image Information
+################################################################################
+                     IMAGE_VERSION : pingfederate-alpine-az11-10.1.1-201014-0deff 
+                     IMAGE_GIT_REV : 0defffc73609d8cd468e3278cba389a4fa639d29 
+                          HOSTNAME : pingfederate-5846c66f59-4nvc7 
+                        DOMAINNAME : --- empty --- 
+################################################################################
+#    Directory Variables
+################################################################################
+                              BASE : /opt 
+                            IN_DIR : /opt/in 
+                           OUT_DIR : /opt/out 
+                   SERVER_ROOT_DIR : /opt/out/instance 
+                       STAGING_DIR : /opt/staging 
+                         HOOKS_DIR : /opt/staging/hooks 
+                SERVER_PROFILE_DIR : /tmp/server-profile 
+                           BAK_DIR : /opt/backup 
+                          LOGS_DIR : /opt/logs 
+                       SECRETS_DIR : /run/secrets 
+                       LICENSE_DIR : /opt/out/instance/server/default/conf 
+################################################################################
+#    File Variables
+################################################################################
+                     TOPOLOGY_FILE : /opt/staging/topology.json 
+                    TAIL_LOG_FILES : /opt/out/instance/log/server.log 
+                     COLORIZE_LOGS : true 
+################################################################################
+#    Server Profile
+################################################################################
+                SERVER_PROFILE_URL : *** REDACTED *** 
+             SERVER_PROFILE_BRANCH : --- empty --- 
+               SERVER_PROFILE_PATH : pf-dns-ping-clustering/pingfederate 
+             SERVER_PROFILE_UPDATE : false 
+################################################################################
+#    Security Checks
+################################################################################
+            SECRUITY_CHECKS_STRICT : --- empty --- 
+          SECURITY_CHECKS_FILENAME : *.jwk *.pin 
+################################################################################
+#    DevOps User/Key
+################################################################################
+         PING_IDENTITY_DEVOPS_USER : samirgandhi@pingidentity.com 
+          PING_IDENTITY_DEVOPS_KEY : *** REDACTED *** 
+################################################################################
+#    License Key Info
+################################################################################
+                 LICENSE_FILE_NAME : pingfederate.lic 
+                LICENSE_SHORT_NAME : PF 
+                   LICENSE_VERSION : 10.1 
+         MUTE_LICENSE_VERIFICATION : --- empty --- 
+################################################################################
+#    Product Startup
+################################################################################
+                   STARTUP_COMMAND : /opt/out/instance/bin/run.sh 
+           STARTUP_FOREGROUND_OPTS : --- empty --- 
+           STARTUP_BACKGROUND_OPTS : --- empty --- 
+                           VERBOSE : false 
+                        PING_DEBUG : false 
+################################################################################
+#    Orchestration Info
+################################################################################
+                ORCHESTRATION_TYPE : --- empty --- 
+################################################################################
+#    Ping Product Info
+################################################################################
+                      PING_PRODUCT : PingFederate 
+                          LOCATION : Docker 
+                         LDAP_PORT : 389 
+                        LDAPS_PORT : 636 
+                        HTTPS_PORT : 443 
+                          JMX_PORT : 689 
+                      USER_BASE_DN : dc=example,dc=com 
+         PD_ENGINE_PUBLIC_HOSTNAME : localhost 
+          PF_ADMIN_PUBLIC_HOSTNAME : localhost 
+         PF_ENGINE_PUBLIC_HOSTNAME : localhost 
+          PA_ADMIN_PUBLIC_HOSTNAME : localhost 
+         PA_ENGINE_PUBLIC_HOSTNAME : localhost 
+                      ROOT_USER_DN : cn=administrator 
+             ADDITIONAL_SETUP_ARGS : --- empty --- 
+################################################################################
+#    JVM Details
+################################################################################
+                     MAX_HEAP_SIZE : 384m 
+                        JVM_TUNING : AGGRESSIVE 
+################################################################################
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/05-expand-templates.sh[0m
+expanding files...
+  Processing templates
+    t - ./instance/bin/ldap.properties.subst
+    t - ./instance/bin/run.properties.subst
+    t - ./instance/server/default/conf/tcp.xml.subst
+    t - ./instance/bulk-config/data.json.subst
+  Processing defaults
+    d - ./instance/bin/run.properties.subst.default .. [0;33mskipped[0m
+    d - ./instance/server/default/data/sourceid-saml2-local-metadata.xml.subst.default .. [0;32mexpanded[0m
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/06-copy-product-bits.sh[0m
+Copying product bits to SERVER_ROOT
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/07-apply-server-profile.sh[0m
+merging /opt/staging/instance to /opt/out/instance
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/08-get-secrets.sh[0m
+
+No previous state to compare.
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/09-build-motd.sh[0m
+Successfully downloaded MOTD from https://raw.githubusercontent.com/pingidentity/pingidentity-devops-getting-started/master/motd/motd.json
+Current /etc/motd
+    
+    ################################################################################
+                    Ping Identity DevOps Docker Image
+    
+           Version: pingfederate-alpine-az11-10.1.1-201014-0deff
+       DevOps User: samirgandhi@pingidentity.com
+          Hostname: pingfederate-5846c66f59-4nvc7
+           Started: Mon Oct 19 14:05:57 UTC 2020
+    ################################################################################
+    ################################################################################
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/10-start-sequence.sh[0m
+Initializing server for the first time
+
+[0;32m----- Starting hook: /opt/staging/hooks/17-check-license.sh[0m
+Pulling evaluation license from Ping Identity for:
+   Prod License: PF - v10.1
+    DevOps User: samirgandhi@pingidentity.com...
+
+Successfully pulled evaluation license from Ping Identity
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/18-setup-sequence.sh[0m
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/50-before-post-start.sh[0m
+
+Tailing log files (/opt/out/instance/log/server.log)
+
+[0;32mStarting server in foreground: (/opt/out/instance/bin/run.sh )[0m
+[0;32m----- Starting hook: /opt/staging/hooks/80-post-start.sh[0m
+
+2020-10-19 14:06:01,191  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] Current Directory: /opt/.
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] =========================================================================
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  PingFederate Bootstrap Environment
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  PF_HOME: /opt/out/instance
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  JAVA_PATH: /opt/java/bin/java
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  JAVA_OPTS:    -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=512m -XX:+UseParallelGC -Dprogram.name=run.sh -Djava.security.egd=file:/dev/./urandom -Dcom.ncipher.provider.announcemode=on -XX:-OmitStackTraceInFastThrow -Drun.properties=/opt/out/instance/bin/run.properties
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  CLASSPATH: /opt/out/instance/bin/run.jar:/opt/out/instance/bin/pf-startup.jar:/opt/out/instance/bin/jetty-start.jar:/opt/out/instance/server/default/lib/xmlbeans.jar:/opt/out/instance/server/default/lib/pf-xml.jar:/opt/out/instance/bin/pf-consoleutils.jar:/opt/out/instance/server/default/lib/xmlbeans.jar:/opt/out/instance/server/default/lib/pf-xml.jar:/opt/out/instance/server/default/lib/pf-crypto-luna.jar
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  Operating System: Linux amd64 4.14.146-119.123.amzn2.x86_64
+2020-10-19 14:06:01,198  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,199  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  Java Version: 11.0.8 (OpenJDK 64-Bit Server VM)
+2020-10-19 14:06:01,199  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,199  INFO  [com.pingidentity.appserver.jetty.PingFederateInit]  PingFederate Version: 10.1.1.0
+2020-10-19 14:06:01,199  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] 
+2020-10-19 14:06:01,199  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] =========================================================================
+2020-10-19 14:06:02,292  INFO  [com.pingidentity.crypto.JCEManagerBase] Using cipher suites defined in com.pingidentity.crypto.SunJCEManager.xml
+2020-10-19 14:06:02,393  INFO  [com.pingidentity.crypto.CertificateServiceImpl] RSA key size 1024 is supported
+2020-10-19 14:06:02,393  INFO  [com.pingidentity.crypto.CertificateServiceImpl] RSA key size 2048 is supported
+2020-10-19 14:06:02,393  INFO  [com.pingidentity.crypto.CertificateServiceImpl] RSA key size 4096 is supported
+2020-10-19 14:06:02,394  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA256withRSA is supported
+2020-10-19 14:06:02,394  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA384withRSA is supported
+2020-10-19 14:06:02,394  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA512withRSA is supported
+2020-10-19 14:06:02,394  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Selected 2048 as default key size for RSA
+2020-10-19 14:06:02,394  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Selected SHA256withRSA as default signature algorithm for RSA
+2020-10-19 14:06:02,407  INFO  [com.pingidentity.crypto.CertificateServiceImpl] EC key size 256 is supported
+2020-10-19 14:06:02,407  INFO  [com.pingidentity.crypto.CertificateServiceImpl] EC key size 384 is supported
+2020-10-19 14:06:02,407  INFO  [com.pingidentity.crypto.CertificateServiceImpl] EC key size 521 is supported
+2020-10-19 14:06:02,408  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA256withECDSA is supported
+2020-10-19 14:06:02,408  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA384withECDSA is supported
+2020-10-19 14:06:02,409  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Signature algorithm SHA512withECDSA is supported
+2020-10-19 14:06:02,409  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Selected 256 as default key size for EC
+2020-10-19 14:06:02,409  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Selected SHA256withECDSA as default signature algorithm for EC
+2020-10-19 14:06:02,912  INFO  [com.pingidentity.crypto.CertificateServiceImpl] Loaded 146 trust anchors from /opt/java/lib/security/cacerts
+2020-10-19 14:06:03,813  INFO  [org.sourceid.saml20.domain.mgmt.impl.MediatorImpl] Server is not standalone so it must be part of a cluster.
+2020-10-19 14:06:03,899  WARN  [com.pingidentity.jgroups.ChannelFactory] Cluster encryption disabled and no value specified for the pf.cluster.auth.pwd property. Cluster encryption and the use of a strong authentication key is highly recommended.
+2020-10-19 14:06:03,900  WARN  [com.pingidentity.jgroups.ChannelFactory] Not using invalid host (${DISCOVERY_INITIAL_HOST}) specified in pf.cluster.tcp.discovery.initial.hosts: java.lang.StringIndexOutOfBoundsException: begin 0, end -1, length 25
+2020-10-19 14:06:03,900  INFO  [com.pingidentity.jgroups.ChannelFactory] pf.cluster.tcp.discovery.initial.hosts processed from '${DISCOVERY_INITIAL_HOST}' to ''
+2020-10-19 14:06:04,697  WARN  [org.jgroups.blocks.MessageDispatcher] Channel already has an up handler installed (org.jgroups.blocks.MessageDispatcher$ProtocolAdapter@7b4a0aef) but now it is being overridden
+2020-10-19 14:06:04,716  INFO  [SystemOut] 
+-------------------------------------------------------------------
+GMS: address=192.168.78.253:7600, cluster=pf-10.1, physical address=192.168.78.253:7600
+-------------------------------------------------------------------
+2020-10-19 14:06:04,888  INFO  [com.pingidentity.jgroups.MuxRpcDispatcherMgr] viewAccepted:[192.168.72.252:7600|7] (3) [192.168.72.252:7600, de368c35-7072-47a2-1276-2f5319bea1d2, 192.168.78.253:7600]
+2020-10-19 14:06:04,890  INFO  [com.pingidentity.jgroups.DistributedMapLogNotifListener] viewChange(view:[192.168.72.252:7600|7] (3) [192.168.72.252:7600, de368c35-7072-47a2-1276-2f5319bea1d2, 192.168.78.253:7600], joining: [192.168.72.252:7600, de368c35-7072-47a2-1276-2f5319bea1d2, 192.168.78.253:7600], leaving: [])
+2020-10-19 14:06:04,891  INFO  [com.pingidentity.jgroups.MuxRpcDispatcherMgr] Channel Connected! My local address: 192.168.78.253:7600 channel view: [192.168.72.252:7600|7] (3) [192.168.72.252:7600, de368c35-7072-47a2-1276-2f5319bea1d2, 192.168.78.253:7600]
+2020-10-19 14:06:05,100  INFO  [com.pingidentity.jgroups.MuxRpcDispatcherMgr] setState() was called, result=true
+2020-10-19 14:06:05,182  INFO  [org.sourceid.util.license.LicenseManager] License loaded:
+License Edition: Free
+License ID: 00082604
+Issue Date: 10/13/20
+Product: PingFederate
+Version: 10.1
+Issued To: unspecified
+Org: Ping Identity Corporation
+Node Limit: unlimited
+Connection Limit: unlimited
+Expiration Date: 11/12/20
+WS-Trust STS: true
+OAuth: true
+Outbound Provisioning: true
+DeploymentMethod: Docker
+2020-10-19 14:06:05,191  INFO  [org.sourceid.util.license.Watcher] Server licensing status is now: WARN
+2020-10-19 14:06:05,192  WARN  [org.sourceid.util.license.NotificationSupport$1] You are approaching the limit for your PingFederate license.
+License Edition: Free
+License ID: 00082604
+Issue Date: 10/13/20
+Product: PingFederate
+Version: 10.1
+Issued To: unspecified
+Org: Ping Identity Corporation
+Node Limit: unlimited
+Connection Limit: unlimited
+Expiration Date: 11/12/20
+WS-Trust STS: true
+OAuth: true
+Outbound Provisioning: true
+DeploymentMethod: Docker
+2020-10-19 14:06:05,192  INFO  [org.sourceid.saml20.domain.mgmt.impl.MediatorImpl] local address: 192.168.78.253:7600
+2020-10-19 14:06:10,583  INFO  [org.sourceid.saml20.domain.mgmt.impl.DataSourceManagerImpl] Initializing JNDI lookup
+2020-10-19 14:06:10,599  INFO  [org.eclipse.jetty.util.log] Logging initialized @11759ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-10-19 14:06:10,681  INFO  [org.sourceid.saml20.domain.mgmt.impl.DataSourceManagerImpl] No Custom Attribute sources are loaded. Input file does not exist: /opt/out/instance/server/default/data/pingfederate-custom-ds.xml
+2020-10-19 14:06:10,685  INFO  [org.sourceid.saml20.metadata.partner.impl.MetadataDirectoryHybridDbImpl] Migrating connections to new storage format ...
+2020-10-19 14:06:10,712  INFO  [org.sourceid.saml20.metadata.partner.impl.MetadataDirectoryHybridDbImpl] Finished migrating, total conns migrated = 0
+2020-10-19 14:06:11,036  INFO  [org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator] Migrating partner certificates.
+2020-10-19 14:06:11,036  INFO  [org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator] Finished migrating partner certificates.
+2020-10-19 14:06:11,037  INFO  [org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator] Cleaning up partner certificates for 0 connections.
+2020-10-19 14:06:11,047  INFO  [org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator] Persisting cleanup to disk. This may take a while.
+2020-10-19 14:06:11,048  INFO  [org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator] Finished cleaning up partner certificates.
+2020-10-19 14:06:11,109  ERROR [org.sourceid.oauth20.domain.ClientManagerLdapImpl] Invalid "PingFederateDSJNDIName" configuration value, please verify the configuration and try again.
+2020-10-19 14:06:11,112  INFO  [org.sourceid.saml20.domain.mgmt.impl.MediatorImpl] Server is engine only - looking for configuration from cluster.
+2020-10-19 14:06:11,186  WARN  [org.jgroups.protocols.TCP_NIO2] JGRP000032: 192.168.78.253:7600: no physical address for de368c35-7072-47a2-1276-2f5319bea1d2, dropping message
+2020-10-19 14:06:11,201  INFO  [org.sourceid.saml20.domain.mgmt.impl.MediatorImpl] Deploying configuration from cluster.
+2020-10-19 14:06:11,201  INFO  [com.pingidentity.configservice.ConfigUpdateCoordinator] Configuration update is in progress...
+2020-10-19 14:06:11,281  INFO  [org.sourceid.saml20.domain.mgmt.AbstractAuthManager] pf.console.authentication Authentication: NATIVE
+2020-10-19 14:06:11,414  WARN  [org.sourceid.saml20.domain.mgmt.impl.MediatorImpl] License from Console node ignored as Engine node license has the same fingerprint.
+2020-10-19 14:06:11,482  ERROR [org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl] Unable to get PkCert with alias '6rjh60ky0s1yhb2c10q4348ze'
+java.security.KeyStoreException: No password found for key alias: 6rjh60ky0s1yhb2c10q4348ze
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.getPkCert(PkCertManagerBase.java:510) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.buildPkCertsCache(PkCertManagerBase.java:450) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.buildPkCertsCacheIfNecessary(PkCertManagerBase.java:406) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.<init>(PkCertManagerBase.java:79) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.<init>(SslServerPkCertManagerImpl.java:55) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[?:?]
+	at org.apache.hivemind.util.ConstructorUtils.invoke(ConstructorUtils.java:139) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.instantiateConstructorAutowiredInstance(BuilderFactoryLogic.java:191) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.instantiateCoreServiceInstance(BuilderFactoryLogic.java:106) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.createService(BuilderFactoryLogic.java:75) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactory.createCoreServiceImplementation(BuilderFactory.java:42) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.InvokeFactoryServiceConstructor.constructCoreServiceImplementation(InvokeFactoryServiceConstructor.java:62) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructCoreServiceImplementation(AbstractServiceModelImpl.java:108) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructNewServiceImplementation(AbstractServiceModelImpl.java:158) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructServiceImplementation(AbstractServiceModelImpl.java:140) ~[hivemind.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceModel.createServiceImplementation(AutoReloadableServiceModel.java:34) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.makeServiceInstance(AutoReloadableServiceProxy.java:142) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.lambda$getTarget$1(AutoReloadableServiceProxy.java:137) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSet$ServiceReference.get(ServiceSet.java:53) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSet.getService(ServiceSet.java:17) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.getTarget(AutoReloadableServiceProxy.java:136) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.serviceSetReload(AutoReloadableServiceProxy.java:102) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.lambda$new$0(AutoReloadableServiceProxy.java:33) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.configservice.ReloadRegistry.lambda$reload$0(ReloadRegistry.java:60) ~[pf-protocolengine.jar:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at com.pingidentity.configservice.ReloadRegistry.reload(ReloadRegistry.java:60) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSetManager.reload(ServiceSetManager.java:118) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.doConfigReload(MediatorImpl.java:437) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.reloadConfiguration(MediatorImpl.java:396) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.deployReplicationData(MediatorImpl.java:789) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.deployReplicationData($Mediator_175412e6735.java) ~[?:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromNode(ConfigReplicationServiceGroupRpcImpl.java:161) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:132) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:112) ~[pf-protocolengine.jar:?]
+	at $ConfigReplicationService_175412e675e.updateConfigFromCluster($ConfigReplicationService_175412e675e.java) ~[?:?]
+	at $ConfigReplicationService_175412e675d.updateConfigFromCluster($ConfigReplicationService_175412e675d.java) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.initEngineNode(MediatorImpl.java:288) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.initEngineNode($Mediator_175412e6735.java) ~[?:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.generateStartupLogMessages(PingFederateInit.java:196) ~[pf-appserver-ext.jar:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.main(PingFederateInit.java:99) ~[pf-appserver-ext.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:220) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.start(Main.java:490) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.main(Main.java:77) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.pingidentity.RunPF.main(RunPF.java:243) ~[pf-startup.jar:10.1.1.0]
+2020-10-19 14:06:11,483  ERROR [org.sourceid.saml20.domain.mgmt.impl.AdminSslServerPkCertManagerImpl] Unable to get PkCert with alias '6rjh60ky0s1yhb2c10q4348ze'
+java.security.KeyStoreException: No password found for key alias: 6rjh60ky0s1yhb2c10q4348ze
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.getPkCert(PkCertManagerBase.java:510) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.buildPkCertsCache(PkCertManagerBase.java:450) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.buildPkCertsCacheIfNecessary(PkCertManagerBase.java:406) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PkCertManagerBase.<init>(PkCertManagerBase.java:79) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.<init>(SslServerPkCertManagerImpl.java:55) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.AdminSslServerPkCertManagerImpl.<init>(AdminSslServerPkCertManagerImpl.java:30) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[?:?]
+	at org.apache.hivemind.util.ConstructorUtils.invoke(ConstructorUtils.java:139) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.instantiateConstructorAutowiredInstance(BuilderFactoryLogic.java:191) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.instantiateCoreServiceInstance(BuilderFactoryLogic.java:106) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactoryLogic.createService(BuilderFactoryLogic.java:75) ~[hivemind.jar:?]
+	at org.apache.hivemind.service.impl.BuilderFactory.createCoreServiceImplementation(BuilderFactory.java:42) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.InvokeFactoryServiceConstructor.constructCoreServiceImplementation(InvokeFactoryServiceConstructor.java:62) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructCoreServiceImplementation(AbstractServiceModelImpl.java:108) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructNewServiceImplementation(AbstractServiceModelImpl.java:158) ~[hivemind.jar:?]
+	at org.apache.hivemind.impl.servicemodel.AbstractServiceModelImpl.constructServiceImplementation(AbstractServiceModelImpl.java:140) ~[hivemind.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceModel.createServiceImplementation(AutoReloadableServiceModel.java:34) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.makeServiceInstance(AutoReloadableServiceProxy.java:142) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.lambda$getTarget$1(AutoReloadableServiceProxy.java:137) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSet$ServiceReference.get(ServiceSet.java:53) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSet.getService(ServiceSet.java:17) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.getTarget(AutoReloadableServiceProxy.java:136) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.serviceSetReload(AutoReloadableServiceProxy.java:102) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.lambda$new$0(AutoReloadableServiceProxy.java:33) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.configservice.ReloadRegistry.lambda$reload$0(ReloadRegistry.java:60) ~[pf-protocolengine.jar:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at com.pingidentity.configservice.ReloadRegistry.reload(ReloadRegistry.java:60) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.hivemind.ServiceSetManager.reload(ServiceSetManager.java:118) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.doConfigReload(MediatorImpl.java:437) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.reloadConfiguration(MediatorImpl.java:396) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.deployReplicationData(MediatorImpl.java:789) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.deployReplicationData($Mediator_175412e6735.java) ~[?:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromNode(ConfigReplicationServiceGroupRpcImpl.java:161) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:132) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:112) ~[pf-protocolengine.jar:?]
+	at $ConfigReplicationService_175412e675e.updateConfigFromCluster($ConfigReplicationService_175412e675e.java) ~[?:?]
+	at $ConfigReplicationService_175412e675d.updateConfigFromCluster($ConfigReplicationService_175412e675d.java) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.initEngineNode(MediatorImpl.java:288) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.initEngineNode($Mediator_175412e6735.java) ~[?:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.generateStartupLogMessages(PingFederateInit.java:196) ~[pf-appserver-ext.jar:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.main(PingFederateInit.java:99) ~[pf-appserver-ext.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:220) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.start(Main.java:490) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.main(Main.java:77) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.pingidentity.RunPF.main(RunPF.java:243) ~[pf-startup.jar:10.1.1.0]
+2020-10-19 14:06:11,825  INFO  [org.sourceid.saml20.domain.mgmt.impl.DataSourceManagerImpl] Initializing JNDI lookup
+2020-10-19 14:06:11,898  INFO  [org.sourceid.saml20.domain.mgmt.impl.DataSourceManagerImpl] No Custom Attribute sources are loaded. Input file does not exist: /opt/out/instance/server/default/data/pingfederate-custom-ds.xml
+2020-10-19 14:06:12,508  INFO  [org.sourceid.saml20.domain.util.InitMigrationUtil] No default SMTP notification publisher created. No previous SMTP settings (Email Configuration) exist.
+2020-10-19 14:06:12,607  INFO  [com.pingidentity.crypto.jwk.JwkFacilitator] Using JwkFacilitator() com.pingidentity.crypto.jwk.JwkFacilitator@45cd8607 with com.pingidentity.crypto.jwk.GroupRpcJsonWebKeysAdder@9e33a6a
+2020-10-19 14:06:12,793  ERROR [org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl] Error reloading key managers
+org.sourceid.config.ConfigurationException: org.sourceid.config.ConfigurationException: org.sourceid.config.ConfigurationException: No server certificate configured for alias : sslservercert
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.createX509ExtendedKeyManager(SslServerPkCertManagerImpl.java:598) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.reloadKeyManagers(SslServerPkCertManagerImpl.java:569) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.reloadSslProviders(SslServerPkCertManagerImpl.java:630) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.invoke(AutoReloadableServiceProxy.java:91) ~[pf-protocolengine.jar:?]
+	at com.sun.proxy.$Proxy20.reloadSslProviders(Unknown Source) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.doConfigReload(MediatorImpl.java:491) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.reloadConfiguration(MediatorImpl.java:396) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.deployReplicationData(MediatorImpl.java:789) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.deployReplicationData($Mediator_175412e6735.java) ~[?:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromNode(ConfigReplicationServiceGroupRpcImpl.java:161) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:132) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:112) ~[pf-protocolengine.jar:?]
+	at $ConfigReplicationService_175412e675e.updateConfigFromCluster($ConfigReplicationService_175412e675e.java) ~[?:?]
+	at $ConfigReplicationService_175412e675d.updateConfigFromCluster($ConfigReplicationService_175412e675d.java) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.initEngineNode(MediatorImpl.java:288) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.initEngineNode($Mediator_175412e6735.java) ~[?:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.generateStartupLogMessages(PingFederateInit.java:196) ~[pf-appserver-ext.jar:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.main(PingFederateInit.java:99) ~[pf-appserver-ext.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:220) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.start(Main.java:490) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.main(Main.java:77) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.pingidentity.RunPF.main(RunPF.java:243) ~[pf-startup.jar:10.1.1.0]
+Caused by: org.sourceid.config.ConfigurationException: org.sourceid.config.ConfigurationException: No server certificate configured for alias : sslservercert
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveServerPkCerts(SslServerPkCertManagerImpl.java:278) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveCertKeystore(SslServerPkCertManagerImpl.java:506) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.createX509ExtendedKeyManager(SslServerPkCertManagerImpl.java:589) ~[pf-protocolengine.jar:?]
+	... 29 more
+Caused by: org.sourceid.config.ConfigurationException: No server certificate configured for alias : sslservercert
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveServerPkCerts(SslServerPkCertManagerImpl.java:249) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveCertKeystore(SslServerPkCertManagerImpl.java:506) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.createX509ExtendedKeyManager(SslServerPkCertManagerImpl.java:589) ~[pf-protocolengine.jar:?]
+	... 29 more
+2020-10-19 14:06:12,793  INFO  [com.pingidentity.configservice.ConfigUpdateCoordinator] Configuration update has finished or was terminated.
+2020-10-19 14:06:12,793  ERROR [com.pingidentity.appserver.jetty.PingFederateInit] Exception in generateStartupLogMessages()
+org.sourceid.config.ConfigurationException: org.sourceid.config.ConfigurationException: No server certificate configured for alias : sslservercert
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveServerPkCerts(SslServerPkCertManagerImpl.java:278) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveServerPkCerts(SslServerPkCertManagerImpl.java:191) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.invoke(AutoReloadableServiceProxy.java:91) ~[pf-protocolengine.jar:?]
+	at com.sun.proxy.$Proxy20.getActiveServerPkCerts(Unknown Source) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PingX509ExtendedKeyManager.reload(PingX509ExtendedKeyManager.java:37) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.reloadSslProviders(SslServerPkCertManagerImpl.java:631) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.invoke(AutoReloadableServiceProxy.java:91) ~[pf-protocolengine.jar:?]
+	at com.sun.proxy.$Proxy20.reloadSslProviders(Unknown Source) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.doConfigReload(MediatorImpl.java:491) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.reloadConfiguration(MediatorImpl.java:396) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.deployReplicationData(MediatorImpl.java:789) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.deployReplicationData($Mediator_175412e6735.java) ~[?:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromNode(ConfigReplicationServiceGroupRpcImpl.java:161) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:132) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.service.impl.grouprpc.ConfigReplicationServiceGroupRpcImpl.updateConfigFromCluster(ConfigReplicationServiceGroupRpcImpl.java:112) ~[pf-protocolengine.jar:?]
+	at $ConfigReplicationService_175412e675e.updateConfigFromCluster($ConfigReplicationService_175412e675e.java) ~[?:?]
+	at $ConfigReplicationService_175412e675d.updateConfigFromCluster($ConfigReplicationService_175412e675d.java) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.initEngineNode(MediatorImpl.java:288) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.initEngineNode($Mediator_175412e6735.java) ~[?:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.generateStartupLogMessages(PingFederateInit.java:196) [pf-appserver-ext.jar:?]
+	at com.pingidentity.appserver.jetty.PingFederateInit.main(PingFederateInit.java:99) [pf-appserver-ext.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:220) [jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.start(Main.java:490) [jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.main(Main.java:77) [jetty-start.jar:9.4.18.v20190429patch5]
+	at org.pingidentity.RunPF.main(RunPF.java:243) [pf-startup.jar:10.1.1.0]
+Caused by: org.sourceid.config.ConfigurationException: No server certificate configured for alias : sslservercert
+	at org.sourceid.saml20.domain.mgmt.impl.SslServerPkCertManagerImpl.getActiveServerPkCerts(SslServerPkCertManagerImpl.java:249) ~[pf-protocolengine.jar:?]
+	... 36 more
+2020-10-19 14:06:13,214  WARN  [org.eclipse.jetty.server.AbstractConnector] Ignoring deprecated socket close linger time
+2020-10-19 14:06:13,218  WARN  [org.eclipse.jetty.server.AbstractConnector] Ignoring deprecated socket close linger time
+2020-10-19 14:06:13,220  WARN  [org.eclipse.jetty.server.AbstractConnector] Ignoring deprecated socket close linger time
+2020-10-19 14:06:13,652  WARN  [org.eclipse.jetty.server.AbstractConnector] Ignoring deprecated socket close linger time
+2020-10-19 14:06:13,684  INFO  [org.eclipse.jetty.server.Server] jetty-9.4.18.v20190429patch5; built: 2020-01-22T23:47:18.414Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 11.0.8+10-LTS
+2020-10-19 14:06:14,004  INFO  [org.sourceid.websso.servlet.InitServlet] Initializing...
+2020-10-19 14:06:14,009  INFO  [org.sourceid.saml20.service.util.NodeIndex] Setting server node index from local address 192.168.78.253:7600 and qualifier 93ZwoHhtWZ
+2020-10-19 14:06:14,010  INFO  [org.sourceid.saml20.service.impl.grouprpc.NodeIndexRegistryGroupRpcImpl] Attempting to register my index: 1052474708. Current known index registry: Registry {1136665756=Node{idx=1136665756, addr=de368c35-7072-47a2-1276-2f5319bea1d2, CLUSTERED_ENGINE, provMode=OFF, trackState=false, groupId=}, 1011869804=Node{idx=1011869804, addr=192.168.72.252:7600, CLUSTERED_CONSOLE, provMode=OFF, trackState=false, groupId=}}
+2020-10-19 14:06:14,011  WARN  [org.jgroups.protocols.TCP_NIO2] JGRP000032: 192.168.78.253:7600: no physical address for de368c35-7072-47a2-1276-2f5319bea1d2, dropping message
+2020-10-19 14:06:14,014  INFO  [org.sourceid.saml20.service.util.NodeIndex] My server node index is 1052474708
+2020-10-19 14:06:14,015  INFO  [org.sourceid.saml20.service.impl.grouprpc.ArtifactPersistenceSvcGroupRpcEncodedNodeIdxImpl] rpc timeout: 2000
+2020-10-19 14:06:24,017  ERROR [org.sourceid.saml20.service.impl.grouprpc.SessionRevocationServiceGroupRpcImpl] Failed to retrieve revoked SRI's list from de368c35-7072-47a2-1276-2f5319bea1d2
+2020-10-19 14:06:24,033  INFO  [org.sourceid.saml20.domain.mgmt.impl.TimerTaskManagerImpl] Starting com.pingidentity.crypto.ExpirationNotifier@4ac19bc6 at interval of 43200000ms as indicated by CertExpirationNotifierTimerInterval in timer-intervals.xml
+2020-10-19 14:06:24,033  INFO  [org.sourceid.saml20.domain.mgmt.impl.TimerTaskManagerImpl] Starting org.sourceid.saml20.domain.mgmt.impl.MediatorImpl$3@492c9892 at interval of 5000ms as indicated by ConfigArchiveDeployTimerInterval in timer-intervals.xml
+2020-10-19 14:06:24,033  INFO  [org.sourceid.saml20.domain.mgmt.impl.TimerTaskManagerImpl] Starting org.sourceid.saml20.domain.util.api.filesystem.ConnectionImporter@436a563f at interval of 5000ms as indicated by ConnectionImportTimerInterval in timer-intervals.xml
+2020-10-19 14:06:24,049  INFO  [com.pingidentity.jmx.JmxBootstrapper] isActive=false and registry port is 1099
+2020-10-19 14:06:24,049  INFO  [com.pingidentity.jmx.JmxBootstrapper] Not starting Jmx Connector Server because rmi.registry.port config field is not set or service not active in application auth.
+2020-10-19 14:06:24,094  INFO  [org.sourceid.saml20.domain.util.InitMigrationUtil] No default SMTP notification publisher created. No previous SMTP settings (Email Configuration) exist.
+2020-10-19 14:06:24,389  INFO  [org.sourceid.websso.servlet.adapter.HandlerRegistry] Registering com.pingidentity.adapters.pingid.handler.PingIDResetAuthenticationHandler@14b48f39 at /pingid-reset-primary-auth
+2020-10-19 14:06:24,389  INFO  [org.sourceid.websso.servlet.adapter.HandlerRegistry] Registering com.pingidentity.adapters.pingid.handler.PingIDResetAuthenticationHandler@14b48f39 at /pingid-reset-primary-auth/
+2020-10-19 14:06:24,488  INFO  [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Configuring plugin HTMLFormPD (com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter)
+2020-10-19 14:06:24,504  INFO  [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Configuring plugin pingdirectory (org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator)
+2020-10-19 14:06:24,507  ERROR [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Unexpected exception thrown attempting to configure plugin: HTMLFormPD (com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter)
+java.lang.RuntimeException: No LDAP Data Source with id LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3
+	at org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator.getDataSourceHelper(LDAPUsernamePasswordCredentialValidator.java:483) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator.getDataSource(LDAPUsernamePasswordCredentialValidator.java:473) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.LDAPPasswordCredentialValidatorResult.getByExplanation(LDAPPasswordCredentialValidatorResult.java:106) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator.isPasswordChangeable(LDAPUsernamePasswordCredentialValidator.java:745) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator.isPasswordResettable(LDAPUsernamePasswordCredentialValidator.java:930) ~[pf-protocolengine.jar:?]
+	at com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapterUtils.supportsPasswordReset(HtmlFormIdpAuthnAdapterUtils.java:120) ~[pf-core-plugins.jar:?]
+	at com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter.supportsPasswordReset(HtmlFormIdpAuthnAdapter.java:1476) ~[pf-core-plugins.jar:?]
+	at com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter.configure(HtmlFormIdpAuthnAdapter.java:1048) ~[pf-core-plugins.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport.getPlugin(PluginManagementSupport.java:780) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport.loadConfigurations(PluginManagementSupport.java:508) ~[pf-protocolengine.jar:?]
+	at org.sourceid.saml20.domain.mgmt.impl.AdapterManagerImpl.loadIdpAdapterConfigurations(AdapterManagerImpl.java:516) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.invoke(AutoReloadableServiceProxy.java:91) ~[pf-protocolengine.jar:?]
+	at com.sun.proxy.$Proxy59.loadIdpAdapterConfigurations(Unknown Source) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.IdpAdapterManagerImpl.loadConfigurations(IdpAdapterManagerImpl.java:102) ~[pf-protocolengine.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.pingidentity.hivemind.AutoReloadableServiceProxy.invoke(AutoReloadableServiceProxy.java:91) ~[pf-protocolengine.jar:?]
+	at com.sun.proxy.$Proxy63.loadConfigurations(Unknown Source) ~[?:?]
+	at org.sourceid.saml20.domain.mgmt.impl.MediatorImpl.configurePlugins(MediatorImpl.java:369) ~[pf-protocolengine.jar:?]
+	at $Mediator_175412e6735.configurePlugins($Mediator_175412e6735.java) ~[?:?]
+	at org.sourceid.websso.servlet.InitServlet.init(InitServlet.java:123) ~[pf-protocolengine.jar:?]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[servlet-api-3.1.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:671) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:428) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:750) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:744) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:369) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1498) ~[jetty-webapp-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1460) ~[jetty-webapp-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:852) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:278) ~[jetty-servlet-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:546) ~[jetty-webapp-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:167) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:119) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:167) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:119) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:167) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:110) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.doStart(StatisticsHandler.java:256) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:167) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.Server.start(Server.java:418) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:110) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:382) ~[jetty-server-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.xml.XmlConfiguration$1.run(XmlConfiguration.java:1575) ~[jetty-xml-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.xml.XmlConfiguration$1.run(XmlConfiguration.java:1514) ~[jetty-xml-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at org.eclipse.jetty.xml.XmlConfiguration.main(XmlConfiguration.java:1513) ~[jetty-xml-9.4.18.v20190429patch5.jar:9.4.18.v20190429patch5]
+	at com.pingidentity.appserver.jetty.PingFederateInit.main(PingFederateInit.java:100) ~[pf-appserver-ext.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.eclipse.jetty.start.Main.invokeMain(Main.java:220) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.start(Main.java:490) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.eclipse.jetty.start.Main.main(Main.java:77) ~[jetty-start.jar:9.4.18.v20190429patch5]
+	at org.pingidentity.RunPF.main(RunPF.java:243) ~[pf-startup.jar:10.1.1.0]
+2020-10-19 14:06:24,520  INFO  [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Configuring plugin UsernameTokenProcessor (com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor)
+2020-10-19 14:06:24,608  INFO  [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Configuring plugin jwt (com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin)
+2020-10-19 14:06:24,608  WARN  [com.pingidentity.pf.access.token.management.plugins.CertificateSupport] Unable to find certificate and keypair for alias devsigningcert
+2020-10-19 14:06:24,610  INFO  [org.sourceid.websso.servlet.adapter.HandlerRegistry] Registering com.pingidentity.pf.access.token.management.plugins.X509CertificateEndpointHandler@69ab2d6a at /oauth/x509/kid
+2020-10-19 14:06:24,610  INFO  [org.sourceid.websso.servlet.adapter.HandlerRegistry] Registering com.pingidentity.pf.access.token.management.plugins.X509CertificateEndpointHandler@57afe44b at /oauth/x509/x5t
+2020-10-19 14:06:24,610  INFO  [org.sourceid.saml20.domain.mgmt.impl.PluginManagementSupport] Configuring plugin simple (org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator)
+2020-10-19 14:06:24,615  WARN  [org.jgroups.protocols.TCP_NIO2] JGRP000032: 192.168.78.253:7600: no physical address for de368c35-7072-47a2-1276-2f5319bea1d2, dropping message
+2020-10-19 14:06:24,694  INFO  [org.sourceid.websso.servlet.DeferredInitServlet] Initializing...
+2020-10-19 14:06:24,694  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@214fba74{/,file:///opt/out/instance/work/jetty-0.0.0.0-9031-pf-runtime.war-_-any-6305573119622636629.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/pf-runtime.war}
+2020-10-19 14:06:24,698  INFO  [org.eclipse.jetty.server.RequestLogWriter] Opened /opt/out/instance/log/2020_10_19.request.log
+2020-10-19 14:06:24,700  INFO  [org.eclipse.jetty.deploy.providers.ScanningAppProvider] Deployment monitor [file:///opt/out/instance/server/default/deploy/] at interval 1
+2020-10-19 14:06:25,922  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=722ms
+2020-10-19 14:06:26,007  INFO  [org.eclipse.jetty.server.handler.ContextHandler._OAuthPlayground] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:26,802  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@6dcee890{/OAuthPlayground,/OAuthPlayground,file:///opt/out/instance/work/jetty-0.0.0.0-9031-OAuthPlayground.war-_OAuthPlayground-any-1576848792534355242.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/OAuthPlayground.war}
+2020-10-19 14:06:27,280  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=349ms
+2020-10-19 14:06:27,287  INFO  [org.eclipse.jetty.server.handler.ContextHandler._pf_scim] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:27,289  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@32b1e906{PF-SCIM,/pf-scim,file:///opt/out/instance/work/jetty-0.0.0.0-9031-pf-scim.war-_pf-scim-any-16027913509143134897.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/pf-scim.war}
+2020-10-19 14:06:27,380  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=74ms
+2020-10-19 14:06:27,381  INFO  [org.eclipse.jetty.server.handler.ContextHandler._pingid_web] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:27,383  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@7aaf6bfd{PingID Offline Authentication,/pingid-web,file:///opt/out/instance/work/jetty-0.0.0.0-9031-pingid-web.war-_pingid-web-any-6103823772533251202.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/pingid-web.war}
+2020-10-19 14:06:27,397  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=3ms
+2020-10-19 14:06:27,398  INFO  [org.eclipse.jetty.server.handler.ContextHandler._provisioner_runtime] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:27,409  INFO  [org.eclipse.jetty.server.handler.ContextHandler._provisioner_runtime] Initializing Spring root WebApplicationContext
+2020-10-19 14:06:27,409  INFO  [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization started
+2020-10-19 14:06:27,499  INFO  [org.springframework.web.context.support.XmlWebApplicationContext] Refreshing Root WebApplicationContext: startup date [Mon Oct 19 14:06:27 GMT 2020]; root of context hierarchy
+2020-10-19 14:06:27,585  INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2020-10-19 14:06:27,816  INFO  [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 407 ms
+2020-10-19 14:06:27,816  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@320efff5{Provisioner,/provisioner-runtime,file:///opt/out/instance/work/jetty-0.0.0.0-9031-provisioner-runtime.war-_provisioner-runtime-any-16633821451318827489.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/provisioner-runtime.war}
+2020-10-19 14:06:28,004  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=111ms
+2020-10-19 14:06:28,009  INFO  [org.eclipse.jetty.server.handler.ContextHandler._pf_ws] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:28,087  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@f7b7720{PF Runtime Webservices,/pf-ws,file:///opt/out/instance/work/jetty-0.0.0.0-9031-pf-ws.war-_pf-ws-any-5612274804063265520.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy/pf-ws.war}
+2020-10-19 14:06:28,089  INFO  [com.pingidentity.appserver.jetty.server.connector.ServerConnector] Starting listener class com.pingidentity.appserver.jetty.server.connector.ServerConnector 9031
+2020-10-19 14:06:28,097  INFO  [org.eclipse.jetty.util.ssl.SslContextFactory] x509=X509@75b4db22(6rjh60ky0s1yhb2c10q4348ze,h=[localhost],w=[]) for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,113  WARN  [org.eclipse.jetty.util.ssl.SslContextFactory.config] Weak cipher suite TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA enabled for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,114  WARN  [org.eclipse.jetty.util.ssl.SslContextFactory.config] Weak cipher suite TLS_RSA_WITH_AES_128_GCM_SHA256 enabled for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,114  WARN  [org.eclipse.jetty.util.ssl.SslContextFactory.config] Weak cipher suite TLS_RSA_WITH_AES_128_CBC_SHA256 enabled for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,114  WARN  [org.eclipse.jetty.util.ssl.SslContextFactory.config] Weak cipher suite TLS_ECDH_RSA_WITH_AES_128_CBC_SHA enabled for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,114  WARN  [org.eclipse.jetty.util.ssl.SslContextFactory.config] Weak cipher suite TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA enabled for RuntimeSslContextFactory@2bed5828[provider=null,keyStore=null,trustStore=null]
+2020-10-19 14:06:28,182  INFO  [org.eclipse.jetty.server.AbstractConnector] Started ServerConnector@6caa4dc5{SSL,[ssl, http/1.1]}{0.0.0.0:9031}
+2020-10-19 14:06:28,183  INFO  [com.pingidentity.appserver.jetty.server.connector.ServerConnector] Not starting listener class com.pingidentity.appserver.jetty.server.connector.ServerConnector because port was set to -1
+2020-10-19 14:06:28,183  INFO  [com.pingidentity.appserver.jetty.server.connector.ServerConnector] Not starting listener class com.pingidentity.appserver.jetty.server.connector.ServerConnector because port was set to -1
+2020-10-19 14:06:28,183  INFO  [org.eclipse.jetty.server.Server] Started @29345ms
+2020-10-19 14:06:28,183  INFO  [org.eclipse.jetty.server.Server] jetty-9.4.18.v20190429patch5; built: 2020-01-22T23:47:18.414Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 11.0.8+10-LTS
+2020-10-19 14:06:28,184  INFO  [org.eclipse.jetty.server.RequestLogWriter] Opened /opt/out/instance/log/2020_10_19.request2.log
+2020-10-19 14:06:28,184  INFO  [org.eclipse.jetty.deploy.providers.ScanningAppProvider] Deployment monitor [file:///opt/out/instance/server/default/deploy2/] at interval 1
+2020-10-19 14:06:30,496  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=1911ms
+2020-10-19 14:06:30,586  INFO  [org.eclipse.jetty.server.handler.ContextHandler.pf_admin_api] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:30,598  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@2dbf8cfc{PF ADMIN CONSOLE API,/pf-admin-api,file:///opt/out/instance/work/jetty-0.0.0.0--1-pf-admin-api.war-_pf-admin-api-any-278777782177828837.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy2/pf-admin-api.war}
+2020-10-19 14:06:30,614  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=3ms
+2020-10-19 14:06:30,614  INFO  [org.eclipse.jetty.server.handler.ContextHandler.pf_mgmt_ws] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:30,617  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@200e6029{PF,/pf-mgmt-ws,file:///opt/out/instance/work/jetty-0.0.0.0--1-pf-mgmt-ws.war-_pf-mgmt-ws-any-2356536908000611743.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy2/pf-mgmt-ws.war}
+PingFederate running...
+2020-10-19 14:06:30,908  INFO  [org.eclipse.jetty.annotations.AnnotationConfiguration] Scanning elapsed time=2ms
+2020-10-19 14:06:30,909  INFO  [org.eclipse.jetty.server.handler.ContextHandler.pingfederate] No Spring WebApplicationInitializer types detected on classpath
+2020-10-19 14:06:31,180  INFO  [org.eclipse.jetty.server.handler.ContextHandler] Started o.e.j.w.WebAppContext@4d071e4b{HuronPeak,/pingfederate,file:///opt/out/instance/work/jetty-0.0.0.0--1-pingfederate.war-_pingfederate-any-7157158736604138062.dir/webapp/,AVAILABLE}{/opt/out/instance/server/default/deploy2/pingfederate.war}
+2020-10-19 14:06:31,181  INFO  [com.pingidentity.appserver.jetty.server.connector.ServerConnector] Not starting listener class com.pingidentity.appserver.jetty.server.connector.ServerConnector because port was set to -1
+2020-10-19 14:06:31,181  INFO  [org.eclipse.jetty.server.Server] Started @32343ms
+2020-10-19 14:06:31,181  INFO  [com.pingidentity.appserver.jetty.PingFederateInit] PingFederate started in 29s:993ms
+2020-10-19 14:06:38,000  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter PARTNER
+2020-10-19 14:06:38,000  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter TARGET
+2020-10-19 14:06:38,000  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter Binding
+2020-10-19 14:06:38,000  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter RequestedSPNameQualifier
+2020-10-19 14:06:38,000  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter PartnerSpId
+2020-10-19 14:06:38,001  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 3 validators for parameter SourceResource
+2020-10-19 14:06:38,001  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter SpSessionAuthnAdapterId
+2020-10-19 14:06:38,001  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 3 validators for parameter InErrorResource
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter RequestedACSIdx
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter ForceAuthn
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter IsPassive
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter RequestedBinding
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter RequestedFormat
+2020-10-19 14:06:38,002  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter TargetResource
+2020-10-19 14:06:38,003  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter idp
+2020-10-19 14:06:38,003  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter TokenProcessorId
+2020-10-19 14:06:38,004  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter IdpAdapterId
+2020-10-19 14:06:38,004  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter AllowCreate
+2020-10-19 14:06:38,004  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter Domain
+2020-10-19 14:06:38,004  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 2 validators for parameter PartnerIdpId
+2020-10-19 14:06:38,004  INFO  [org.sourceid.websso.servlet.reqparam.ValidationHub] Created 1 validators for parameter wtrealm
+2020-10-19 14:06:54,913  WARN  [org.jgroups.protocols.TCP_NIO2] JGRP000032: 192.168.78.253:7600: no physical address for de368c35-7072-47a2-1276-2f5319bea1d2, dropping message
+2020-10-19 14:06:56,414  INFO  [com.pingidentity.jgroups.MuxRpcDispatcherMgr] suspect:de368c35-7072-47a2-1276-2f5319bea1d2
+2020-10-19 14:06:56,415  WARN  [org.jgroups.protocols.pbcast.GMS] 192.168.78.253:7600: I'm not the coordinator (or next-in-line); dropping LEAVE request
+2020-10-19 14:07:01,415  INFO  [com.pingidentity.jgroups.MuxRpcDispatcherMgr] viewAccepted:[192.168.72.252:7600|8] (2) [192.168.72.252:7600, 192.168.78.253:7600]
+2020-10-19 14:07:01,415  INFO  [com.pingidentity.jgroups.DistributedMapLogNotifListener] viewChange(view:[192.168.72.252:7600|8] (2) [192.168.72.252:7600, 192.168.78.253:7600], joining: [], leaving: [de368c35-7072-47a2-1276-2f5319bea1d2])
