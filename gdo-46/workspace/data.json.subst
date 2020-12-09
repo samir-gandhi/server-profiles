@@ -35,21 +35,21 @@
             "resourceType": "/configStore"
         },
         {
+            "resourceType": "/configStore",
             "operationType": "SAVE",
             "subResource": "org.sourceid.oauth20.domain.ClientManagerLdapImpl",
             "items": [
                 {
-                    "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
                     "id": "PingFederateDSJNDIName",
-                    "type": "STRING"
+                    "type": "STRING",
+                    "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
                 },
                 {
-                    "stringValue": "ou=oauthClients,dc=example,dc=com",
                     "id": "SearchBase",
-                    "type": "STRING"
+                    "type": "STRING",
+                    "stringValue": "ou=oauthClients,dc=example,dc=com"
                 }
-            ],
-            "resourceType": "/configStore"
+            ]
         },
         {
             "operationType": "SAVE",
