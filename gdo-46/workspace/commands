@@ -1,0 +1,6 @@
+java -jar ping-bulkexport-tools-0.0.1-SNAPSHOT-jar-with-dependencies.jar \
+  ./pf-config.json \
+  ./data.json  \
+  ./env_vars \
+  ./data.json.subst \
+  > pf-k8-export-convert.log
