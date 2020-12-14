@@ -50,7 +50,7 @@ services:
       - PD_ENGINE_PRIVATE_HOSTNAME=pingdirectory
       - PF_LOG_LEVEL=INFO
       - PF_ADMIN_PORT=9999
-      - VERBOSE=false
+      - VERBOSE=true
     env_file:
       # Configuration file created when setup.sh (Getting-started project root directory) is first run to source
       # devops user/key details for evaluation licenses and for docker image/git tags
