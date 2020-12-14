@@ -1,0 +1,118 @@
+version: "2.4"
+# The server profiles used in this example are intended for use with edge versions of the product image only.
+
+#-------------------------------------------------------------------------------------
+#- Ping Identity Simple Stack integrated demo
+#-
+#-     login  console            app                console           rest    ldaps
+#-     9031   9999               6443                 8443            1443    1636
+#-      |      |                  |                    |               |       |
+#-   +---------------+    +---------------+    +---------------+    +---------------+
+#-   | PingFederate  |    | PingDelegator |    |PingDataConsole|    | PingDirectory |
+#-   +---------------+    +---------------+    +---------------+    +---------------+
+#-
+#-  PingFederate Console                         PingDataConsole (PingDirectory)
+#-  --------------------                         -------------------------------
+#-  https://localhost:9999/pingfederate/app      https://localhost:8443
+#-    Username: administrator                        Server: pingdirectory
+#-    Password: 2FederateM0re                      Username: administrator
+#-                                                 Password: 2FederateM0re
+#-
+#-  PingDelegator App
+#-  -----------------
+#-  https://localhost:6443
+#-    Username: administrator
+#-    Password: 2FederateM0re
+#-
+#- NOTE: If you receive an error after pingdelegator login: 'You could not be authenticated'
+#-       some browsers (i.e. Firefox) may require you to accept cert on each port.
+#-       You should be able to goto https://localhost:1443 and accept the cert to continue.
+#-------------------------------------------------------------------------------------
+
+services:
+  pingfederate:
+    image: pingidentity/pingfederate:edge
+    command: wait-for pingdirectory:389 -t 900 -- entrypoint.sh start-server
+    environment:
+      ## pf baseline-json is on separate branch
+      - SERVER_PROFILE_URL=https://github.com/samir-gandhi/server-profiles
+      - SERVER_PROFILE_PATH=baseline-json/pingfederate
+      # - SERVER_PROFILE_BRANCH=GDO-617-pf-datajson
+
+      ## edit for remote hosts
+      - PF_ADMIN_API_AUTHENTICATION=native
+      - PF_ADMIN_PUBLIC_HOSTNAME=localhost
+      - PF_ENGINE_PUBLIC_HOSTNAME=localhost
+      - PF_ADMIN_PUBLIC_PORT=9999
+      - PF_ENGINE_PUBLIC_PORT=9031
+      - PD_DELEGATOR_PUBLIC_HOSTNAME=localhost
+      - PD_DELEGATOR_PUBLIC_PORT=6443
+      - PD_ENGINE_PRIVATE_HOSTNAME=pingdirectory
+      - PF_LOG_LEVEL=INFO
+      - PF_ADMIN_PORT=9999
+      - VERBOSE=false
+    env_file:
+      # Configuration file created when setup.sh (Getting-started project root directory) is first run to source
+      # devops user/key details for evaluation licenses and for docker image/git tags
+      - ${HOME}/.pingidentity/devops
+    ports:
+      - "9031:9031"
+      - "9999:9999"
+    networks:
+      - pingnet
+
+  pingdirectory:
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=baseline/pingdirectory
+
+      ## edit for remote hosts
+      - PF_ADMIN_API_AUTHENTICATION=native
+      - PF_ADMIN_PUBLIC_HOSTNAME=localhost
+      - PF_ENGINE_PUBLIC_HOSTNAME=localhost
+      - PF_ADMIN_PUBLIC_PORT=9999
+      - PF_ENGINE_PUBLIC_PORT=9031
+      - PD_DELEGATOR_PUBLIC_HOSTNAME=localhost
+      - PD_DELEGATOR_PUBLIC_PORT=6443
+      - PD_ENGINE_PRIVATE_HOSTNAME=pingdirectory
+      - PF_LOG_LEVEL=INFO
+      - PF_ADMIN_PORT=9999
+    env_file:
+      - ${HOME}/.pingidentity/devops
+    ulimits:
+      nproc:
+        soft: 16384
+        hard: 16384
+      nofile:
+        soft: 65535
+        hard: 65535
+    ports:
+      - "1636:636"
+      - "1443:443"
+      - "1389:389"
+    networks:
+      - pingnet
+
+  pingdataconsole:
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdataconsole:${PING_IDENTITY_DEVOPS_TAG}
+    ports:
+      - "8443:8443"
+    networks:
+      - pingnet
+
+  pingdelegator:
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdelegator:${PING_IDENTITY_DEVOPS_TAG}
+    environment:
+      - PD_ENGINE_PUBLIC_PORT=1443
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=baseline/pingdelegator
+    env_file:
+      - ${HOME}/.pingidentity/devops
+    ports:
+      - "6443:6443"
+    networks:
+      - pingnet
+
+networks:
+    pingnet:
