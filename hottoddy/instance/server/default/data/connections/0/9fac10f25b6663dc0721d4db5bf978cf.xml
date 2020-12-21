@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="https://pingidentity--penfed.my.salesforce.com" urn:name="Marko" ID="WGyLQ6BvH2hzzudPrNFTHko3Dvi" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="10.1.2.0" LicenseGroup="">
+            <urn:DigitialSignatureAliases SigningKeyAlias="885c9tioebw3el5xca2x66lfv" includeX509inXmlSig="false" includeRawKeyInXmlSig="false" SigningAlgorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
+                <urn:ActiveVerificationCertAlias>lnssuyet56izefm3bc25j0ic3</urn:ActiveVerificationCertAlias>
+                <urn:ActiveVerificationCertAlias>aqfr1g79a1coemvy5au6aynuv</urn:ActiveVerificationCertAlias>
+            </urn:DigitialSignatureAliases>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties/>
+            <urn:MetadataUrlId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <urn:enableAutoMetadataUpdate>false</urn:enableAutoMetadataUpdate>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+            <urn:ExtendedProperties name="authNexp" value="Standard"/>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="true" WantAssertionsSigned="true" SignResponseAsRequired="true">
+        <md:Extensions>
+            <urn:RoleExtension ArtifactTimeoutSeconds="60" LastModified="2020-12-21T20:26:43.332Z">
+                <urn:IncomingBindings Artifact="false" POST="true" Redirect="true" SOAP="false"/>
+                <urn:EnabledProfiles IDPInitiatedSSO="true" IDPInitiatedSLO="false" SPInitiatedSSO="true" SPInitiatedSLO="false"/>
+                <urn:SP AssertionValidityAfterMinutes="5" AssertionValidityBeforeMinutes="5" ConnectionTargetType="Standard" EnableCDCDuringSSO="false">
+                    <urn:C2cContractToAssertionMapping AbortIfNotFoundInAnyDataSources="false" RestrictVirtualServerIds="false" C2cContractId="samplePolicyContract" C2cContractName="Sample Policy Contract">
+                        <urn:DefaultAttributeMapping>
+                            <urn:AttributeMap Name="SAML_SUBJECT" Type="Authentication Policy Contract" Value="mail"/>
+                            <urn:TokenAuthorizationIssuanceCriteria/>
+                        </urn:DefaultAttributeMapping>
+                    </urn:C2cContractToAssertionMapping>
+                    <urn:NameIdentifierMappingType IncludeAdditionalAttributes="false" IncludeAdditionalTransientAttributes="false"/>
+                </urn:SP>
+            </urn:RoleExtension>
+        </md:Extensions>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService index="0" Location="https://pingidentity--penfed.my.salesforce.com?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+        <md:AssertionConsumerService index="1" Location="https://penfed-ping.cs41.force.com/PartnerPortal/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+        <md:AssertionConsumerService index="2" Location="https://penfed-ping.cs41.force.com/Support/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+        <md:AssertionConsumerService index="3" Location="https://penfed-ping.cs41.force.com/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+        <md:AssertionConsumerService index="4" Location="https://penfed-ping.cs41.force.com/test/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/>
+        <md:AssertionConsumerService index="5" Location="https://penfed-ping.cs41.force.com/testportal/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+        <md:AssertionConsumerService index="6" Location="https://penfed-ping.cs41.force.com/designtest/login?so=00D55000000JPg6" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+    </md:SPSSODescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <urn:availableCert>
+            <urn:Base64EncodedCert>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</urn:Base64EncodedCert>
+            <urn:alias>lnssuyet56izefm3bc25j0ic3</urn:alias>
+        </urn:availableCert>
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIGrDCCBJSgAwIBAgIOAXKshuSLAAAAAH21XuwwDQYJKoZIhvcNAQELBQAwgZAxKDAmBgNVBAMMH1NlbGZTaWduZWRDZXJ0XzEzSnVuMjAyMF8wNzEzMzkxGDAWBgNVBAsMDzAwRDMwMDAwMDAwMEJMRDEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0EwHhcNMjAwNjEzMDcxMzQxWhcNMjIwNjEzMDAwMDAwWjCBkDEoMCYGA1UEAwwfU2VsZlNpZ25lZENlcnRfMTNKdW4yMDIwXzA3MTMzOTEYMBYGA1UECwwPMDBEMzAwMDAwMDAwQkxEMRcwFQYDVQQKDA5TYWxlc2ZvcmNlLmNvbTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzELMAkGA1UECAwCQ0ExDDAKBgNVBAYTA1VTQTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIR3ETlabJIZfIjKmBb2vU3HcdJHP5tZTRYOpjzVkwNcoloZh/BU0U5yqyBteLJsrkzu4HN9IVvJcwRt3whVJCh5MlKfr2/BnxMUS04tzBrlltrDpvjZ7fN8XLPkoMk/9aaZhXGhde6O8CbtliVu8t0tJdHfRydnFEr8xH2j4s11ut3TVa+tFEWGPaaoXQq5pPi2GeTbRXt/QvLoYUnZsLPB6o1l1tIgXj+03ZSdFa6lt70M7V6fg3kA3MNgz5iWS+9osrqissURkjS8rpFy6oCDoGJwzr/CUWLI2drqrvEqf9uoeGWfZFj3XpudyWMfSM24eVKXJALiISlrBoEeYRG7eTpTfxLQYE7G/asKJitnPv88I1zmF5zlvMzpHaqSczubmkvC6qGLHL6uAY0UtCTcCpirhhX3sL2LpNl0nwEg5z10/H2h249ZnuD7altLC8oy7a7qhapJbnmCTQuN4Q2C7eju5mxYLfA7BjRc2tPA2b+q2PyHKqYMMP00u/lbhEUUCs1yMiOr6y4FuyqOOsiTYC3Rg7PN6ci5c91CrkgwrlP6wI37aRuWseFRQ2CMpSo4GTGcigs3nDCTRKJhSQ4ksxJ2iQtTLbxqejfvvVMGIdddSSALTw+GExzk/M8bbbjxi4l9ffkqakCxy29qCTpAdsArQ3g8Fqzp12tRAcuNAgMBAAGjggEAMIH9MB0GA1UdDgQWBBTyT+0VnUYz2WLue3sE8sdGuBWm0TAPBgNVHRMBAf8EBTADAQH/MIHKBgNVHSMEgcIwgb+AFPJP7RWdRjPZYu57ewTyx0a4FabRoYGWpIGTMIGQMSgwJgYDVQQDDB9TZWxmU2lnbmVkQ2VydF8xM0p1bjIwMjBfMDcxMzM5MRgwFgYDVQQLDA8wMEQzMDAwMDAwMDBCTEQxFzAVBgNVBAoMDlNhbGVzZm9yY2UuY29tMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQswCQYDVQQIDAJDQTEMMAoGA1UEBhMDVVNBgg4BcqyG5IsAAAAAfbVe7DANBgkqhkiG9w0BAQsFAAOCAgEAFJzBueESQRl6x6LQ0u9J8ZoQF8ZfcfKHLPHaPOO6qLA2kJ8vffOxp4P1+V1EcOSzO6WK6B3MAAdoVHR0VAnXZAb4jMfA9YkZycdM1Mzdi1TgJri82b9kX27wcnam7QbzTrvbB71XcLlzKOroBqkJAkSQFBGXrwANlBtISlir4OWQg7X46aDOuYJEUZ/6Agp6lxzA/UyAC/4bX91vPscIYrdEj4/aPd2KO6XLhKzJXWRLhbQuSrjg9idm2kQbeX4WGaThflgud9Pir0Rrq2kQRvdZb4KDKxpbxC7Lx2saF5L70z59dRjGs5SQE/nmtdDKMy+vkBYhs3fvXxOWCu0Ocsi3cp/9IkzEYkA7+rL63SUjF4yfnnHRKLqSSHn0QXoKEH86oIBHL01b9jmTNvr5QNjF9L1t5DIdTiBvbJpWmApbucWYE4lJC3luZER+5Efp9kT84x09T2klKY4Igm2/a1ZmHpX2L8Wk8rPTekA2/40Re29J39ZHlQDDDPPWooUdTH7k1JwhwO8XnGzFZGiOK6TfEfJh8Oj+rMzK66nMBjD1Wyf15Ap+lCFbVPFYbtIzmwLr0vCaQLoSD6pU0OdcgvMp1InRVKhHNmz9OATtk+sB6pTkd5TNbuQ+sEGXiqhNLH7FqDb9SvrIdvwpj5+i9vUiE3XrRJOsOdqjuk0fCmg=</urn:Base64EncodedCert>
+            <urn:alias>aqfr1g79a1coemvy5au6aynuv</urn:alias>
+        </urn:availableCert>
+    </md:RoleDescriptor>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

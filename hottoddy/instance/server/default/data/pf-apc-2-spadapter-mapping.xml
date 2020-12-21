@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:Source2TargetPluginMappings xmlns:urn="urn:pingidentity.com:pf:src2tgt">
+    <urn:Source2TargetPluginMapping sourcePluginId="samplePolicyContract" targetPluginId="OpenToken" countForLicense="true" defaultTargetResource="https://www.pingdemo.com/IISKit/default.aspx?cmd=PingStartPage">
+        <urn:AttributeMapping>
+            <urn1:AttributeMap Name="subject" Type="Authentication Policy Contract" Value="subject" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        </urn:AttributeMapping>
+    </urn:Source2TargetPluginMapping>
+</urn:Source2TargetPluginMappings>

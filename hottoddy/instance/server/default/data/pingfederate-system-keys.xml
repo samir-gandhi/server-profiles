@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sk:systemKeys xmlns:sk="http://pingidentity.com/2018/01/system-keys">
+    <sk:currentKey>
+        <sk:key>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCIsInppcCI6IkRFRiJ9..ufYLwOakMNlxgjLVxojO3Q.tHcv3KBqPay3We4yJpFJFDIJZ5YAkngsri8kqrsGm-lIjJY7S-I2jYQ2ZQAHhxon._pmaj9tlIvoEKTkm_3HC6Q</sk:key>
+        <sk:generatedTime>2020-12-15T23:59:02.022Z</sk:generatedTime>
+    </sk:currentKey>
+    <sk:previousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <sk:pendingKey>
+        <sk:key>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCIsInppcCI6IkRFRiJ9..Me8zdorRz-SuJAk7tGem6w.Z6ekMTo4cwuH1fI1Fo0r6pchAsZiKq2pCs_0PiOw-LwnBWsbUFsD8mXqIh_9W7ym.jNwT8wMtlo_feddnPJXjvQ</sk:key>
+        <sk:generatedTime>2020-12-15T23:59:02.022Z</sk:generatedTime>
+    </sk:pendingKey>
+</sk:systemKeys>

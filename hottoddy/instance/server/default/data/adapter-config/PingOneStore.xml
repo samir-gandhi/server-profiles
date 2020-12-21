@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration isInheritExtendedContractAttributes="false" name="com.pingidentity.plugins.datastore.p14c.PingOneForCustomersDataStore" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Environment ID">0737662f-3836-4412-b315-ebee1787d172</urn:Field>
+        <urn:Field name="Client ID">95562bdf-53d5-4983-92f9-312cf5dd9c9b</urn:Field>
+        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCJ9..SBn1NBKeHR7aY-kwage_uA.blkS9yzbshJkZ5UX9jYMsQTzrDAs0f-7tP9SZMd4hzw9qivgU8HJL-ZBOBc50sxuEyI9bjeSgeHVMb1Q5MJGeJeGOinu9q-ln-jEQYgTGqc.wStdujjx4qYNgKIbe1GPDA</urn:Field>
+        <urn:Field name="PingOne API Service">https://api.pingone.com/v1</urn:Field>
+        <urn:Field name="PingOne Authorization Service">https://auth.pingone.com</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="PingOne API Service">https://api.pingone.com/v1</urn:Field>
+        <urn:Field name="PingOne Authorization Service">https://auth.pingone.com</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables>
+        <urn:Table name="Custom Attributes Details"/>
+    </urn:Tables>
+</urn:AdapterConfiguration>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" isInheritExtendedContractAttributes="false" name="ExperianRisk" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Environment ID">0ab63dc9-6e2c-4aa6-9a58-11ff7a32a963</urn:Field>
+        <urn:Field name="Region">NA</urn:Field>
+        <urn:Field name="PingFederate Connection Client ID">5f26dfc4-67e2-4913-8d6b-f51672787979</urn:Field>
+        <urn:Field name="PingFederate Connection Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCJ9..ajSqysTvxPF_WE-ladbHZg.tCFhOWqGO0KJ6q7jeQeHIx-5Q96UPEMwwSNOwb66D0wDMpl-oTvfVAOc-wVbd-GyNvYLULLJKQpkRBGEcAng0iZKxdclw4f76TSAoSLMgMs.vez7ENEv6Ij1dgxv4hSHWQ</urn:Field>
+        <urn:Field name="Risk Policy ID"/>
+        <urn:Field name="Include Device Profile">true</urn:Field>
+        <urn:Field name="Device Profiling Method">Captured by this adapter</urn:Field>
+        <urn:Field name="Device Profiling Timeout">5000</urn:Field>
+        <urn:Field name="Cookie Name Prefix">pingone.risk.device.profile</urn:Field>
+        <urn:Field name="Failure Mode">Continue with fallback policy decision</urn:Field>
+        <urn:Field name="Fallback Policy Decision Value">MEDIUM</urn:Field>
+        <urn:Field name="API Request Timeout">2000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Include Device Profile">true</urn:Field>
+        <urn:Field name="Device Profiling Method">Captured by this adapter</urn:Field>
+        <urn:Field name="Device Profiling Timeout">5000</urn:Field>
+        <urn:Field name="Cookie Name Prefix">pingone.risk.device.profile</urn:Field>
+        <urn:Field name="Failure Mode">Continue with fallback policy decision</urn:Field>
+        <urn:Field name="Fallback Policy Decision Value">MEDIUM</urn:Field>
+        <urn:Field name="API Request Timeout">2000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables>
+        <urn:Table name="Additional User Attributes (optional)"/>
+        <urn:Table name="PingOne Risk API Response Mappings (optional)"/>
+    </urn:Tables>
+    <urn:ExtendedContractAttributes/>
+    <urn:UniqueKeyField>riskLevel</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="riskLevel" Type="Adapter" Value="riskLevel" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="riskValue" Type="Adapter" Value="riskValue" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

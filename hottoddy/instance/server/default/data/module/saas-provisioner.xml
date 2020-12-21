@@ -1,0 +1,283 @@
+<saasProvisioner version="1.0" enableSaasProvisionerGUI="true" internalDataSourceId="ProvisionerDS" syncInterval="60" encryptDBSaasIdentities="true" xmlns="http://pingidentity.com/2008/06/saas-provisioner">
+  <saasProvisionerEntity>
+    <entityId>PingOne Connector</entityId>
+    <target id="PingOne">
+      <parameter name="ENVIRONMENT_ID" value="0ab63dc9-6e2c-4aa6-9a58-11ff7a32a963"/>
+      <parameter name="CLIENT_ID" value="5f26dfc4-67e2-4913-8d6b-f51672787979"/>
+      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCJ9..uME4hKVMOX9ECKvHVhajBw.s6R_ee-H2ec8HSFFdz4lkQSjRxnzCojjG_J3egzD0sqLfQFh_fZCE117_-_uDjiDUQNjiK5e9frlPWl2kAaMtB90ZrSQhGPuKssdeDAN8hA.EpZ7xvKc0RVpolpHrXhEQg"/>
+      <parameter name="Provisioning Options" value=""/>
+      <parameter name="CREATE_USERS_PROV_OPT" value="true"/>
+      <parameter name="UPDATE_USERS_PROV_OPT" value="true"/>
+      <parameter name="REMOVE_USERS_PROV_OPT" value="true"/>
+      <parameter name="PROVISION_DISABLED_USERS_PROV_OPT" value="true"/>
+      <parameter name="REMOVE_ACTION" value="Disable"/>
+      <parameter name="MFA_USER_DEVICE_MANAGEMENT" value="Merge with devices in PingOne"/>
+    </target>
+    <channel id="1" name="P1 MFA" active="true">
+      <maxThreads>1</maxThreads>
+      <timeout>60</timeout>
+      <source dataSourceId="LDAP-PingDirectory">
+        <ldapGuidFormatter guidAttributeName="entryUUID" guidIsBinary="false"/>
+        <usersBaseDN>ou=People,dc=penfed.org</usersBaseDN>
+        <filter>mail=*</filter>
+        <groupMemberAttributeName>uniqueMember</groupMemberAttributeName>
+        <changedUsersAlgorithm>Timestamp No Negation</changedUsersAlgorithm>
+        <timestampAttributeName>modifyTimestamp</timestampAttributeName>
+        <userObjectClass>person</userObjectClass>
+        <groupObjectClass>groupOfUniqueNames</groupObjectClass>
+        <directoryIdentityAttributesMapper statusReader="Flag">
+          <attributeName>nsaccountlock</attributeName>
+          <default>true</default>
+          <comparisonValue>true</comparisonValue>
+          <comparisonValueStatus>false</comparisonValueStatus>
+        </directoryIdentityAttributesMapper>
+        <userNestedSearch>false</userNestedSearch>
+        <groupNestedSearch>false</groupNestedSearch>
+      </source>
+      <saasUsernameFieldCode>username</saasUsernameFieldCode>
+      <identityMappingField fieldName="username">
+        <fieldInfo code="username" label="Username">
+          <required>true</required>
+          <unique>true</unique>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>uid</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="email">
+        <fieldInfo code="email" label="Email">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="populationID">
+        <fieldInfo code="populationID" label="Population ID">
+          <required>true</required>
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>667ee1de-939f-41ee-adda-42cb5930591d</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="accountID">
+        <fieldInfo code="accountID" label="Account ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="city">
+        <fieldInfo code="city" label="City">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>l</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="country">
+        <fieldInfo code="country" label="Country">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="externalID">
+        <fieldInfo code="externalID" label="External ID">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="firstName">
+        <fieldInfo code="firstName" label="First Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>givenName</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="forceChangePassword">
+        <fieldInfo code="forceChangePassword" label="Force Change Password">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="fullName">
+        <fieldInfo code="fullName" label="Full Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="honorificPrefix">
+        <fieldInfo code="honorificPrefix" label="Honorific Prefix">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="honorificSuffix">
+        <fieldInfo code="honorificSuffix" label="Honorific Suffix">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="jobTitle">
+        <fieldInfo code="jobTitle" label="Job Title">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>title</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="lastName">
+        <fieldInfo code="lastName" label="Last Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>sn</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="locale">
+        <fieldInfo code="locale" label="Locale">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en-US</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceEmail1">
+        <fieldInfo code="mfaDeviceEmail1" label="MFA Device Email 1">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mail</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceEmail2">
+        <fieldInfo code="mfaDeviceEmail2" label="MFA Device Email 2">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceEmail3">
+        <fieldInfo code="mfaDeviceEmail3" label="MFA Device Email 3">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceSms1">
+        <fieldInfo code="mfaDeviceSms1" label="MFA Device SMS 1">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mobile</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceSms2">
+        <fieldInfo code="mfaDeviceSms2" label="MFA Device SMS 2">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaDeviceSms3">
+        <fieldInfo code="mfaDeviceSms3" label="MFA Device SMS 3">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="mfaEnabled">
+        <fieldInfo code="mfaEnabled" label="MFA Enabled">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>true</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="middleName">
+        <fieldInfo code="middleName" label="Middle Name">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="mobilePhone">
+        <fieldInfo code="mobilePhone" label="Mobile Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>mobile</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="nickname">
+        <fieldInfo code="nickname" label="Nickname">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="password">
+        <fieldInfo code="password" label="Password">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="preferredLanguage">
+        <fieldInfo code="preferredLanguage" label="Preferred Language">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <default>en-us</default>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="primaryPhone">
+        <fieldInfo code="primaryPhone" label="Primary Phone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>telephoneNumber</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="profileImage">
+        <fieldInfo code="profileImage" label="Profile Image">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="stateRegion">
+        <fieldInfo code="stateRegion" label="State / Region">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>st</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="streetAddress">
+        <fieldInfo code="streetAddress" label="Street Address">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>postalAddress</attributes>
+        </fieldConfig>
+      </identityMappingField>
+      <identityMappingField fieldName="timezone">
+        <fieldInfo code="timezone" label="Timezone">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="userType">
+        <fieldInfo code="userType" label="User Type">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig/>
+      </identityMappingField>
+      <identityMappingField fieldName="ZIPCode">
+        <fieldInfo code="ZIPCode" label="ZIP Code">
+          <attributeGroup>false</attributeGroup>
+        </fieldInfo>
+        <fieldConfig>
+          <attributes>postalCode</attributes>
+        </fieldConfig>
+      </identityMappingField>
+    </channel>
+    <Scim/>
+  </saasProvisionerEntity>
+</saasProvisioner>

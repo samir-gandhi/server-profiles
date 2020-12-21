@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" isInheritExtendedContractAttributes="false" name="Google" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Attribute Retrieval">0</urn:Field>
+        <urn:Field name="Client ID">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCJ9..LdHnDUR-JXdPlMm9YGK_7A.jgmX0negsF2UPcGrFdHSbA.0Z2R8vMohzBQ-HH3HdyZ6g</urn:Field>
+        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUmtRYnRGanVkNyIsInZlcnNpb24iOiIxMC4xLjIuMCJ9..hzmYN7iBfHhgFdntYMGhkw.k_8xJAADBtEXDdSZReVrQJMdgCcX1SoBLRUbt6IxDC8.8DF3syAZU4R8oFqqk3fELw</urn:Field>
+        <urn:Field name="Refresh Token"/>
+        <urn:Field name="Error Redirect URL"/>
+        <urn:Field name="Unauthorized Redirect URL"/>
+        <urn:Field name="Callback Endpoint">/google-authn</urn:Field>
+        <urn:Field name="PingFederate Base URL"/>
+        <urn:Field name="Authentication URL">https://accounts.google.com/o/oauth2/auth</urn:Field>
+        <urn:Field name="Access Token URL">https://accounts.google.com/o/oauth2/token</urn:Field>
+        <urn:Field name="Logout URL">https://accounts.google.com/Logout?hl=en</urn:Field>
+        <urn:Field name="User Info URL">https://openidconnect.googleapis.com/v1/userinfo</urn:Field>
+        <urn:Field name="Extended Profile Data URL">https://www.googleapis.com/admin/directory/v1/users</urn:Field>
+        <urn:Field name="Group Request">false</urn:Field>
+        <urn:Field name="Extended Profile Group URL">https://www.googleapis.com/admin/directory/v1/groups?userKey=</urn:Field>
+        <urn:Field name="Certificate URL">https://www.googleapis.com/oauth2/v3/certs</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">403,503</urn:Field>
+        <urn:Field name="Require Form Adapter Cancellation">false</urn:Field>
+        <urn:Field name="Read Timeout">10000</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+        <urn:Field name="Google sign on presentation">Redirect</urn:Field>
+        <urn:Field name="Google Pop-up Template">google-pop-up-template.html</urn:Field>
+        <urn:Field name="Google Post Auth Template">google-post-auth-template.html</urn:Field>
+        <urn:Field name="Google Messages File">pingfederate-google-adapter-messages</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="PingFederate Base URL"/>
+        <urn:Field name="Authentication URL">https://accounts.google.com/o/oauth2/auth</urn:Field>
+        <urn:Field name="Access Token URL">https://accounts.google.com/o/oauth2/token</urn:Field>
+        <urn:Field name="Logout URL">https://accounts.google.com/Logout?hl=en</urn:Field>
+        <urn:Field name="User Info URL">https://openidconnect.googleapis.com/v1/userinfo</urn:Field>
+        <urn:Field name="Extended Profile Data URL">https://www.googleapis.com/admin/directory/v1/users</urn:Field>
+        <urn:Field name="Group Request">false</urn:Field>
+        <urn:Field name="Extended Profile Group URL">https://www.googleapis.com/admin/directory/v1/groups?userKey=</urn:Field>
+        <urn:Field name="Certificate URL">https://www.googleapis.com/oauth2/v3/certs</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">403,503</urn:Field>
+        <urn:Field name="Require Form Adapter Cancellation">false</urn:Field>
+        <urn:Field name="Read Timeout">10000</urn:Field>
+        <urn:Field name="Connection Timeout">10000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+        <urn:Field name="Google sign on presentation">Redirect</urn:Field>
+        <urn:Field name="Google Pop-up Template">google-pop-up-template.html</urn:Field>
+        <urn:Field name="Google Post Auth Template">google-post-auth-template.html</urn:Field>
+        <urn:Field name="Google Messages File">pingfederate-google-adapter-messages</urn:Field>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:UniqueKeyField>email</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="email" Type="Adapter" Value="email" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>
