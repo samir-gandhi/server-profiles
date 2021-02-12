@@ -96,7 +96,7 @@
         <charset>UTF-8</charset>
         -->
         
-        <RollingFile name="SecurityAudit2Splunk" fileName="${_DOLLAR_}{sys:pf.log.dir}/splunk-audit.log"
+        <RollingFile name="SecurityAudit2Splunk" fileName="${OUT_DIR}/logs/splunk-audit.log"
             filePattern="${_DOLLAR_}{sys:pf.log.dir}/splunk-audit.%d{yyyy-MM-dd}.log"
             ignoreExceptions="false">
             <PatternLayout>
