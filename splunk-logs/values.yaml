@@ -22,6 +22,7 @@ pingaccess-admin:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingaccess
+    TAIL_LOG_FILES: "/opt/out/instance/log/pingaccess.log /opt/out/instance/log/pingaccess_engine_audit_splunk.log /opt/out/instance/log/pingaccess_api_audit_splunk.log /opt/out/instance/log/pingaccess_agent_audit_splunk.log"
   container:
     waitFor:
       pingfederate-engine:
@@ -35,6 +36,7 @@ pingaccess-engine:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingaccess
+    TAIL_LOG_FILES: "/opt/out/instance/log/pingaccess.log /opt/out/instance/log/pingaccess_engine_audit_splunk.log /opt/out/instance/log/pingaccess_api_audit_splunk.log /opt/out/instance/log/pingaccess_agent_audit_splunk.log"
 pingdataconsole:
   enabled: true
 
@@ -51,6 +53,7 @@ pingfederate-admin:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingfederate
+    TAIL_LOG_FILES: "/opt/out/instance/log/server.log /opt/out/instance/log/splunk-audit.log"
 
 
 pingfederate-engine:
@@ -61,3 +64,4 @@ pingfederate-engine:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingfederate
+    TAIL_LOG_FILES: "/opt/out/instance/log/server.log /opt/out/instance/log/splunk-audit.log"
