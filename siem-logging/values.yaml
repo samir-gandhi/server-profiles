@@ -1,0 +1,66 @@
+global:
+  image:
+    tag: "edge"
+  ingress:
+    enabled: true
+    addReleaseNameToHost: prepend
+    defaultDomain: ping-devops.com
+    defaultTlsSecret:
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      kubernetes.io/ingress.class: "nginx-public"
+
+pingdataconsole:
+  enabled: true
+
+pingdirectory:
+  container:
+    replicaCount: 1
+  enabled: true
+
+pingfederate-admin:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: siem-logging/pingfederate
+    TAIL_LOG_FILES: "/opt/out/instance/log/jvm-garbage-collection.log /opt/out/instance/log/server.log /opt/out/instance/log/init.log /opt/out/instance/log/admin.log /opt/out/instance/log/admin-event-detail.log /opt/out/instance/log/admin-api.log /opt/out/instance/log/runtime-api.log /opt/out/instance/log/transaction.log /opt/out/instance/log/audit.log /opt/out/instance/log/provisioner-audit.log /opt/out/instance/log/provisioner.log"
+
+
+pingfederate-engine:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: siem-logging/pingfederate
+
+pingaccess-admin:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: siem-logging/pingfederate
+    TAIL_LOG_FILES: "/opt/out/instance/log/pingaccess_engine_audit.log /opt/out/instance/log/pingaccess_api_audit.log /opt/out/instance/log/pingaccess_agent_audit.log /opt/out/instance/log/pingaccess.log"
+  privateCert:
+    generate: true
+  container:
+    waitFor:
+      pingfederate-engine:
+        service: https
+
+
+pingaccess-engine:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: siem-logging/pingfederate
+

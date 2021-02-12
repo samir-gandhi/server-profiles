@@ -1,0 +1,63 @@
+## PA, PF, PD - tested with helm chart 0.4.1
+
+global:
+  image:
+    tag: "edge"
+  ingress:
+    enabled: true
+    addReleaseNameToHost: prepend
+    defaultDomain: ping-devops.com
+    defaultTlsSecret:
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      kubernetes.io/ingress.class: "nginx-public"
+
+pingaccess-admin:
+  enabled: true
+  privateCert:
+    generate: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingaccess
+  container:
+    waitFor:
+      pingfederate-engine:
+        service: https
+
+pingaccess-engine:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingaccess
+pingdataconsole:
+  enabled: true
+
+pingdirectory:
+  container:
+    replicaCount: 1
+  enabled: true
+
+pingfederate-admin:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingfederate
+
+
+pingfederate-engine:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingfederate
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingfederate
