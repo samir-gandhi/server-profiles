@@ -52,8 +52,8 @@
 
         <!-- Main log : A size based file rolling appender -->
         <RollingFile name="File"
-                     fileName="${sys:pa.home}/log/pingaccess.log"
-                     filePattern="${sys:pa.home}/log/pingaccess.log.%i"
+                     fileName="/opt/logs/pingaccess.log"
+                     filePattern="/opt/logs/pingaccess.log.%i"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead of system's default encoding. -->
@@ -78,8 +78,8 @@
 
         <!-- API auditing asynchronous file logging configuration-->
         <RollingFile name="APIAuditLog-File"
-                     fileName="${sys:pa.home}/log/pingaccess_api_audit.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_api_audit.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_api_audit.log"
+                     filePattern="/opt/logs/pingaccess_api_audit.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead of system's default encoding. -->
@@ -119,8 +119,8 @@
             <Column name="RESPONSE_CODE" pattern="%X{AUDIT.responseCode}" />
         </PingAccessJDBC>
         <RollingFile name="ApiAuditLog-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_api_audit_oracle_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_api_audit_oracle_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_api_audit_oracle_failover.log"
+                     filePattern="/opt/logs/pingaccess_api_audit_oracle_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
@@ -162,8 +162,8 @@
             <Column name="RESPONSE_CODE" pattern="%X{AUDIT.responseCode}" />
         </PingAccessJDBC>
         <RollingFile name="ApiAuditLog-SQLServer-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_api_audit_sqlserver_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_api_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_api_audit_sqlserver_failover.log"
+                     filePattern="/opt/logs/pingaccess_api_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
@@ -205,8 +205,8 @@
             <ColumnMapping name="RESPONSE_CODE" pattern="%X{AUDIT.responseCode}" type="java.lang.Integer"/>
         </PingAccessJDBC>
         <RollingFile name="ApiAuditLog-PostgreSQL-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_api_audit_postgresql_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_api_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_api_audit_postgresql_failover.log"
+                     filePattern="/opt/logs/pingaccess_api_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
@@ -235,8 +235,8 @@
         -->
         
         <RollingFile name="ApiAudit2Splunk"
-                     fileName="${sys:pa.home}/log/pingaccess_api_audit_splunk.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_api_audit_splunk.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_api_audit_splunk.log"
+                     filePattern="/opt/logs/pingaccess_api_audit_splunk.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601} exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" %n</pattern>
@@ -267,8 +267,8 @@
         <!-- | %appRequestHeader{a-header-name}-->
         <!-- | %clientRequestHeader{a-header-name}-->
         <RollingFile name="EngineAuditLog-File"
-                     fileName="${sys:pa.home}/log/pingaccess_engine_audit.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_engine_audit.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_engine_audit.log"
+                     filePattern="/opt/logs/pingaccess_engine_audit.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead of system's default encoding. -->
@@ -318,8 +318,8 @@
             <Column name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="EngineAuditLog-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_engine_audit_oracle_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_engine_audit_oracle_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_engine_audit_oracle_failover.log"
+                     filePattern="/opt/logs/pingaccess_engine_audit_oracle_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -371,8 +371,8 @@
             <Column name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="EngineAuditLog-SQLServer-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_engine_audit_sqlserver_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_engine_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_engine_audit_sqlserver_failover.log"
+                     filePattern="/opt/logs/pingaccess_engine_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -424,8 +424,8 @@
             <ColumnMapping name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="EngineAuditLog-PostgreSQL-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_engine_audit_postgresql_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_engine_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_engine_audit_postgresql_failover.log"
+                     filePattern="/opt/logs/pingaccess_engine_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -454,8 +454,8 @@
         -->
         <!--
         <RollingFile name="EngineAudit2Splunk"
-                     fileName="${sys:pa.home}/log/pingaccess_engine_audit_splunk.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_engine_audit_splunk.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_engine_audit_splunk.log"
+                     filePattern="/opt/logs/pingaccess_engine_audit_splunk.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" roundTripMS="%X{AUDIT.roundTripMS}" proxyRoundTripMS="%X{AUDIT.proxyRoundTripMS}" userInfoRoundTripMS="%X{AUDIT.userInfoRoundTripMS}" resource="%X{AUDIT.resource}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" failedRuleType="%X{AUDIT.failedRuleType}" failedRuleName="%X{AUDIT.failedRuleName}" failedRuleClass="%X{AUDIT.failedRuleClass}" applicationName="%X{AUDIT.applicationName}" resourceName="%X{AUDIT.resourceName}" pathPrefix="%X{AUDIT.pathPrefix}" %n</pattern>
@@ -482,8 +482,8 @@
         <!-- | %appRequestHeader{a-header-name}-->
         <!-- | %clientRequestHeader{a-header-name}-->
         <RollingFile name="AgentAuditLog-File"
-                     fileName="${sys:pa.home}/log/pingaccess_agent_audit.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_agent_audit.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_agent_audit.log"
+                     filePattern="/opt/logs/pingaccess_agent_audit.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead of system's default encoding. -->
@@ -526,8 +526,8 @@
             <Column name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="AgentAuditLog-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_agent_audit_oracle_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_agent_audit_oracle_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_agent_audit_oracle_failover.log"
+                     filePattern="/opt/logs/pingaccess_agent_audit_oracle_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -572,8 +572,8 @@
             <Column name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="AgentAuditLog-SQLServer-Database-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_agent_audit_sqlserver_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_agent_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_agent_audit_sqlserver_failover.log"
+                     filePattern="/opt/logs/pingaccess_agent_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -618,8 +618,8 @@
             <ColumnMapping name="PATH_PREFIX" pattern="%X{AUDIT.pathPrefix}" />
         </PingAccessJDBC>
         <RollingFile name="AgentAuditLog-PostgreSQL-Failover-File"
-                     fileName="${sys:pa.home}/log/pingaccess_agent_audit_postgresql_failover.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_agent_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_agent_audit_postgresql_failover.log"
+                     filePattern="/opt/logs/pingaccess_agent_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
@@ -648,8 +648,8 @@
         -->
         <!--
         <RollingFile name="AgentAudit2Splunk"
-                     fileName="${sys:pa.home}/log/pingaccess_agent_audit_splunk.log"
-                     filePattern="${sys:pa.home}/log/pingaccess_agent_audit_splunk.%d{yyyy-MM-dd}.log"
+                     fileName="/opt/logs/pingaccess_agent_audit_splunk.log"
+                     filePattern="/opt/logs/pingaccess_agent_audit_splunk.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" roundTripMS="%X{AUDIT.roundTripMS}" resource="%X{AUDIT.resource}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" applicationName="%X{AUDIT.applicationName}" resourceName="%X{AUDIT.resourceName}" pathPrefix="%X{AUDIT.pathPrefix}" %n</pattern>
