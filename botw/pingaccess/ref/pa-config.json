@@ -1,0 +1,24 @@
+{
+  "expose-parameters":[
+    {
+      "parameter-name": "fileData",
+      "unique-identifiers": [
+          "alias"
+      ]
+    },
+    {
+      "parameter-name": "encryptedValue",
+      "replace-name": "value",
+      "unique-identifiers": [
+          "name"
+      ]
+    },
+    {
+      "parameter-name": "password",
+      "unique-identifiers": [
+          "alias"
+      ]
+    }
+  ]
+}
+
