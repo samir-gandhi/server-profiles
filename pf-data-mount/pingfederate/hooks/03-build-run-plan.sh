@@ -22,7 +22,7 @@
 #   If NOT Found, then we are STARTing for the first time
 #   If Found,     then we are RESTARTing
 #
-if test -f "${SERVER_ROOT_DIR}/bin/run.sh"; then
+if test -f "${STARTUP_COMMAND}"; then
     RUN_PLAN="RESTART"
 else
     RUN_PLAN="START"
