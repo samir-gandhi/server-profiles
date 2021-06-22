@@ -1,0 +1,1046 @@
+Alias Expansion: [1mkubectl logs -f botw-pingaccess-admin-0(B[m
+    k8s Context: [1mgte(B[m
+  k8s Namespace: [1mtmp-pdog(B[m
+--------------------------------------
+[0;32m----- Starting hook: ./bootstrap.sh[0m
+### Bootstrap
+### Pattern: outside-in
+###     user : undefined user (id: 9031)
+###     group: undefined group (id: 9999)
+[0;32m----- Starting hook: /opt/entrypoint.sh[0m
+[0;32mCommand: start-server[0m
+Processing secrets in SECRETS_DIR (if any)...
+################################################################################
+#    Ping Identity DevOps Docker Image
+#     IMAGE_VERSION: pingaccess-alpine-az11-6.1.4-210303-2ae8
+#     IMAGE_GIT_REV: 2ae88e6c28e1f0ba7a7557c95be729c8e835a538
+#           STARTED: Tue Apr 13 13:03:49 UTC 2021
+#          HOSTNAME: botw-pingaccess-admin-0.botw-pingaccess-admin-cluster.tmp-pdog.svc.cluster.local
+#        DOMAINNAME: botw-pingaccess-admin-cluster.tmp-pdog.svc.cluster.local
+################################################################################
+no local IN_DIR files (/opt/in) found.
+
+[0;32m----- Starting hook: /opt/staging/hooks/01-start-server.sh[0m
+
+[0;32m----- Starting hook: /opt/staging/hooks/02-get-remote-server-profile.sh[0m
+Getting SERVER_PROFILE
+  git url: *** REDACTED ***
+   branch: botw-pa-61
+     path: botw/pingaccess
+Checking for security filename issues...*.jwk *.pin
+[0;32mSECURITY_CHECKS_FILENAME: 2 files found matching file pattern *.jwk[0m
+    ./botw/pingaccess/instance/conf/pa.jwk
+    ./hottoddy/pingfederate/instance/server/default/data/pf.jwk
+[0;32mSecurity Violations Allowed! (total=2) SECURITY_CHECKS_STRICT=false[0m
+
+No previous state to compare.
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/03-build-run-plan.sh[0m
+################################################################################
+#    Run Plan Information
+################################################################################
+                          RUN_PLAN : START 
+################################################################################
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/04-check-variables.sh[0m
+[0;33m################################################################################[0m
+[0;33m################################################################################[0m
+[0;33m###################### WARNING - DEPRECATED VARIABLES ##########################[0m
+[0;33m#  The following deprecated variables were found. These variables may be removed[0m
+[0;33m#  in a future release.[0m
+[0;33m[0m
+                            DOLLAR : $ 
+[0;33m[0m
+[0;33m################################################################################[0m
+[0;33m[0m
+################################################################################
+#    Docker Image Information
+################################################################################
+                     IMAGE_VERSION : pingaccess-alpine-az11-6.1.4-210303-2ae8 
+                     IMAGE_GIT_REV : 2ae88e6c28e1f0ba7a7557c95be729c8e835a538 
+                          HOSTNAME : botw-pingaccess-admin-0.botw-pingaccess-admin-cluster.tmp-pdog.svc.cluster.local 
+                        DOMAINNAME : botw-pingaccess-admin-cluster.tmp-pdog.svc.cluster.local 
+################################################################################
+#    Directory Variables
+################################################################################
+                              BASE : /opt 
+                            IN_DIR : /opt/in 
+                           OUT_DIR : /opt/out 
+                   SERVER_ROOT_DIR : /opt/out/instance 
+                       STAGING_DIR : /opt/staging 
+                         HOOKS_DIR : /opt/staging/hooks 
+                SERVER_PROFILE_DIR : /tmp/server-profile 
+                           BAK_DIR : /opt/backup 
+                          LOGS_DIR : /opt/logs 
+                       SECRETS_DIR : /run/secrets 
+                       LICENSE_DIR : /opt/out/instance/conf 
+################################################################################
+#    File Variables
+################################################################################
+                     TOPOLOGY_FILE : /opt/staging/topology.json 
+                    TAIL_LOG_FILES : /opt/out/instance/log/pingaccess.log 
+                     COLORIZE_LOGS : true 
+################################################################################
+#    Server Profile
+################################################################################
+                SERVER_PROFILE_URL : *** REDACTED *** 
+             SERVER_PROFILE_BRANCH : botw-pa-61 
+               SERVER_PROFILE_PATH : botw/pingaccess 
+             SERVER_PROFILE_UPDATE : false 
+################################################################################
+#    Security Checks
+################################################################################
+            SECRUITY_CHECKS_STRICT : --- empty --- 
+          SECURITY_CHECKS_FILENAME : *.jwk *.pin 
+################################################################################
+#    DevOps User/Key
+################################################################################
+         PING_IDENTITY_DEVOPS_USER : samirgandhi@pingidentity.com 
+          PING_IDENTITY_DEVOPS_KEY : *** REDACTED *** 
+################################################################################
+#    License Key Info
+################################################################################
+                 LICENSE_FILE_NAME : pingaccess.lic 
+                LICENSE_SHORT_NAME : PA 
+                   LICENSE_VERSION : 6.1 
+         MUTE_LICENSE_VERIFICATION : --- empty --- 
+################################################################################
+#    Product Startup
+################################################################################
+                   STARTUP_COMMAND : /opt/out/instance/bin/run.sh 
+           STARTUP_FOREGROUND_OPTS : --- empty --- 
+           STARTUP_BACKGROUND_OPTS : --- empty --- 
+                           VERBOSE : false 
+                        PING_DEBUG : false 
+                 CLEAN_STAGING_DIR : true 
+################################################################################
+#    Orchestration Info
+################################################################################
+                ORCHESTRATION_TYPE : --- empty --- 
+################################################################################
+#    Ping Product Info
+################################################################################
+                      PING_PRODUCT : PingAccess 
+                          LOCATION : Docker 
+                         LDAP_PORT : 389 
+                        LDAPS_PORT : 636 
+                        HTTPS_PORT : 443 
+                          JMX_PORT : 689 
+                      USER_BASE_DN : dc=example,dc=com 
+         PD_ENGINE_PUBLIC_HOSTNAME : localhost 
+          PF_ADMIN_PUBLIC_HOSTNAME : botw-pingfederate-admin.ping-devops.com 
+         PF_ENGINE_PUBLIC_HOSTNAME : botw-pingfederate-engine.ping-devops.com 
+          PA_ADMIN_PUBLIC_HOSTNAME : botw-pingaccess-admin.ping-devops.com 
+         PA_ENGINE_PUBLIC_HOSTNAME : botw-pingaccess-engine.ping-devops.com 
+                      ROOT_USER_DN : cn=administrator 
+             ADDITIONAL_SETUP_ARGS : --- empty --- 
+################################################################################
+#    JVM Details
+################################################################################
+                     MAX_HEAP_SIZE : 384m 
+                        JVM_TUNING : AGGRESSIVE 
+################################################################################
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/05-expand-templates.sh[0m
+expanding files...
+  Processing templates
+    t - ./instance/conf/log4j2.xml.subst
+    t - ./instance/conf/run.properties.subst
+    t - ./instance/data/start-up-deployer/data.json.subst
+    t - ./ref/data.json.subst
+  Processing defaults
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/06-copy-product-bits.sh[0m
+Copying SERVER_BITS_DIR (/opt/server) to SERVER_ROOT_DIR (/opt/out/instance)
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/07-apply-server-profile.sh[0m
+merging /opt/staging/instance to /opt/out/instance
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/09-build-motd.sh[0m
+Successfully downloaded MOTD from https://raw.githubusercontent.com/pingidentity/pingidentity-devops-getting-started/master/motd/motd.json
+Current /etc/motd
+    
+    ################################################################################
+                    Ping Identity DevOps Docker Image
+    
+           Version: pingaccess-alpine-az11-6.1.4-210303-2ae8
+       DevOps User: samirgandhi@pingidentity.com
+          Hostname: botw-pingaccess-admin-0.botw-pingaccess-admin-cluster.tmp-pdog.svc.cluster.local
+           Started: Tue Apr 13 13:03:52 UTC 2021
+    ################################################################################
+    
+                         Security Warning
+    
+    The server profile being used to configure this Ping Identity Docker Image
+    is for demo and documentation purposes only. The configuration contains default
+    keys/credentials etc and is not suitable for production as it carries a substantial
+    security risk.
+    
+    For additional information, please see
+    https://github.com/pingidentity/pingidentity-devops-getting-started/blob/master/SECURITY.md
+    
+    ################################################################################
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/10-start-sequence.sh[0m
+Initializing server for the first time
+
+[0;32m----- Starting hook: /opt/staging/hooks/17-check-license.sh[0m
+Pulling evaluation license from Ping Identity for:
+   Prod License: PA - v6.1
+    DevOps User: samirgandhi@pingidentity.com...
+
+Successfully pulled evaluation license from Ping Identity
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/18-setup-sequence.sh[0m
+
+
+
+[0;32m----- Starting hook: /opt/staging/hooks/50-before-post-start.sh[0m
+INFO: OPERATIONAL_MODE: CLUSTERED_CONSOLE
+INFO: Shutting down the eth0 interface...
+ip: ioctl 0x8914 failed: Operation not permitted
+
+Tailing log files (/opt/out/instance/log/pingaccess.log)
+
+[0;32mStarting server in foreground: (/opt/out/instance/bin/run.sh )[0m
+[0;32m----- Starting hook: /opt/staging/hooks/80-post-start.sh[0m
+INFO: waiting for PingAccess to start before importing configuration
+Starting PingAccess
+Java Version: 11.0.10+9-LTS (OpenJDK 64-Bit Server VM)
+2021-04-13T13:03:54,144 DEBUG [] com.pingidentity.pa.core.util.jose.HostKeyProperties - Host key properties file does not exist: /opt/out/instance/conf/pa.jwk.properties
+2021-04-13T13:03:54,149 DEBUG [] com.pingidentity.pa.core.util.jose.MasterKeyEncryptorHandle - Initializing 'com.pingidentity.pa.core.util.jose.NoOpMasterKeyEncryptor' with key ID 'null'...
+2021-04-13T13:03:54,149 DEBUG [] com.pingidentity.pa.core.util.jose.MasterKeyEncryptorHandle - Initialized master key encryptor: com.pingidentity.pa.core.util.jose.NoOpMasterKeyEncryptor (returned keyId: null)
+2021-04-13T13:03:54,159 DEBUG [] com.pingidentity.pa.core.util.jose.HostKeyLoader - Loaded host key set: {"keys":[{"kty":"oct","kid":"071VrQeifPLhBzHx","key_ops":["encrypt","decrypt"],"alg":"A128CBC-HS256"}]} from /opt/out/instance/conf/pa.jwk
+2021-04-13T13:03:54,161 DEBUG [] com.pingidentity.pa.core.util.jose.MasterKeyEncryptorHandle - Master key encryption result: 153 bytes (unencrypted); keyId=null from com.pingidentity.pa.core.util.jose.NoOpMasterKeyEncryptor
+2021-04-13T13:03:54,163  INFO [] com.pingidentity.pa.cli.RouterCLI - Java Version: 11.0.10+9-LTS (OpenJDK 64-Bit Server VM)
+Operational Mode: CLUSTERED_CONSOLE
+2021-04-13T13:03:54,264  INFO [] com.pingidentity.pa.cli.PingAccessCommandLine - Loaded 171 user properties from file: /opt/out/instance/conf/run.properties
+2021-04-13T13:03:54,264 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: pa.admin.user.password.regex = ((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,64})
+2021-04-13T13:03:54,264 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: enable.detailed.heartbeat.response = true
+2021-04-13T13:03:54,264 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: pa.websession.cookie.sameSiteExcludedUserAgentPatterns = ^.*\(iP.+; CPU .*OS 12[_\d]*.*\) AppleWebKit\/.*$,^.*Macintosh;.*Mac OS X 10_14.*Version.*Safari.*$,^.*(Chromium|Chrome)\/(5[1-9]|6[0-6])\.(\d+)(?:\.(\d+)|)(?:\.(\d+)|).*$,^.*UCBrowser\/[0-9][0-1]?.(\d+)\.(\d+)[\.\d]*.*$,^.*UCBrowser\/12.[0-9][0-2]?.(\d+)[\.\d]*.*$,^.*UCBrowser\/12.13.[0-2][\.\d]*.*$
+2021-04-13T13:03:54,264 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: pa.operational.mode = CLUSTERED_CONSOLE
+2021-04-13T13:03:54,264 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: pa.statistics.window.seconds = 10
+2021-04-13T13:03:54,265 DEBUG [] com.pingidentity.pa.cli.PingAccessCommandLine - System property override: pa.admin.user.password.error.message = Password must be 6 to 64 characters in length, and contain at least one upper-case letter, one lower-case letter and one digit.
+2021-04-13T13:03:54,265  INFO [] com.pingidentity.pa.cli.PingAccessCommandLine - 6 user properties override default values
+2021-04-13T13:03:54,267 DEBUG [] com.pingidentity.pa.cli.properties.PropertyNormalizerFacade - Validating pa.ui.maxExpirationInMinutes
+2021-04-13T13:03:54,267 DEBUG [] com.pingidentity.pa.cli.properties.PropertyNormalizerFacade - Validating agent.resource.cache.ttl
+2021-04-13T13:03:54,269  INFO [] com.pingidentity.pa.cli.PingAccessCommandLine - Home Directory: /opt/out/instance
+2021-04-13T13:03:54,270  INFO [] com.pingidentity.pa.cli.PingAccessCommandLine - Version: 6.1.4.0
+2021-04-13T13:03:54,270  INFO [] com.pingidentity.pa.cli.PingAccessCommandLine - Operational Mode: CLUSTERED_CONSOLE
+2021-04-13T13:03:54,272 DEBUG [] com.pingidentity.pa.cli.RouterCLI - loading spring config
+2021-04-13T13:03:56,647 DEBUG [] com.pingidentity.pa.spring.config.plugin.SimpleServiceLoaderBDRegistryPostProcessor - Found 0 classes for SPI com.pingidentity.pa.sdk.accessor.DependantFieldAccessor
+2021-04-13T13:03:56,678 DEBUG [] com.pingidentity.pa.spring.config.plugin.SimpleServiceLoaderBDRegistryPostProcessor - Found 0 classes for SPI com.pingidentity.pa.sdk.accessor.ConfigurationModelAccessor
+2021-04-13T13:04:01,889 DEBUG [] com.pingidentity.pa.spring.config.interceptor.ProxyMatchingConfiguration - Created regex engine: RE2 (w/ thread-local matchers)
+2021-04-13T13:04:01,956 DEBUG [] com.pingidentity.pa.spring.config.plugin.PluginServiceBeanProducer - Using default LocaleOverrideService com.pingidentity.pa.core.localization.DefaultLocaleOverrideService.
+2021-04-13T13:04:01,959 DEBUG [] com.pingidentity.pa.spring.utils.LocalizationResourceClassLoaderUtils - Localization resource bundle location: /opt/out/instance/conf/localization
+2021-04-13T13:04:01,973 DEBUG [] com.pingidentity.pa.core.localization.LocaleResolverService - Checking localization URL: file:/opt/out/instance/conf/localization/
+2021-04-13T13:04:02,275 DEBUG [] com.pingidentity.pa.core.transport.http.monitor.StandardResponseStatisticsManager - Starting AdminResponseStatisticsManager Cleaner with interval of 5 seconds
+2021-04-13T13:04:02,288 DEBUG [] com.pingidentity.pa.core.transport.http.monitor.StandardResponseStatisticsManager - Starting ClusterConfigResponseStatisticsManager Cleaner with interval of 5 seconds
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Default JDK supports:
+
+Use Type Key Size 
+--- ---- -------- 
+sig RSA  1024     
+sig RSA  2048     
+sig RSA  4096     
+sig EC   256      
+sig EC   384      
+sig EC   521      
+
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Default JDK supports:
+
+Use Type Signature Algorithm 
+--- ---- ------------------- 
+sig RSA  SHA1withRSA         
+sig RSA  SHA256withRSA       
+sig RSA  SHA384withRSA       
+sig RSA  SHA512withRSA       
+sig EC   SHA256withECDSA     
+sig EC   SHA384withECDSA     
+sig EC   SHA512withECDSA     
+
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Selected 2048 as default key size for RSA
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Selected 256 as default key size for EC
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Selected SHA256withRSA as default signature algorithm for RSA
+2021-04-13T13:04:03,110  INFO [] com.pingidentity.pa.core.certmgmt.util.keyalg.KeyAlgorithmInfoCreator - Selected SHA256withECDSA as default signature algorithm for EC
+2021-04-13T13:04:03,899  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - No HTTPS listener with name 'ADMIN' exists, generating a key pair for the listener
+2021-04-13T13:04:04,355  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - Generated key pair with issuer dn 'CN=localhost, O=Ping Identity, C=US' and serial number '1618319044310'
+2021-04-13T13:04:04,396  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - No HTTPS listener with name 'ENGINE' exists, generating a key pair for the listener
+2021-04-13T13:04:04,816  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - Generated key pair with issuer dn 'CN=localhost, O=Ping Identity, C=US' and serial number '1618319044811'
+2021-04-13T13:04:04,820  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - No HTTPS listener with name 'AGENT' exists, generating a key pair for the listener
+2021-04-13T13:04:05,210  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - Generated key pair with issuer dn 'CN=localhost, O=Ping Identity, C=US' and serial number '1618319045203'
+2021-04-13T13:04:05,213  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - No HTTPS listener with name 'CONFIG QUERY' exists, generating a key pair for the listener
+2021-04-13T13:04:05,273  INFO [] com.pingidentity.pa.config.certmgmt.KeyDataFromHttpsListener - Generated key pair with issuer dn 'CN=localhost, O=Ping Identity, C=US' and serial number '1618319045269'
+2021-04-13T13:04:05,291 DEBUG [] com.pingidentity.pa.license.manager.LicenseManager - License file loaded.
+2021-04-13T13:04:05,292 DEBUG [] com.pingidentity.pa.jpa.config.HibernateConfigurationManager - Loading Configuration: thread: main:1
+2021-04-13T13:04:05,292 DEBUG [] com.pingidentity.pa.jpa.config.cache.ConfigurationCacheFactory - Loading runtime data
+2021-04-13T13:04:05,489 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for WEB_SESSION
+2021-04-13T13:04:05,542 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initialized keys for WEB_SESSION
+2021-04-13T13:04:05,542 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Saving updated JWKState for WEB_SESSION
+2021-04-13T13:04:05,549  INFO [] com.pingidentity.pa.oidc.jwk.JwkFacilitatorService - Initialized WEB_SESSION keys. Current key set:
+
+ID Use Type Algorithm     
+-- --- ---- ------------- 
+i  enc oct  A256CBC-HS512 
+h  enc oct  A192CBC-HS384 
+g  enc oct  A128CBC-HS256 
+f  sig EC   ES512         
+e  sig EC   ES384         
+d  sig EC   ES256         
+c  enc oct  A256CBC-HS512 
+b  enc oct  A192CBC-HS384 
+a  enc oct  A128CBC-HS256 
+9  sig EC   ES512         
+8  sig EC   ES384         
+7  sig EC   ES256         
+6  enc oct  A256CBC-HS512 
+5  enc oct  A192CBC-HS384 
+4  enc oct  A128CBC-HS256 
+3  sig EC   ES512         
+2  sig EC   ES384         
+1  sig EC   ES256         
+
+2021-04-13T13:04:05,552 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for OAUTH
+/opt/out/instance/data/start-up-deployer/data.json is present, configuration import initiated
+2021-04-13T13:04:06,321 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initialized keys for OAUTH
+2021-04-13T13:04:06,321 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Saving updated JWKState for OAUTH
+2021-04-13T13:04:06,324  INFO [] com.pingidentity.pa.oidc.jwk.JwkFacilitatorService - Initialized OAUTH keys. Current key set:
+
+ID Use Type Algorithm      
+-- --- ---- -------------- 
+u  sig EC   ES512          
+t  sig EC   ES384          
+s  sig EC   ES256          
+r  enc RSA  RSA1_5         
+q  enc RSA  RSA-OAEP-256   
+p  enc RSA  RSA-OAEP       
+o  enc EC   ECDH-ES+A256KW 
+n  enc EC   ECDH-ES+A192KW 
+m  enc EC   ECDH-ES+A128KW 
+l  enc EC   ECDH-ES        
+k  sig EC   ES512          
+j  sig EC   ES384          
+i  sig EC   ES256          
+h  enc RSA  RSA1_5         
+g  enc RSA  RSA-OAEP-256   
+f  enc RSA  RSA-OAEP       
+e  enc EC   ECDH-ES+A256KW 
+d  enc EC   ECDH-ES+A192KW 
+c  enc EC   ECDH-ES+A128KW 
+b  enc EC   ECDH-ES        
+a  sig EC   ES512          
+9  sig EC   ES384          
+8  sig EC   ES256          
+7  enc RSA  RSA1_5         
+6  enc RSA  RSA-OAEP-256   
+5  enc RSA  RSA-OAEP       
+4  enc EC   ECDH-ES+A256KW 
+3  enc EC   ECDH-ES+A192KW 
+2  enc EC   ECDH-ES+A128KW 
+1  enc EC   ECDH-ES        
+
+2021-04-13T13:04:06,328 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for AUTH_TOKEN
+2021-04-13T13:04:06,352 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initialized keys for AUTH_TOKEN
+2021-04-13T13:04:06,352 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Saving updated JWKState for AUTH_TOKEN
+2021-04-13T13:04:06,355  INFO [] com.pingidentity.pa.oidc.jwk.JwkFacilitatorService - Initialized AUTH_TOKEN keys. Current key set:
+
+ID Use Type Algorithm 
+-- --- ---- --------- 
+9  sig EC   ES512     
+8  sig EC   ES384     
+7  sig EC   ES256     
+6  sig EC   ES512     
+5  sig EC   ES384     
+4  sig EC   ES256     
+3  sig EC   ES512     
+2  sig EC   ES384     
+1  sig EC   ES256     
+
+2021-04-13T13:04:06,373 DEBUG [] com.pingidentity.pa.oidc.provider.pf.PingFederateMetadataManager - Reset PingFederate OIDC provider metadata and configuration
+2021-04-13T13:04:06,410 DEBUG [] com.pingidentity.pa.replication.managers.AdminReplicationDataManager - Set Keys configuration identifier to 'c4iNfBLlfXMPduw_LbnxCcLWE5SwQkkz7ge7b4p5iFE'
+2021-04-13T13:04:06,431 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Image Logout] pathPattern[InternalPathPattern[/pa/oidc/logout.png,WILDCARD]]
+2021-04-13T13:04:06,442 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Admin Logged Out] pathPattern[InternalPathPattern[/pa/oidc/loggedout,WILDCARD]]
+2021-04-13T13:04:06,443 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Logout] pathPattern[InternalPathPattern[/pa/oidc/logout,WILDCARD]]
+2021-04-13T13:04:06,444 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/assets/*,WILDCARD]]
+2021-04-13T13:04:06,444 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/images/*,WILDCARD]]
+2021-04-13T13:04:06,444 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/favicon.ico,WILDCARD]]
+2021-04-13T13:04:06,445 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/pa/oidc/cb] pathPattern[InternalPathPattern[/pa/oidc/cb,WILDCARD]]
+2021-04-13T13:04:06,445 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Static Assets] pathPattern[InternalPathPattern[/pa/assets/*,WILDCARD]]
+2021-04-13T13:04:06,489 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,493 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,494 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Session Info Delete] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,496 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,497 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[License Import] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,498 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/checkOnly] pathPattern[InternalPathPattern[/checkOnly,WILDCARD]]
+2021-04-13T13:04:06,501 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/backup] pathPattern[InternalPathPattern[/backup,WILDCARD]]
+2021-04-13T13:04:06,504 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/users/*] pathPattern[InternalPathPattern[/users/*,WILDCARD]]
+2021-04-13T13:04:06,507 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/api-docs/pa/*] pathPattern[InternalPathPattern[/api-docs/pa/*,WILDCARD]]
+2021-04-13T13:04:06,509 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/import/workflows*] pathPattern[InternalPathPattern[/config/import/workflows*,WILDCARD]]
+2021-04-13T13:04:06,512 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/login] pathPattern[InternalPathPattern[/login,WILDCARD]]
+2021-04-13T13:04:06,512 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/login] pathPattern[InternalPathPattern[/login/,WILDCARD]]
+2021-04-13T13:04:06,513 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/api-docs/*] pathPattern[InternalPathPattern[/api-docs/*,WILDCARD]]
+2021-04-13T13:04:06,515 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/version] pathPattern[InternalPathPattern[/version,WILDCARD]]
+2021-04-13T13:04:06,517 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:06,518 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/export/workflows*] pathPattern[InternalPathPattern[/config/export/workflows*,WILDCARD]]
+2021-04-13T13:04:06,520 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/*] pathPattern[InternalPathPattern[/config/*,WILDCARD]]
+2021-04-13T13:04:06,524 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/engines/status] pathPattern[InternalPathPattern[/engines/status,WILDCARD]]
+2021-04-13T13:04:06,526 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/agents/*/config/*] pathPattern[InternalPathPattern[/agents/*/config/*,WILDCARD]]
+2021-04-13T13:04:06,534 DEBUG [] com.pingidentity.pa.core.bg.BackgroundTaskService - Initially scheduling BackgroundTask[AcmeRenewCertificatesTask] to run every 86400 seconds
+2021-04-13T13:04:06,537  INFO [] com.pingidentity.pa.oidc.jwk.JwkRollingScheduler - Key roll for AuthTokenManagementRollingScheduler scheduled to occur every 86400 seconds
+2021-04-13T13:04:06,537 DEBUG [] com.pingidentity.pa.core.bg.BackgroundTaskService - Initially scheduling BackgroundTask[RollKeysTask[1]] to run every 86400 seconds
+2021-04-13T13:04:06,538  INFO [] com.pingidentity.pa.oidc.jwk.JwkRollingScheduler - Key roll for WebSessionManagementRollingScheduler scheduled to occur every 86400 seconds
+2021-04-13T13:04:06,539 DEBUG [] com.pingidentity.pa.core.bg.BackgroundTaskService - Initially scheduling BackgroundTask[RollKeysTask[2]] to run every 86400 seconds
+2021-04-13T13:04:06,539  INFO [] com.pingidentity.pa.oidc.jwk.JwkRollingScheduler - Key roll for OAuthKeyManagementRollingScheduler scheduled to occur every 86400 seconds
+2021-04-13T13:04:06,539 DEBUG [] com.pingidentity.pa.core.bg.BackgroundTaskService - Initially scheduling BackgroundTask[RollKeysTask[3]] to run every 86400 seconds
+2021-04-13T13:04:06,540 DEBUG [] com.pingidentity.pa.config.transport.TransportConfigurationManager - Waiting to start listeners until start up deployment is complete
+2021-04-13T13:04:06,540 DEBUG [] com.pingidentity.pa.jpa.config.HibernateConfigurationManager - Done Loading Configuration: thread: main:1
+2021-04-13T13:04:06,589 DEBUG [] com.pingidentity.pa.replication.managers.AdminReplicationDataManager - Set Keys configuration identifier to 'c4iNfBLlfXMPduw_LbnxCcLWE5SwQkkz7ge7b4p5iFE'
+2021-04-13T13:04:06,814 DEBUG [] com.pingidentity.pa.replication.managers.AdminReplicationDataManager - Set Engine configuration identifier to 'RzRTrwWdU63L8fUbiMxZkB343kEW7UIPg622KKs5soQ'
+2021-04-13T13:04:06,814 DEBUG [] com.pingidentity.pa.replication.managers.AdminReplicationDataManager - Set Replica Admin configuration identifier to 'AFLeJTixP37YmC9UZF5xyJLBcLXHcdPmbqUGfrYtQGw'
+2021-04-13T13:04:06,839  INFO [] com.pingidentity.pa.spring.config.StartUpDeployer - /opt/out/instance/data/start-up-deployer/data.json is present, configuration import initiated
+2021-04-13T13:04:06,894 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Monitoring Proxy Matching Interceptor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,896 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Locale Header Resolver for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,897 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Http Request Source for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,899 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Locale Override Resolver for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,899 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Relative Request Path Check for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,899 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Proxy Matching for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,900 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.ProxyMatchingInterceptor - RequestKey[method=POST,scheme=http,host=127.0.0.1,requestUri=/pa-admin-api/v3/config/import?failFast=false] matched to ServiceProxy[app=PingAccess Admin API, resource=/config/*, key=[host=*:*, contextRoot=/pa-admin-api/v3, path=/config/* (Wildcard), method=*]]
+2021-04-13T13:04:06,900 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: User Feature for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,900 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: License for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,901 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Policy Configuration for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,903 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Interceptor Chain Interceptor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,903 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: In Process Request Authn for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,905 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,905 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin API OIDC Redirect Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Administrator Role for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Role Authorization for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Authorization Method - API for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin API Session Tracking Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Update Session Tracking Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess License for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Feature Mode Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,906 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,907 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Unrecoverable State Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,907 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,907 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Administrator Role for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,907 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,907 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin Role Authorization - Any Method for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Administrator Role Allow for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Policy Enforcement for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin API Configuration Import Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: PingAccess Admin API Configuration Export Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Security Headers Interceptor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,908 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking asynchronous request handler: Read Body Into Memory for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,909 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking request handler: Command Executor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:06,913 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [GetSystemPropertiesCommand - GET ] is disabled
+2021-04-13T13:04:06,914 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [ReloadCleanCommand - GET|PUT|POST ] is disabled
+2021-04-13T13:04:06,914 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [UpdateAuthTokenManagementKeyRollPeriodCommand - PUT ] is disabled
+2021-04-13T13:04:06,915 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [UpdateOAuthKeyManagementKeyRollPeriod - PUT ] is disabled
+2021-04-13T13:04:06,915 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [GetEngineSynchronizationCommand - GET ] is disabled
+2021-04-13T13:04:06,915 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - Command [UpdateWebSessionManagementKeyRollPeriodCommand - PUT ] is disabled
+2021-04-13T13:04:06,918 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.rest.repositories.CommandRepository - match: POST /pa-admin-api/v3/config/import?failFast=false --> ConfigImportCommand
+2021-04-13T13:04:06,941 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil - Import Model:
+
+1) Access Token Validator
+
+2) ACME Server
+
+3) ACME Default Server
+     id -> ACME Server
+
+4) ACME Account
+     acmeServerId -> ACME Server
+
+5) HSM Provider
+
+6) Admin Basic Authentication
+
+7) Http Monitoring
+
+8) HTTP Client Proxy
+
+9) Authentication Requirements
+
+10) Admin Web Session Authentication
+
+11) Admin Configuration
+     httpProxyId -> HTTP Client Proxy
+     httpsProxyId -> HTTP Client Proxy
+
+12) Key Pair
+     hsmProviderId -> HSM Provider
+
+13) Shared Secret
+
+14) Auth Token Management
+
+15) Availability Profile
+
+16) Trusted Certificate
+
+17) PingFederate Access Tokens
+
+18) Rejection Handler
+
+19) Trusted Certificate Group
+     certIds -> Trusted Certificate
+
+20) OIDC Provider
+     trustedCertificateGroupId -> Trusted Certificate Group
+     OIDCProviderView -> Admin Configuration
+
+21) Global Unprotected Resource
+
+22) HTTPS Listener
+     keyPairId -> Key Pair
+
+23) Engine Listener
+     trustedCertificateGroupId -> Trusted Certificate Group
+
+24) HTTP Request Host Source
+
+25) HTTP Request IP Source
+
+26) HTTP Request Protocol Source
+
+27) Engine
+     httpProxyId -> HTTP Client Proxy
+     httpsProxyId -> HTTP Client Proxy
+     EngineView -> HTTPS Listener
+     EngineView -> Key Pair
+     EngineView -> Trusted Certificate
+
+28) Authorization Server
+     trustedCertificateGroupId -> Trusted Certificate Group
+     AuthorizationServerView -> Admin Configuration
+
+29) ACME Certificate Request
+     keyPairId -> Key Pair
+
+30) PingFederate Runtime
+     trustedCertificateGroupId -> Trusted Certificate Group
+     PingFederateRuntimeView -> Admin Configuration
+
+31) PingFederate Metadata Runtime
+     trustedCertificateGroupId -> Trusted Certificate Group
+     PingFederateMetadataRuntimeView -> Admin Configuration
+
+32) PingOne for Customers
+     trustedCertificateGroupId -> Trusted Certificate Group
+     PingOne4CView -> Admin Configuration
+
+33) PingFederate Admin
+     trustedCertificateGroupId -> Trusted Certificate Group
+     PingFederateAdminView -> Admin Configuration
+
+34) Token Provider
+
+35) Third-Party Service
+     availabilityProfileId -> Availability Profile
+     trustedCertificateGroupId -> Trusted Certificate Group
+     ThirdPartyServiceView -> PingFederate Access Tokens
+     ThirdPartyServiceView -> OIDC Provider
+     ThirdPartyServiceView -> Authorization Server
+     ThirdPartyServiceView -> PingFederate Runtime
+     ThirdPartyServiceView -> PingOne for Customers
+     ThirdPartyServiceView -> PingFederate Metadata Runtime
+     ThirdPartyServiceView -> Token Provider
+
+36) Admin OIDC Authentication
+     authnReqListId -> Authentication Requirements
+     OidcConfigView -> OIDC Provider
+     OidcConfigView -> PingFederate Runtime
+     OidcConfigView -> PingOne for Customers
+     OidcConfigView -> PingFederate Metadata Runtime
+     OidcConfigView -> Token Provider
+
+37) Redirect
+
+38) Replica Admin
+     httpProxyId -> HTTP Client Proxy
+     httpsProxyId -> HTTP Client Proxy
+     ReplicaAdminView -> HTTPS Listener
+     ReplicaAdminView -> Key Pair
+     ReplicaAdminView -> Trusted Certificate
+
+39) Reserved Application
+
+40) Load Balancing Strategy
+     LoadBalancingStrategyView -> Third-Party Service
+
+41) Rule
+     RuleView -> Third-Party Service
+     RuleView -> Rejection Handler
+
+42) Agent
+     sharedSecretIds -> Shared Secret
+     AgentView -> HTTPS Listener
+     AgentView -> Key Pair
+     AgentView -> Trusted Certificate
+
+43) Rule Set
+     RuleSetView -> Rule
+
+44) Site Authenticator
+     SiteAuthenticatorView -> Third-Party Service
+
+45) Identity Mapping
+     IdentityMappingView -> Third-Party Service
+
+46) Site
+     siteAuthenticatorIds -> Site Authenticator
+     availabilityProfileId -> Availability Profile
+     trustedCertificateGroupId -> Trusted Certificate Group
+
+47) OAuth Key Management
+
+48) Virtual Host
+     trustedCertificateGroupId -> Trusted Certificate Group
+     keyPairId -> Key Pair
+
+49) Web Session
+
+50) Admin OAuth Authentication
+     OAuthConfigView -> PingFederate Access Tokens
+     OAuthConfigView -> Authorization Server
+     OAuthConfigView -> PingFederate Runtime
+     OAuthConfigView -> PingOne for Customers
+     OAuthConfigView -> PingFederate Metadata Runtime
+     OAuthConfigView -> Token Provider
+
+51) Unknown Resource Settings
+
+52) Application
+     siteId -> Site
+     webSessionId -> Web Session
+     agentId -> Agent
+     accessValidatorId -> Access Token Validator
+     virtualHostIds -> Virtual Host
+     ApplicationView -> PingFederate Access Tokens
+     ApplicationView -> OIDC Provider
+     ApplicationView -> Authorization Server
+     ApplicationView -> PingFederate Runtime
+     ApplicationView -> Rule
+     ApplicationView -> PingOne for Customers
+     ApplicationView -> Identity Mapping
+     ApplicationView -> PingFederate Metadata Runtime
+     ApplicationView -> Rule Set
+     ApplicationView -> Token Provider
+
+53) Application Resource
+     applicationId -> Application
+     ResourceView -> Rule
+     ResourceView -> Rule Set
+
+54) Web Session Management
+
+
+2021-04-13T13:04:06,998 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.jpa.util.NativeH2Queries - BACKUP TO result completed
+2021-04-13T13:04:07,007 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.config.BackupUtilities - Skipping file : pingaccess.lic
+2021-04-13T13:04:07,008 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.BackupService - Created backup: /opt/out/instance/data/archive/pa-data-04-13-2021.13.04.06.zip
+2021-04-13T13:04:07,022 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.config.ImportBackup - Set DB file password
+2021-04-13T13:04:07,134 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.config.ImportBackup - Set sa user password in DB
+PingAccess FAILED to start
+Failed to complete configuration import
+{
+  "flash" : [ "Import failed. Invalid import data." ],
+  "form" : { }
+}
+PingAccess exiting
+2021-04-13T13:04:07,252 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Web Session Management
+2021-04-13T13:04:07,290 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Web Session Management
+2021-04-13T13:04:07,293 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Applications
+2021-04-13T13:04:07,296 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Unknown Resource Settings
+2021-04-13T13:04:07,297 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Unknown Resource Settings
+2021-04-13T13:04:07,298 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Admin OAuth Authentication
+2021-04-13T13:04:07,299 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Admin OAuth Authentication
+2021-04-13T13:04:07,303 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Web Sessions
+2021-04-13T13:04:07,311 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Virtual Hosts
+2021-04-13T13:04:07,312 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default OAuth Key Management
+2021-04-13T13:04:07,313 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: OAuth Key Management
+2021-04-13T13:04:07,316 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Sites
+2021-04-13T13:04:07,320 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Identity Mappings
+2021-04-13T13:04:07,324 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Site Authenticators
+2021-04-13T13:04:07,327 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Rule Sets
+2021-04-13T13:04:07,330 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Agents
+2021-04-13T13:04:07,333 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Rules
+2021-04-13T13:04:07,339 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Load Balancing Strategys
+2021-04-13T13:04:07,343 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Reserved Application
+2021-04-13T13:04:07,344 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Reserved Application
+2021-04-13T13:04:07,352 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Replica Admin
+2021-04-13T13:04:07,389 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Redirects
+2021-04-13T13:04:07,390 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Admin OIDC Authentication
+2021-04-13T13:04:07,391 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Admin OIDC Authentication
+2021-04-13T13:04:07,393 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Third-Party Services
+2021-04-13T13:04:07,394 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Token Provider
+2021-04-13T13:04:07,395 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Token Provider
+2021-04-13T13:04:07,397 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default PingFederate Admin
+2021-04-13T13:04:07,397 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: PingFederate Admin
+2021-04-13T13:04:07,402 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default PingOne for Customers
+2021-04-13T13:04:07,402 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: PingOne for Customers
+2021-04-13T13:04:07,407 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default PingFederate Metadata Runtime
+2021-04-13T13:04:07,408 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: PingFederate Metadata Runtime
+2021-04-13T13:04:07,411 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default PingFederate Runtime
+2021-04-13T13:04:07,412 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: PingFederate Runtime
+2021-04-13T13:04:07,414 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Authorization Server
+2021-04-13T13:04:07,414 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Authorization Server
+2021-04-13T13:04:07,418 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Engines
+2021-04-13T13:04:07,419 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default HTTP Request Protocol Source
+2021-04-13T13:04:07,419 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: HTTP Request Protocol Source
+2021-04-13T13:04:07,420 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default HTTP Request IP Source
+2021-04-13T13:04:07,421 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: HTTP Request IP Source
+2021-04-13T13:04:07,422 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default HTTP Request Host Source
+2021-04-13T13:04:07,422 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: HTTP Request Host Source
+2021-04-13T13:04:07,426 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Engine Listeners
+2021-04-13T13:04:07,428 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all HTTPS Listeners
+2021-04-13T13:04:07,432 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Global Unprotected Resources
+2021-04-13T13:04:07,435 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default OIDC Provider
+2021-04-13T13:04:07,436 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: OIDC Provider
+2021-04-13T13:04:07,438 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.importer.TrustedCertGroupImporter - Deleted 0 non-system Trusted Certificate Group(s)
+2021-04-13T13:04:07,442 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Rejection Handlers
+2021-04-13T13:04:07,446 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default PingFederate Access Tokens
+2021-04-13T13:04:07,447 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: PingFederate Access Tokens
+2021-04-13T13:04:07,450 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Trusted Certificates
+2021-04-13T13:04:07,453 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Availability Profiles
+2021-04-13T13:04:07,454 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Auth Token Management
+2021-04-13T13:04:07,454 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Auth Token Management
+2021-04-13T13:04:07,457 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Shared Secrets
+2021-04-13T13:04:07,459 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Key Pairs
+2021-04-13T13:04:07,487 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Admin Configuration
+2021-04-13T13:04:07,488 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Admin Configuration
+2021-04-13T13:04:07,489 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Admin Web Session Authentication
+2021-04-13T13:04:07,489 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Admin Web Session Authentication
+2021-04-13T13:04:07,491 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Authentication Requirementss
+2021-04-13T13:04:07,494 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all HTTP Client Proxys
+2021-04-13T13:04:07,494 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Http Monitoring
+2021-04-13T13:04:07,495 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Http Monitoring
+2021-04-13T13:04:07,496 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.ResetSingletonCommand - Reset default Admin Basic Authentication
+2021-04-13T13:04:07,496 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: Admin Basic Authentication
+2021-04-13T13:04:07,498 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all HSM Providers
+2021-04-13T13:04:07,505 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Reset: ACME Default Server
+2021-04-13T13:04:07,510 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all ACME Servers
+2021-04-13T13:04:07,512 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Deleted all Access Token Validators
+2021-04-13T13:04:07,536 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ACME_SERVER "Let's Encrypt"
+2021-04-13T13:04:07,536 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ACME_SERVER "Let's Encrypt Staging Environment"
+2021-04-13T13:04:07,541 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ACME_DEFAULT_SERVER
+2021-04-13T13:04:07,544 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ADMIN_AUTH_BASIC
+2021-04-13T13:04:07,547 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: HTTP_CONFIG_MONITORING
+2021-04-13T13:04:07,559 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ADMIN_AUTH_WEB_SESSION
+2021-04-13T13:04:07,593 DEBUG [] com.pingidentity.pa.adminui.command.backup.configimport.ImportUtil - Imported: ADMIN_CONFIG
+2021-04-13T13:04:07,603 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil - Invalid import data.
+java.lang.IllegalArgumentException: Cannot serialize hidden field -- Encrypted value not set.
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:3751) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:3669) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.pingidentity.pa.adminui.util.JSONUtilities.convertToTree(JSONUtilities.java:346) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.importer.KeyPairImporter.importEntity(KeyPairImporter.java:174) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.importer.DefaultImporter.sequentialImportEntities(DefaultImporter.java:144) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.importer.KeyPairImporter.importEntities(KeyPairImporter.java:81) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil.doImport(ImportDataUtil.java:451) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil.doImport(ImportDataUtil.java:400) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil.getResponse(ImportDataUtil.java:216) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.ImportDataUtil.buildResponse(ImportDataUtil.java:184) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.command.backup.configimport.ConfigImportCommand.execute(ConfigImportCommand.java:104) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.rest.interceptors.CommandExecutorInterceptor.executeCommand(CommandExecutorInterceptor.java:133) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.rest.interceptors.CommandExecutorInterceptor.dispatchRequest(CommandExecutorInterceptor.java:108) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.rest.interceptors.CommandExecutorInterceptor.handleRequest(CommandExecutorInterceptor.java:74) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.ConfigurationRequestInterceptor.handleRequest(ConfigurationRequestInterceptor.java:38) ~[pingaccess-engine-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.InternalRequestInterceptor.handleRequest(InternalRequestInterceptor.java:42) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:126) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:44) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.InterceptorChain.invokeRequest(InterceptorChain.java:63) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.UserFeatureInterceptor.handleRequestAsync(UserFeatureInterceptor.java:19) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:97) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.lambda$invokeRequestHandlers$0(FailOnFirstFailInterceptorFlowStrategy.java:107) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:99) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.FailOnFirstFailInterceptorFlowStrategy.invokeRequestHandlers(FailOnFirstFailInterceptorFlowStrategy.java:44) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.InterceptorChain.invokeRequest(InterceptorChain.java:63) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.interceptor.flow.InterceptorFlowController.invokeInterceptors(InterceptorFlowController.java:62) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.transport.http.HttpServerHandler.lambda$processExchange$7(HttpServerHandler.java:410) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.api.interceptor.async.StageExecutorService.execute(StageExecutorService.java:103) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.execute(ExchangeExecutor.java:73) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.exchange.ExchangeImpl.execute(ExchangeImpl.java:880) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1118) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2246) ~[?:?]
+	at java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:143) ~[?:?]
+	at com.pingidentity.pa.core.transport.http.HttpServerHandler.processExchange(HttpServerHandler.java:399) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.transport.http.HttpServerHandler.handleRequest(HttpServerHandler.java:270) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.core.transport.http.HttpServerHandler.lambda$handleRequest$0(HttpServerHandler.java:182) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478) ~[?:?]
+	at com.pingidentity.pa.core.exchange.ExchangeExecutor.lambda$execute$0(ExchangeExecutor.java:78) ~[pingaccess-core-6.1.4.0.jar:6.1.4.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+Caused by: com.fasterxml.jackson.core.JsonGenerationException: Cannot serialize hidden field -- Encrypted value not set.
+	at com.pingidentity.pa.adminui.view.hiddenfield.HiddenFieldCodec$Serializer.lambda$serialize$0(HiddenFieldCodec.java:55) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at java.util.Optional.orElseThrow(Optional.java:408) ~[?:?]
+	at com.pingidentity.pa.adminui.view.hiddenfield.HiddenFieldCodec$Serializer.serialize(HiddenFieldCodec.java:55) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.pingidentity.pa.adminui.view.hiddenfield.HiddenFieldCodec$Serializer.serialize(HiddenFieldCodec.java:48) ~[pingaccess-admin-6.1.4.0.jar:6.1.4.0]
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:727) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:719) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:155) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:3729) ~[jackson-databind-2.9.10.6.jar:2.9.10.6]
+	... 207 more
+2021-04-13T13:04:07,608 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Disable Caching Interceptor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,608 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Configuration Export Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,608 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Configuration Import Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,608 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Role Allow Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,608 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Unrecoverable State Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Feature Mode Exchange Property Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin License Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Authn Activated for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,609 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Api Oidc Redirect Rule for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,610 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Admin Api Oidc Redirect for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,610 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Logging Audit Interceptor for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,610 DEBUG [yQGu6iot3_O4X7v5I9sOxA] com.pingidentity.pa.core.interceptor.flow - Invoking response handler: Response Headers for Request to [127.0.0.1] [/pa-admin-api/v3/config/import?failFast=false]
+2021-04-13T13:04:07,619 DEBUG [] com.pingidentity.pa.jpa.config.HibernateConfigurationManager - Loading Configuration: thread: main:1
+2021-04-13T13:04:07,619 DEBUG [] com.pingidentity.pa.jpa.config.cache.ConfigurationCacheFactory - Loading runtime data
+2021-04-13T13:04:07,716 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for WEB_SESSION
+2021-04-13T13:04:07,717 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Keys already initialized for WEB_SESSION
+2021-04-13T13:04:07,720 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for OAUTH
+2021-04-13T13:04:07,724 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Keys already initialized for OAUTH
+2021-04-13T13:04:07,727 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Initializing keys for AUTH_TOKEN
+2021-04-13T13:04:07,727 DEBUG [] com.pingidentity.pa.oidc.jwk.BaseJwkStateConfigurator - Keys already initialized for AUTH_TOKEN
+2021-04-13T13:04:07,728 DEBUG [] com.pingidentity.pa.oidc.provider.pf.PingFederateMetadataManager - Reset PingFederate OIDC provider metadata and configuration
+2021-04-13T13:04:07,729 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,730 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Logout] pathPattern[InternalPathPattern[/pa/oidc/logout,WILDCARD]]
+2021-04-13T13:04:07,730 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/assets/*,WILDCARD]]
+2021-04-13T13:04:07,730 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/images/*,WILDCARD]]
+2021-04-13T13:04:07,730 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[STATIC_RESOURCES] pathPattern[InternalPathPattern[/favicon.ico,WILDCARD]]
+2021-04-13T13:04:07,731 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Admin Logged Out] pathPattern[InternalPathPattern[/pa/oidc/loggedout,WILDCARD]]
+2021-04-13T13:04:07,731 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Image Logout] pathPattern[InternalPathPattern[/pa/oidc/logout.png,WILDCARD]]
+2021-04-13T13:04:07,731 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[License Import] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,731 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/pa/oidc/cb] pathPattern[InternalPathPattern[/pa/oidc/cb,WILDCARD]]
+2021-04-13T13:04:07,732 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Static Assets] pathPattern[InternalPathPattern[/pa/assets/*,WILDCARD]]
+2021-04-13T13:04:07,733 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,733 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,734 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/checkOnly] pathPattern[InternalPathPattern[/checkOnly,WILDCARD]]
+2021-04-13T13:04:07,735 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Session Info Delete] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,735 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/engines/status] pathPattern[InternalPathPattern[/engines/status,WILDCARD]]
+2021-04-13T13:04:07,737 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/api-docs/pa/*] pathPattern[InternalPathPattern[/api-docs/pa/*,WILDCARD]]
+2021-04-13T13:04:07,740 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/export/workflows*] pathPattern[InternalPathPattern[/config/export/workflows*,WILDCARD]]
+2021-04-13T13:04:07,742 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/version] pathPattern[InternalPathPattern[/version,WILDCARD]]
+2021-04-13T13:04:07,744 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/agents/*/config/*] pathPattern[InternalPathPattern[/agents/*/config/*,WILDCARD]]
+2021-04-13T13:04:07,746 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[Root Resource] pathPattern[InternalPathPattern[/*,WILDCARD]]
+2021-04-13T13:04:07,748 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/*] pathPattern[InternalPathPattern[/config/*,WILDCARD]]
+2021-04-13T13:04:07,749 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/config/import/workflows*] pathPattern[InternalPathPattern[/config/import/workflows*,WILDCARD]]
+2021-04-13T13:04:07,751 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/login] pathPattern[InternalPathPattern[/login,WILDCARD]]
+2021-04-13T13:04:07,751 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/login] pathPattern[InternalPathPattern[/login/,WILDCARD]]
+2021-04-13T13:04:07,789 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/backup] pathPattern[InternalPathPattern[/backup,WILDCARD]]
+2021-04-13T13:04:07,791 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/users/*] pathPattern[InternalPathPattern[/users/*,WILDCARD]]
+2021-04-13T13:04:07,793 DEBUG [] com.pingidentity.pa.config.ApplicationServiceProxyFactory - Adding Resource name[/api-docs/*] pathPattern[InternalPathPattern[/api-docs/*,WILDCARD]]
+2021-04-13T13:04:07,796 DEBUG [] com.pingidentity.pa.core.serverstate.EhCacheNodeLocalStateMap - NodeLocalStateMap Local[976c6863-9780-4c6b-aaf6-e513ef840290]Remote[]
+2021-04-13T13:04:07,948 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Attempting to listen on /0.0.0.0:9090 (ssl)
+2021-04-13T13:04:08,015 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Listening on socket address: /0.0.0.0:9090 (ssl)
+2021-04-13T13:04:08,123 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Attempting to listen on /0.0.0.0:9000 (ssl)
+2021-04-13T13:04:08,124 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Listening on socket address: /0.0.0.0:9000 (ssl)
+2021-04-13T13:04:08,124  INFO [] com.pingidentity.pa.config.transport.TransportConfigurationManager - Startup complete. Listening on [ CONFIG QUERY, ssl, /0.0.0.0:9090 ][ ADMIN, ssl, /0.0.0.0:9000 ] 
+2021-04-13T13:04:08,124 DEBUG [] com.pingidentity.pa.jpa.config.HibernateConfigurationManager - Done Loading Configuration: thread: main:1
+2021-04-13T13:04:08,131 ERROR [] com.pingidentity.pa.cli.RouterCLI - PingAccess FAILED to start
+Failed to complete configuration import
+{
+  "flash" : [ "Import failed. Invalid import data." ],
+  "form" : { }
+}
+2021-04-13T13:04:08,132  INFO [] com.pingidentity.pa.cli.RouterCLI - PingAccess exiting
+2021-04-13T13:04:08,132 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Closing socket bound to /0.0.0.0:9000
+2021-04-13T13:04:08,133 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Closed socket bound to /0.0.0.0:9000
+2021-04-13T13:04:08,133 DEBUG [] com.pingidentity.pa.core.transport.http.HttpTransport - Waiting for running exchanges to finish.
+2021-04-13T13:04:08,135 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Closing socket bound to /0.0.0.0:9090
+2021-04-13T13:04:08,136 DEBUG [] com.pingidentity.pa.core.transport.http.async.frontend.NettyHttpTransport - Closed socket bound to /0.0.0.0:9090
+2021-04-13T13:04:08,136 DEBUG [] com.pingidentity.pa.core.transport.http.HttpTransport - Waiting for running exchanges to finish.
+2021-04-13T13:04:08,141 DEBUG [] com.pingidentity.pa.license.manager.watcher.LicenseWatchManager - Shutting down license file timer.
+2021-04-13T13:04:08,141 DEBUG [] com.pingidentity.pa.license.manager.watcher.LicenseWatchManager - Shutting down the license file status watcher.
+2021-04-13T13:04:08,141 DEBUG [] com.pingidentity.pa.license.manager.watcher.LicenseWatchManager - License file timers successfully shut down.
