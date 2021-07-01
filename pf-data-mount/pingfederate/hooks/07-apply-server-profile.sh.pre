@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+rm -rf /opt/staging/instance/server/default/data/sourceid-saml2-local-metadata.xml
