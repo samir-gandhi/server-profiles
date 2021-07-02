@@ -9,6 +9,7 @@
 # shellcheck source=./pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
+ls -ltR
 # Applies the RAW Server Bits from the built images into SERVER_ROOT
 if test "${RUN_PLAN}" = "START"; then
     echo "Copying SERVER_BITS_DIR (${SERVER_BITS_DIR}) to SERVER_ROOT_DIR (${SERVER_ROOT_DIR})"
