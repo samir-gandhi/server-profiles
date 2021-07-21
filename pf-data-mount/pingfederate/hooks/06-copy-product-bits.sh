@@ -19,4 +19,5 @@ if test "${RUN_PLAN}" = "START"; then
     ls -ltn /opt/out
     ls -ltn /opt/out/instance
     ls -ltn /op/out/instance/server/default/data
+    ls -lnR /opt/out
 fi
