@@ -15,4 +15,7 @@ if test "${RUN_PLAN}" = "START"; then
     echo "Copying SERVER_BITS_DIR (${SERVER_BITS_DIR}) to SERVER_ROOT_DIR (${SERVER_ROOT_DIR})"
     mkdir -p "${SERVER_ROOT_DIR}"
     cp -Rfv "${SERVER_BITS_DIR}/"* "${SERVER_ROOT_DIR}/"
+    ls -ltn /opt
+    ls -ltn /opt/out
+    ls -ltn /opt/out/instance
 fi
