@@ -14,10 +14,11 @@ ls -ltR
 if test "${RUN_PLAN}" = "START"; then
     echo "Copying SERVER_BITS_DIR (${SERVER_BITS_DIR}) to SERVER_ROOT_DIR (${SERVER_ROOT_DIR})"
     mkdir -p "${SERVER_ROOT_DIR}"
-    cp -Ruv "${SERVER_BITS_DIR}/"* "${SERVER_ROOT_DIR}/"
-    ls -ltn /opt
-    ls -ltn /opt/out
-    ls -ltn /opt/out/instance
-    ls -ltn /op/out/instance/server/default/data
-    ls -lnR /opt/out
+    cp -Ru "${SERVER_BITS_DIR}/"* "${SERVER_ROOT_DIR}/"
+    # cp -Ruv "${SERVER_BITS_DIR}/"* "${SERVER_ROOT_DIR}/"
+    # ls -ltn /opt
+    # ls -ltn /opt/out
+    # ls -ltn /opt/out/instance
+    # ls -ltn /op/out/instance/server/default/data
+    # ls -lnR /opt/out
 fi
