@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
+<Configure id="server" class="org.eclipse.jetty.server.Server">
+    <!-- =========================================================== -->
+    <!-- Http Configuration.                                         -->
+    <!-- This is a common configuration instance used by all         -->
+    <!-- connectors that can carry HTTP semantics (HTTP, HTTPS, etc.)-->
+    <!-- It configures the non wire protocol aspects of the HTTP     -->
+    <!-- semantic.                                                   -->
+    <!--                                                             -->
+    <!-- This configuration is only defined here and is used by      -->
+    <!-- reference from other XML files such as jetty-http.xml,      -->
+    <!-- jetty-https.xml and other configuration files which         -->
+    <!-- instantiate the connectors.                                 -->
+    <!--                                                             -->
+    <!-- Consult the javadoc of o.e.j.server.HttpConfiguration       -->
+    <!-- for all configuration that may be set here.                 -->
+    <!-- =========================================================== -->
+    <New id="httpConfig" class="org.eclipse.jetty.server.HttpConfiguration">
+      <Set name="secureScheme">https</Set>
+      <Set name="securePort"><Property name="jetty.ssl.port" default="8443" />9596</Set>
+      <Set name="outputBufferSize">32768</Set>
+<!--      <Set name="outputAggregationSize"></Set>
+      <Set name="requestHeaderSize"></Set>
+      <Set name="responseHeaderSize"></Set>
+      <Set name="sendServerVersion"></Set>
+      <Set name="sendDateHeader"></Set>
+      <Set name="headerCacheSize"></Set>
+      <Set name="delayDispatchUntilContent"></Set>
+      <Set name="maxErrorDispatches"></Set>
+      <Set name="blockingTimeout"></Set>
+      <Set name="persistentConnectionsEnabled"></Set>
+      <Set name="cookieCompliance"><Call class="org.eclipse.jetty.http.CookieCompliance" name="valueOf"><Arg><Property name="jetty.httpConfig.cookieCompliance" default="RFC6265"/></Arg></Call></Set>-->
+    </New>
+    <!-- ===================================================================== -->
+    <!-- SSL Context Factory for HTTPS                                         -->
+    <!-- SSL requires a certificate so we configure a factory for ssl contents -->
+    <!-- with information pointing to what keystore the ssl connection needs   -->
+    <!-- to know about. Much more configuration is available the ssl context,  -->
+    <!-- including things like choosing the particular certificate out of a    -->
+    <!-- keystore to be used.                                                  -->
+    <!-- ===================================================================== -->
+    <New id="sslContextFactory" class="org.eclipse.jetty.util.ssl.SslContextFactory">
+        <Set name="keyStorePath">config/cts_server.keystore</Set>
+        <Set name="keyStorePassword">keystorepassword</Set>
+        <Set name="keyManagerPassword">keystorepassword</Set>
+        <Set name="trustStorePath">config/cts_server.keystore</Set>
+        <Set name="trustStorePassword">keystorepassword</Set>
+        <Set name="protocol">TLSv1.2</Set>
+        <Set name="wantClientAuth">true</Set>
+    </New>
+        
+    <New id="src" class="org.eclipse.jetty.server.SecureRequestCustomizer">
+        <Set name="stsMaxAge">2000</Set>
+        <Set name="stsIncludeSubDomains">true</Set>
+    </New>
+    
+    <!-- ===================================================================== -->    
+    <!-- HTTPS Configuration-->
+    <!-- A new HttpConfiguration object is needed for the next connector and   -->
+    <!-- you can pass the old one as an argument to effectively clone the      -->
+    <!-- contents. On this HttpConfiguration object we add a                   -->
+    <!-- SecureRequestCustomizer which is how a new connector is able to       -->
+    <!-- resolve the https connection before handing control over to the Jetty -->
+    <!-- Server.                                                               -->    
+    <!-- ===================================================================== -->
+    
+    <New id="httpsConfig" class="org.eclipse.jetty.server.HttpConfiguration">
+        <Arg>
+            <Ref refid="httpConfig"></Ref>
+        </Arg>
+        <Call name="addCustomizer">
+            <Arg>
+                <Ref refid="src"></Ref>
+            </Arg>
+        </Call>
+    </New>
+    
+    <New id="https" class="org.eclipse.jetty.server.ServerConnector">
+        <Arg name="server"><Ref refid="server"></Ref></Arg>
+        <Arg name="factories">
+            <Array type="org.eclipse.jetty.server.ConnectionFactory">
+                <Item>
+                    <New class="org.eclipse.jetty.server.SslConnectionFactory">
+                        <Arg name="sslContextFactory"><Ref refid="sslContextFactory"></Ref></Arg>
+                        <Arg name="next">HTTP/1.1</Arg>
+                    </New>                    
+                </Item>
+                <Item>
+                    <New class="org.eclipse.jetty.server.HttpConnectionFactory">
+                        <Arg>
+                            <Ref refid="httpsConfig"></Ref>
+                        </Arg>
+                    </New>
+                </Item>
+            </Array>
+        </Arg>     
+        <Set name="port">9596</Set>
+        <Set name="IdleTimeout">30000</Set>
+    </New>
+    <!-- =========================================================== -->
+    <!-- extra server options                                        -->
+    <!-- =========================================================== -->
+    <Set name="connectors">
+        <Array type="org.eclipse.jetty.server.Connector">
+            <Item>
+                <Ref refid="https"></Ref>
+            </Item>
+        </Array>
+    </Set>
+<!--  <Set name="handler">
+      <New class="org.eclipse.jetty.server.handler.HandlerList">
+        <Set name="handlers">
+	  <Array type="org.eclipse.jetty.server.Handler">
+          <Item>
+             <New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler"/>
+           </Item>
+	    <Item>
+		<New id="InetAccessHandler" class="org.eclipse.jetty.server.handler.InetAccessHandler">
+	          <Call name="exclude"><Arg>127.0.0.0-255</Arg></Call>
+		  <Set name="handler"><Get class="org.eclipse.jetty.server.Server" name="handler"/></Set>
+		</New>
+	    </Item>
+	  </Array>
+	</Set>
+    </New>
+  </Set>
+-->    
+    
+<!--    <Set name="stopAtShutdown"><Property name="jetty.server.stopAtShutdown" default="true"/></Set>
+    <Set name="stopTimeout"><Property name="jetty.server.stopTimeout" default="5000"/></Set>
+    <Set name="dumpAfterStart"><Property name="jetty.server.dumpAfterStart" deprecated="jetty.dump.start" default="false"/></Set>
+    <Set name="dumpBeforeStop"><Property name="jetty.server.dumpBeforeStop" deprecated="jetty.dump.stop" default="false"/></Set>-->
+</Configure>
