@@ -1,0 +1,19 @@
+{
+  "configProfileId" : "Pu4TwZyU0eBDbBXaGaeIleKDP",
+  "configTimestamp" : "2021-07-23T15:43:50.881+00:00",
+  "coreArchiveInfo" : {
+    "fileName" : "core.data.zip",
+    "timestamp" : "2021-07-23T15:43:50.881+00:00",
+    "partial" : false
+  },
+  "baseArchiveInfo" : {
+    "fileName" : "base.delta.zip",
+    "timestamp" : "2021-07-23T15:41:07.858+00:00",
+    "partial" : false
+  },
+  "deltaArchiveInfos" : [ {
+    "fileName" : "delta-07-23-2021.15.43.50.881.zip",
+    "timestamp" : "2021-07-23T15:43:50.881+00:00",
+    "partial" : false
+  } ]
+}
