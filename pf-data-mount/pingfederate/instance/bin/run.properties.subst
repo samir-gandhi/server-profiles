@@ -9,7 +9,7 @@ pf.admin.api.authentication=${PF_ADMIN_API_AUTHENTICATION}
 ldap.properties.file=ldap.properties
 cert.properties.file=cert_auth.properties
 radius.properties.file=radius.properties
-pf.http.port=-1
+pf.http.port=${PF_ENGINE_PRIVATE_PORT_CTS:=-1}
 pf.https.port=${PF_ENGINE_PRIVATE_PORT_HTTPS}
 pf.secondary.https.port=-1
 pf.engine.bind.address=0.0.0.0
