@@ -19,8 +19,7 @@
 #########################################################################################
 
 export JAVA_HOME=/opt/java
-export SM_SMREGHOST_CLASSPATH=/opt/out/instance/CTS_2212_Package/ca-sdk/java64
-/smagentapi.jar: /opt/out/instance/CTS_2212_Package/ca-sdk/java64 /cryptoj.jar
+export SM_SMREGHOST_CLASSPATH=/opt/out/instance/CTS_2212_Package/ca-sdk/java64/smagentapi.jar:/opt/out/instance/CTS_2212_Package/ca-sdk/java64/cryptoj.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
 java -classpath "$SM_SMREGHOST_CLASSPATH" com.ca.siteminder.sdk.agentapi.SmRegHost "$@"
