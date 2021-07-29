@@ -9,13 +9,14 @@
 # shellcheck source=./pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-ls -ltR
+# ls -ltR
 # Applies the RAW Server Bits from the built images into SERVER_ROOT
 if test "${RUN_PLAN}" = "START"; then
-    ls -ltn /opt
-    ls -ltn /opt/out
-    ls -ltn /opt/out/instance
-    ls -ltn /op/out/instance/server/default/data
-    ls -lnR /opt/out
-    rm /opt/staging/instance/server/default/data/sourceid-saml2-local-metadata.xml.*
+    # ls -ltn /opt
+    # ls -ltn /opt/out
+    # ls -ltn /opt/out/instance
+    # ls -ltn /op/out/instance/server/default/data
+    # ls -lnR /opt/out
+    ls -ltr /opt/staging/instance/server/default/data
+    rm -rf /opt/staging/instance/server/default/data/sourceid-saml2-local-metadata.xml.*
 fi
