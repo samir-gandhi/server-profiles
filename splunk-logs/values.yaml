@@ -53,7 +53,7 @@ pingfederate-admin:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingfederate
-    TAIL_LOG_FILES: "/opt/out/instance/log/server.log /opt/out/instance/log/splunk-audit.log"
+    TAIL_LOG_FILES: "/opt/logs/server.log /opt/logs/splunk-audit.log"
 
 
 pingfederate-engine:
@@ -64,4 +64,4 @@ pingfederate-engine:
     SERVER_PROFILE_PARENT: BASELINE
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingfederate
-    TAIL_LOG_FILES: "/opt/out/instance/log/server.log /opt/out/instance/log/splunk-audit.log"
+    TAIL_LOG_FILES: "/opt/logs/server.log /opt/logs/splunk-audit.log"
