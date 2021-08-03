@@ -1,0 +1,33 @@
+{
+  "clientId": "cc_jwt_client",
+  "redirectUris": [],
+  "grantTypes": [
+    "CLIENT_CREDENTIALS"
+  ],
+  "name": "Client Credentials (JWT)",
+  "description": "",
+  "logoUrl": "",
+  "refreshRolling": "SERVER_DEFAULT",
+  "persistentGrantExpirationType": "SERVER_DEFAULT",
+  "persistentGrantExpirationTime": 0,
+  "persistentGrantExpirationTimeUnit": "DAYS",
+  "bypassApprovalPage": false,
+  "restrictScopes": false,
+  "restrictedScopes": [],
+  "validateUsingAllEligibleAtms": false,
+  "defaultAccessTokenManagerRef": {
+    "id": "jwt"
+  },
+  "oidcPolicy": {
+    "grantAccessSessionRevocationApi": false,
+    "pingAccessLogoutCapable": false
+  },
+  "clientAuth": {
+    "type": "PRIVATE_KEY_JWT",
+    "enforceReplayPrevention": false
+  },
+  "jwksSettings": {
+    "jwks": "{   \"keys\": [     {       \"kty\": \"RSA\",       \"kid\": \"k1\",       \"n\": \"w0wHL2-NidcFB9QMOw9LSSnwLpfbEmwi85zCe5V-5PGJF0Np228m3kP8zTFX047m2AVpeLiFBwGaKLRX-76nAuvTWn-S9oCagdt_SRHDw0t_4iPD-PeAQ24uF6zby-mzqNeZsY2Er8nrUZFSVDW_wHfOGhbbLTrrO96I4II5EAopdqlIyUebJ3lzvjKiz26fQ2V-UIkUez4RQaCX8OoDz1XUFL-gz5KgJD2EE1v4vEwUNQx1-vAWTg2HpAbP4cJd8i3fwZrKUgZDJw0prbLZfxeQya04Txq2IRqm6d1_eRhaxaPBLY51EvOx66Coxikyh5cvXlbSvKPOK--ygSXckw\",       \"e\": \"AQAB\"     }   ] } "
+  },
+  "requireSignedRequests": false
+}

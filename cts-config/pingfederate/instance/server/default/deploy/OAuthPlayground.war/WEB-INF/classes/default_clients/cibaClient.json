@@ -1,0 +1,52 @@
+{
+    "clientId": "ciba_client",
+    "enabled": true,
+    "redirectUris": [],
+    "grantTypes": [
+        "CIBA"
+    ],
+    "name": "CIBA Client",
+    "description": "",
+    "logoUrl": "",
+    "refreshRolling": "SERVER_DEFAULT",
+    "persistentGrantExpirationType": "SERVER_DEFAULT",
+    "persistentGrantExpirationTime": 0,
+    "persistentGrantExpirationTimeUnit": "DAYS",
+    "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+    "persistentGrantIdleTimeout": 0,
+    "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+    "bypassApprovalPage": false,
+    "restrictScopes": false,
+    "restrictedScopes": [],
+    "defaultAccessTokenManagerRef": {
+        "id": "jwt"
+    },
+    "exclusiveScopes": [],
+    "restrictedResponseTypes": [],
+    "validateUsingAllEligibleAtms": false,
+    "oidcPolicy": {
+        "idTokenSigningAlgorithm": "RS256",
+        "policyGroup": {
+            "id": "OAuthPlayground"
+        },
+        "grantAccessSessionRevocationApi": false,
+        "pingAccessLogoutCapable": false
+    },
+    "clientAuth": {
+        "type": "NONE",
+        "enforceReplayPrevention": false
+    },
+    "jwksSettings": {
+        "jwks": "{    \"keys\":[       {          \"kty\":\"RSA\",          \"kid\":\"k1\",          \"use\":\"sig\",          \"n\":\"kPAd76CKY_1_COaCkehcA595RffQMjNI7UXlNFzcilxRrfTwFQ5IFznU7HJTeICFf3771KUJ01j7upxLj1OeYiNXeQkGHPSNhAk8NBGNzAkknuP8RkZbF6NVp5s-HYLuU_NexmuPPsWyy9pf1Y3wtiRpmk5WxZ-QzE_WUCciRHAZPsVcxQAWfwk6BjQP-GwhwfwC9w8KbA0kxDp-LsNwWokcgxoPn9NSC2ScsW7pfXSpS-Di14ePH46SuAeySG7_9GrW-5DSWL6WodvMDopYJl7C6InyH02sRNtm5xRlAKQoZ1Uz_eWy_nvEQLd6CxZqpZHehdYQy-o0n1NqmhmTvQ\",          \"e\":\"AQAB\"       },       {          \"kty\":\"RSA\",          \"kid\":\"k2\",          \"use\":\"enc\",          \"n\":\"mqCTjtisEjZmxik_Q5R9qENGL7if1K1rqm-u2d0SIoSIzhYaayPtnFK9eKK_x40nd5rwqD24s0ouThklCUEk2C5iHWI6uZGbdSH2NLNKOHFVK8ZqwQchkff_qMaGRB046zcZQ5bg_W_1P9K7Q47T3C2vm8SZqxUrS4JTOt7yK8ZIu38crTbd8iuFdX6b4gqUmfUsVYJycZL5cknT_xJKOJSFp8At4l8EnFfjsNAD3usPZxa5s2fstx9nUCF3iIvN5Dmc7Ojbd8XEnznwa9a-yY0UY7SlYRlNRQTwEAhbNgb0Xf_xymgjc5H7Vz1ISeF6LOsEm7jJ565ViC5y8scmgQ\",          \"e\":\"AQAB\"       },       {          \"kty\":\"EC\",          \"kid\":\"k3\",          \"use\":\"enc\",          \"x\":\"ym-zsegvabPQjrxAB66dNMAmdS8WHEq6HF-UTCz4eL0\",          \"y\":\"GK6ildtUStdTQ_cieJuihjh4agYRAjvEnL5IOYJQtT8\",          \"crv\":\"P-256\"       }    ] }"
+    },
+    "deviceFlowSettingType": "SERVER_DEFAULT",
+    "requireProofKeyForCodeExchange": false,
+    "cibaDeliveryMode": "POLL",
+    "cibaPollingInterval": 3,
+    "cibaRequireSignedRequests": false,
+    "cibaUserCodeSupported": false,
+    "requestPolicyRef": {
+        "id": "SampleEmailAuth"
+    },
+    "requireSignedRequests": false
+}

@@ -1,0 +1,131 @@
+{
+  "items": [
+    {
+      "id": "HTMLFormSimplePCV",
+      "name": "HTMLFormSimplePCV",
+      "pluginDescriptorRef": {
+        "id": "com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
+      },
+      "configuration": {
+        "tables": [
+          {
+            "name": "Credential Validators",
+            "rows": [
+              {
+                "fields": [
+                  {
+                    "name": "Password Credential Validator Instance",
+                    "value": "UserPass"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "name": "Challenge Retries",
+            "value": "3"
+          },
+          {
+            "name": "Session State",
+            "value": "None"
+          },
+          {
+            "name": "Session Timeout",
+            "value": "60"
+          },
+          {
+            "name": "Session Max Timeout",
+            "value": ""
+          },
+          {
+            "name": "Allow Password Changes",
+            "value": "false"
+          },
+          {
+            "name": "Password Management System",
+            "value": ""
+          },
+          {
+            "name": "Enable 'Remember My Username'",
+            "value": "true"
+          },
+          {
+            "name": "Post-Password Change Re-Authentication Delay",
+            "value": ""
+          },
+          {
+            "name": "Login Template",
+            "value": "html.form.login.template.html"
+          },
+          {
+            "name": "Logout Path",
+            "value": ""
+          },
+          {
+            "name": "Logout Redirect",
+            "value": ""
+          },
+          {
+            "name": "Logout Template",
+            "value": "idp.logout.success.page.template.html"
+          },
+          {
+            "name": "Change Password Template",
+            "value": "html.form.change.password.template.html"
+          },
+          {
+            "name": "Change Password Message Template",
+            "value": "html.form.message.template.html"
+          },
+          {
+            "name": "Password Management System Message Template",
+            "value": "html.form.message.template.html"
+          },
+          {
+            "name": "Login Challenge Template",
+            "value": "html.form.login.challenge.template.html"
+          },
+          {
+            "name": "'Remember My Username' Lifetime",
+            "value": "30"
+          },
+          {
+            "name": "Allow Username Edits During Chaining",
+            "value": "true"
+          },
+          {
+            "name": "Track Authentication Time",
+            "value": "true"
+          }
+        ]
+      },
+      "attributeContract": {
+        "coreAttributes": [
+          {
+            "name": "username",
+            "masked": false,
+            "pseudonym": true
+          }
+        ],
+        "extendedAttributes": [],
+        "maskOgnlValues": false
+      },
+      "attributeMapping": {
+        "attributeSources": [],
+        "attributeContractFulfillment": {
+          "username": {
+            "source": {
+              "type": "ADAPTER"
+            },
+            "value": "username"
+          }
+        },
+        "issuanceCriteria": {
+          "conditionalCriteria": []
+        }
+      }
+    }
+  ]
+}

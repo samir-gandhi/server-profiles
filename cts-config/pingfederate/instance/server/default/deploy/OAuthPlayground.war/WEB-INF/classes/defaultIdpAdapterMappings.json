@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "attributeSources": [],
+      "attributeContractFulfillment": {
+        "USER_NAME": {
+          "source": {
+            "type": "ADAPTER"
+          },
+          "value": "username"
+        },
+        "USER_KEY": {
+          "source": {
+            "type": "ADAPTER"
+          },
+          "value": "username"
+        }
+      },
+      "issuanceCriteria": {
+        "conditionalCriteria": []
+      },
+      "id": "HTMLFormSimplePCV",
+      "idpAdapterRef": {
+        "id": "HTMLFormSimplePCV"
+      }
+    }
+  ]
+}
