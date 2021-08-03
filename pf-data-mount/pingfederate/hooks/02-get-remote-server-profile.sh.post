@@ -18,5 +18,4 @@ if test "${RUN_PLAN}" = "START"; then
     # ls -ltn /op/out/instance/server/default/data
     # ls -lnR /opt/out
     ls -ltr /opt/staging/instance/server/default/data
-    rm -rf /opt/staging/instance/server/default/data/sourceid-saml2-local-metadata.xml.*
 fi
