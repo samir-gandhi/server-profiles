@@ -452,7 +452,7 @@
         the following line to "PatternLayout"
         <charset>UTF-8</charset>
         -->
-        <!--
+        
         <RollingFile name="EngineAudit2Splunk"
                      fileName="/opt/logs/pingaccess_engine_audit_splunk.log"
                      filePattern="/opt/logs/pingaccess_engine_audit_splunk.%d{yyyy-MM-dd}.log"
@@ -464,7 +464,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
-        -->
+       
 
         <!-- Agent auditing asynchronous file logging configuration-->
         <!-- Additional Agent Audit values available:-->
@@ -646,7 +646,7 @@
         the following line to "PatternLayout"
         <charset>UTF-8</charset>
         -->
-        <!--
+        
         <RollingFile name="AgentAudit2Splunk"
                      fileName="/opt/logs/pingaccess_agent_audit_splunk.log"
                      filePattern="/opt/logs/pingaccess_agent_audit_splunk.%d{yyyy-MM-dd}.log"
@@ -658,7 +658,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
-        -->
+       
 
         <!-- ================================================= -->
         <!--                   Syslog Appender                 -->
@@ -718,6 +718,22 @@
             <!--<AppenderRef ref="AgentAuditLog-SQLServer-Database-Failover"/>-->
             <!--<AppenderRef ref="AgentAuditLog-PostgreSQL"/>-->
             <AppenderRef ref="AgentAudit2Splunk"/>
+        </Logger>
+        <Logger name="sidebandclientaudit" level="INFO" additivity="false">
+            <AppenderRef ref="SidebandClientAuditLog-File"/>
+            <!--<AppenderRef ref="SidebandClientAuditLog-Database-Failover"/>-->
+            <!--<AppenderRef ref="SidebandClientAuditLog-SQLServer-Database-Failover"/>-->
+            <!--<AppenderRef ref="SidebandClientAuditLog-PostgreSQL"/>-->
+            <AppenderRef ref="SidebandClientAudit2Splunk"/>
+            <!--<AppenderRef ref="SidebandClientAuditLog-HarFile"/>-->
+        </Logger>
+        <Logger name="sidebandaudit" level="INFO" additivity="false">
+            <AppenderRef ref="SidebandAuditLog-File"/>
+            <!--<AppenderRef ref="SidebandAuditLog-Database-Failover"/>-->
+            <!--<AppenderRef ref="SidebandAuditLog-SQLServer-Database-Failover"/>-->
+            <!--<AppenderRef ref="SidebandAuditLog-PostgreSQL"/>-->
+            <AppenderRef ref="SidebandAudit2Splunk"/>
+            <!--<AppenderRef ref="SidebandAuditLog-HarFile"/>-->
         </Logger>
 
         <!--Third-party dependencies-->

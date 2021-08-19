@@ -12,33 +12,76 @@ global:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       kubernetes.io/ingress.class: "nginx-public"
   workload:
-    securityContext: null
+    securityContext:
+      fsGroup: 9999
+      runAsUser: null
+      runAsGroup: null
 
-# pingaccess-admin:
-#   enabled: true
-#   privateCert:
-#     generate: true
-#   envs:
-#     SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
-#     SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
-#     SERVER_PROFILE_PARENT: BASELINE
-#     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
-#     SERVER_PROFILE_PATH: splunk-logs/pingaccess
-#     TAIL_LOG_FILES: "/opt/out/instance/log/pingaccess.log /opt/out/instance/log/pingaccess_engine_audit_splunk.log /opt/out/instance/log/pingaccess_api_audit_splunk.log /opt/out/instance/log/pingaccess_agent_audit_splunk.log"
-#   container:
-#     waitFor:
-#       pingfederate-engine:
-#         service: https
+pingaccess-admin:
+  enabled: true
+  privateCert:
+    generate: true
+  envs:
+    SERVER_PROFILE_BASELINE_BRANCH: pa-443
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingaccess
+    TAIL_LOG_FILES: "/opt/logs/pingaccess.log /opt/logs/pingaccess_engine_audit_splunk.log /opt/logs/pingaccess_api_audit_splunk.log /opt/logs/pingaccess_agent_audit_splunk.log"
+  container:
+    waitFor:
+      pingfederate-engine:
+        service: https
+    # statefulSet:
+    #   partition: 0
+    #   persistentvolume:
+    #     enabled: true
+    #     volumes:
+    #       out-dir:
+    #         mountPath: /opt/out/instance
+    #         persistentVolumeClaim:
+    #           accessModes:
+    #           - ReadWriteOnce
+    #           storageClassName:
+    #           resources:
+    #             requests:
+    #               storage: 4Gi
 
-# pingaccess-engine:
-#   enabled: true
-#   envs:
-#     SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
-#     SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
-#     SERVER_PROFILE_PARENT: BASELINE
-#     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
-#     SERVER_PROFILE_PATH: splunk-logs/pingaccess
-#     TAIL_LOG_FILES: "/opt/out/instance/log/pingaccess.log /opt/out/instance/log/pingaccess_engine_audit_splunk.log /opt/out/instance/log/pingaccess_api_audit_splunk.log /opt/out/instance/log/pingaccess_agent_audit_splunk.log"
+pingaccess-engine:
+  enabled: true
+  envs:
+    SERVER_PROFILE_BASELINE_BRANCH: pa-443
+    SERVER_PROFILE_BASELINE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git
+    SERVER_PROFILE_BASELINE_PATH: baseline/pingaccess
+    SERVER_PROFILE_PARENT: BASELINE
+    SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
+    SERVER_PROFILE_PATH: splunk-logs/pingaccess
+    TAIL_LOG_FILES: "/opt/logs/pingaccess.log /opt/logs/pingaccess_engine_audit_splunk.log /opt/logs/pingaccess_api_audit_splunk.log /opt/logs/pingaccess_agent_audit_splunk.log"
+    # VERBOSE: "true"
+  includeSidecars:
+    - splunk-log-forwarder
+  includeInitContainers:
+    - splunk-conf
+  includeVolumes:
+    - product-logs
+    - splunk-config
+    - splunk-config-init
+  volumeMounts:
+    - mountPath: /opt/logs/
+      name: product-logs
+  # includeSidecars:
+  #   - splunk-log-forwarder
+  # includeInitContainers:
+  #   - splunk-conf
+  # includeVolumes:
+  #   - pingaccess-logs
+  #   - splunk-config
+  #   - splunk-config-init
+  # volumeMounts:
+  #   - mountPath: /opt/logs/
+  #     name: pingaccess-logs
+
 # pingdataconsole:
 #   enabled: true
 
@@ -48,7 +91,6 @@ pingdirectory:
   enabled: true
   envs: 
     VERBOSE: "true"
-    # STARTUP_COMMAND: "sleep 3000"
 
 pingfederate-admin:
   enabled: true
@@ -80,12 +122,12 @@ pingfederate-engine:
   includeInitContainers:
     - splunk-conf
   includeVolumes:
-    - pingfederate-logs
+    - product-logs
     - splunk-config
     - splunk-config-init
   volumeMounts:
     - mountPath: /opt/logs/
-      name: pingfederate-logs
+      name: product-logs
 
 
 sidecars:
@@ -95,7 +137,7 @@ sidecars:
     volumeMounts:
     - name: splunk-config
       mountPath: /opt/splunkforwarder/etc/system/local
-    - name: pingfederate-logs
+    - name: product-logs
       mountPath: /var/log/pingfederate
     env:
     - name: SPLUNK_START_ARGS
@@ -106,9 +148,6 @@ sidecars:
       value: splunk
     - name: SPLUNK_CMD
       value: add monitor /var/log/
-    envFrom:
-    - configMapRef:
-        name: myping-pingfederate-engine-env-vars
 
 initContainers:
   splunk-conf:
@@ -123,7 +162,7 @@ initContainers:
 
 
 volumes:
-  pingfederate-logs:
+  product-logs:
     emptyDir: {}
   splunk-config:
     emptyDir: {}
