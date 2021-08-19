@@ -53,7 +53,7 @@ Then in the splunk UI:
 * Create index - named pinglogs
 * Create Data Input -> HTTP Event Collector (named pinglogs). 
   * save the token that is genereated at the end of this. 
-* add the PingFederate App for Splunk. 
+* add the PingFederate, PingAccess, and PingDirectory Apps for Splunk. 
 
 Now that you have an HEC token, update it on the line with #CHANGEME in `splunk/splunk-config-init.yaml`. Then:
 

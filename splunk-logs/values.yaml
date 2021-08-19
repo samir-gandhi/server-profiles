@@ -1,8 +1,9 @@
-## PA, PF, PD - tested with helm chart 0.6.8
+## PA, PF, PD - tested with helm chart 0.6.
 
 global:
   image:
     tag: "edge"
+    pullPolicy: Always
   ingress:
     enabled: true
     addReleaseNameToHost: prepend
@@ -33,20 +34,6 @@ pingaccess-admin:
     waitFor:
       pingfederate-engine:
         service: https
-    # statefulSet:
-    #   partition: 0
-    #   persistentvolume:
-    #     enabled: true
-    #     volumes:
-    #       out-dir:
-    #         mountPath: /opt/out/instance
-    #         persistentVolumeClaim:
-    #           accessModes:
-    #           - ReadWriteOnce
-    #           storageClassName:
-    #           resources:
-    #             requests:
-    #               storage: 4Gi
 
 pingaccess-engine:
   enabled: true
@@ -68,19 +55,8 @@ pingaccess-engine:
     - splunk-config
     - splunk-config-init
   volumeMounts:
-    - mountPath: /opt/logs/
+    - mountPath: /opt/logs
       name: product-logs
-  # includeSidecars:
-  #   - splunk-log-forwarder
-  # includeInitContainers:
-  #   - splunk-conf
-  # includeVolumes:
-  #   - pingaccess-logs
-  #   - splunk-config
-  #   - splunk-config-init
-  # volumeMounts:
-  #   - mountPath: /opt/logs/
-  #     name: pingaccess-logs
 
 # pingdataconsole:
 #   enabled: true
@@ -112,11 +88,6 @@ pingfederate-engine:
     SERVER_PROFILE_URL: https://github.com/samir-gandhi/server-profiles
     SERVER_PROFILE_PATH: splunk-logs/pingfederate
     TAIL_LOG_FILES: "/opt/logs/server.log /opt/logs/splunk-audit.log"
-  # workload:
-  #   securityContext:
-  #     fsGroup: 1000
-  #     runAsGroup: 9999
-  #     runAsUser: 9031
   includeSidecars:
     - splunk-log-forwarder
   includeInitContainers:
@@ -126,7 +97,7 @@ pingfederate-engine:
     - splunk-config
     - splunk-config-init
   volumeMounts:
-    - mountPath: /opt/logs/
+    - mountPath: /opt/logs
       name: product-logs
 
 
@@ -138,7 +109,7 @@ sidecars:
     - name: splunk-config
       mountPath: /opt/splunkforwarder/etc/system/local
     - name: product-logs
-      mountPath: /var/log/pingfederate
+      mountPath: /var/log/instance
     env:
     - name: SPLUNK_START_ARGS
       value: --accept-license
