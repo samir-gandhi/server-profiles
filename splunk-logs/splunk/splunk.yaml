@@ -26,6 +26,7 @@ spec:
     port: 9997
   - name: statsd
     port: 9990
+    protocol: UDP
   selector:
     role: splunk
 
