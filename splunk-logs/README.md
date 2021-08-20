@@ -64,24 +64,40 @@ kubectl apply -f splunk/splunk-config-init.yaml
 Finally deploy the ping stack with Splunk UF as a sidecar: 
 
 ```
-helm upgrade myping pingidentity/ping-devops -f values.yaml
+helm upgrade --install myping pingidentity/ping-devops -f values.yaml
 ```
 
-This deploys:
+This deploys PingDirectory, PingFederate, and PingAccess with:
+  - Baseline Server Profile
+  - Splunk Logs Profile layer. 
+  - Splunk UF sidecar for PingAccess and PingFederate. 
 
-  -  PingFederate with: 
-    - baseline profile
-    - splunk logs profile layer (log4j2.xml config)
-    - Splunk UF sidecar
-  - PingDirectory Baseline
+Eventually you should see products logs making it in via Search & Reporting: 
 
-Immediately you should see PF logs making it in: 
+For PingAccess and Pingfederate search: `index="main"`
+
+For PingDirectory:
+
+```
+| mstats count(*) WHERE index="metrics" AND source="udp:9990"
+```
 
 ![](img/pf-logs.png)
 
 
-You can use the OAuthPlayground on PF to generate traffic. 
+Then generate some traffic in the products to populate the dashboards: 
+  - PingFederate use OAuthPlayground
+  - PingAccess use https://<pingaccess-ingress>/anything
+  - PingDirectory exec into the container and use searchrate/modrate:
+    ```
+    kubectl exec -it myping-pingdirectory-0 -- sh
+    searchrate --hostname localhost --port 1636 \
+      --bindDN cn=administrator --bindPassword 2FederateM0re \
+      --baseDN dc=example,dc=com --scope sub \
+      --filter '(uid=user.[0-4])' --numThreads 2
+    ```
 
-Then in the Pingfederate App for Splunk you will see data on the OAuth Server tab (may need to click submit): 
+Then in the Apps for Splunk you will see data (may need to click submit or update variable boxes at the top): 
 
 ![](img/pf-dashboard.png)
+
