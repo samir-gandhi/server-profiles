@@ -67,6 +67,8 @@ spec:
             name: "https"
           - containerPort: 9997
             name: "receiver"
+          - name: statsd
+            containerPort: 9990
         # volumeMounts:
         #   - mountPath: /opt/splunk/etc
         #     name: splunk-config
