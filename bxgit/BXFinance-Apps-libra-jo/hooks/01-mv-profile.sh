@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 set -x
-cp -rf /tmp/staging/* /app/.
+cp -rf /tmp/git/staging/* /app/.
