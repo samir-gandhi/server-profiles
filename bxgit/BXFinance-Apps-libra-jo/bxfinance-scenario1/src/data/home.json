@@ -1,0 +1,30 @@
+{
+	"hero": {
+		"title": "We’re redefining <br /> everything a bank can be.",
+		"subtitle": "Modern banking tools meets personalized service.",
+		"button": "Learn More",
+		"card": {
+			"title": "Meet SHINE.",
+			"content": "It's a new standard of credit card. Amazing rewards. Remarkable rates.",
+			"button": "Apply Today"
+		}
+	},
+	"cta_bar": "Ready to get started? <strong>Talk to a Banking Advisor ></strong>",
+	"features": [
+		{
+			"title": "It's never been a better time to refinance.",
+			"content": "Find value in your home.",
+			"button": "Check Rates"
+		},
+		{
+			"title": "Technology, tuned to the way you live and work.",
+			"content": "Try our newest account management tools.",
+			"button": "Explore Tools"
+		},
+		{
+			"title": "Investing 101: Basics to make more of your future.",
+			"content": "Tuning your strategy to your goals.",
+			"button": "Learn More"
+		}
+	]
+}

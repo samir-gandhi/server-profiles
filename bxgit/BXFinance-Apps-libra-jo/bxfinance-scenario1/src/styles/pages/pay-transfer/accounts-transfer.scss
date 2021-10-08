@@ -1,0 +1,204 @@
+@import '../accounts.scss';
+
+.accounts-transfer {
+  .content {
+    
+    h2 {
+      color: rgb(31, 15, 17);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 30px;
+      @media only screen and (min-width: 992px) {
+        font-size: 36px;
+        line-height: 48px;
+      }
+    }
+
+    .transfer-step {
+      clear: both;
+      background: rgb(255, 255, 255);
+      border-radius: 11px;
+      padding: 25px 35px 25px 35px;
+
+      @media only screen and (min-width: 992px) {
+        padding: 35px 20px 15px 20px;
+      }
+
+      &.transfer-step1 {
+        .row {
+          @media only screen and (min-width: 992px) {
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+
+          &.submit-buttons {
+            margin: 50px -15px 0 -15px;
+            @media only screen and (min-width: 992px) {
+              margin: 100px 0 0;
+            }
+          }
+        }
+      }
+
+      &.transfer-step2 {
+        .app-approval-banner {
+          margin: 20px -35px 0 -35px;
+          @media only screen and (min-width: 992px) {
+            margin: 20px -20px 0 -20px;
+          }
+        }
+        h2 {
+          margin: 0;
+          @media only screen and (min-width: 992px) {
+            margin: 0 25px;
+          }
+        }
+        .table {
+          margin: 20px 0 0;
+          @media only screen and (min-width: 992px) {
+            margin: 20px 25px 0 25px;
+          }
+        }
+        .submit-buttons {
+          @media only screen and (min-width: 992px) {
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
+      }
+
+      &.transfer-step3 {
+        h2, p {
+          margin: 0 0 20px 0;
+          @media only screen and (min-width: 992px) {
+            margin: 0 25px 25px;
+          }
+        }
+        .table {
+          margin: 0 0 20px 0;
+          @media only screen and (min-width: 992px) {
+            margin: 20px 25px 20px 25px;
+          }
+        }
+        .submit-buttons {
+          @media only screen and (min-width: 992px) {
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .app-approval-banner {
+      position: relative;
+      background: rgb(243, 243, 243);
+      padding: 13px 25px 5px 30px;
+      margin: 20px 0 0;
+      min-height: 90px;
+
+      @media only screen and (min-width: 1200px) {
+       padding-right: 315px; 
+      }
+
+      img.img-phone {
+        width: 38px;
+        float: left;
+        margin-right: 30px;
+      }
+
+      h3 {
+        color: rgb(31, 15, 17);
+        font-size: 13px;
+        line-height: 17px;
+        margin: 0 0 5px 0;
+
+        @media only screen and (min-width: 992px) {
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+
+      p {
+        color: rgb(31, 15, 17);
+        font-size: 13px;
+        line-height: 17px;
+        margin: 0;
+
+        @media only screen and (min-width: 992px) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        a {
+          color: rgb(102, 176, 192);
+          font-weight: 500;
+        }
+      }
+
+      .app-store-logos {
+        margin: 10px 0;
+        @media only screen and (min-width: 1200px) {
+          position: absolute;
+          top: 50%;
+          right: 35px;
+          transform: translateY(-50%);
+          margin: 0;
+        }
+      }
+    }
+
+    .table {
+      width: 100%;
+      margin: 0 25px 0 35px;
+      &:after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+      .table-col {
+        margin: 0 0 10px 0;
+        @media only screen and (min-width: 992px) {
+          width: 33.3%;
+          float: left;
+          margin: 0;
+        }
+
+        &.table-col-67 {
+          @media only screen and (min-width: 992px) {
+            width: 67%;
+            float: left;
+          }
+        }
+
+        &.table-col-33 {
+          @media only screen and (min-width: 992px) {
+            width: 33%;
+            float: left;
+          }
+        }
+
+        h3, p {
+          color: rgb(31, 15, 17);
+          font-weight: 100;
+          font-size: 16px;
+          line-height: 26px;
+          margin: 0;
+        }
+
+        h3 {
+          font-weight: 500;
+        }
+      }
+    }
+
+    form {
+      .submit-buttons {
+        margin-top: 40px;
+
+        button {
+          margin: 0 0 6px 8px;
+        }
+      }
+    }
+  }
+}

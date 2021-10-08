@@ -1,0 +1,22 @@
+{
+	"titles": {
+		"reset": "Reset Password",
+		"success": "Password Saved!"
+	},
+	"form": {
+		"fields": {
+			"password": {
+				"label": "New Password",
+				"placeholder": ""
+			},
+			"password_confirm": {
+				"label": "Confirm Password",
+				"placeholder": ""
+			}
+		},
+		"buttons": {
+			"save": "Save",
+			"close": "Close"
+		}
+	}
+}

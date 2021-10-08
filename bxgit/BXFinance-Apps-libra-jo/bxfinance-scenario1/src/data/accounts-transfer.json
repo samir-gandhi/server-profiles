@@ -1,0 +1,104 @@
+{
+	"title": "Transfer Money",
+	"subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": true,
+      "links": [
+        {
+          "title": "Pay Bills",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Transfer Money",
+          "active": true,
+          "href": "/banking/transfer-money/"
+        },
+        {
+          "title": "Wire Money",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Payment Activity",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Fastpay with Zelle",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": false,
+      "href": "/banking/profile-settings"
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+	"dropdown": "Things I Can Do",
+  "form": {
+		"fields": {
+			"transfer_from": {
+				"label": "Transfer From",
+				"placeholder": "Select an Account...",
+				"options": {
+					"personal": "Checking (…8585)",
+					"business": "Savings (…0231)"
+				}
+      },
+      "transfer_to": {
+				"label": "Transfer To",
+				"placeholder": "Select an Account...",
+				"options": {
+					"personal": "Checking (…4558)",
+          "business": "Savings (…3578)"
+				}
+      },
+			"amount": {
+				"label": "Amount",
+				"placeholder": ""
+			}
+    },
+    "buttons": {
+      "cancel": {
+				"label": "Cancel"
+      },
+      "close": {
+        "label": "Close"
+      },
+      "start_transfer": {
+				"label": "Start Transfer"
+      },
+      "pending_transfer": {
+        "label": "Pending your approval..."
+      },
+      "start_new_transfer": {
+        "label": "Start Another Transfer"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+	"download": {
+		"title": "Get the BXFinance App",
+		"content": "A faster, easier way to access all your accounts from anywhere.",
+		"learn": "<small>or <a href=\"#\" class=\"text-info\">Learn More</a></small>"
+	},
+	"confirmation": {
+		"title": "We've Created Your Account",
+		"content": "<p>You can now access your BXFinance accounts online.</p> <p>Here's all the things you can do:</p> <ul><li>Access Account Activity</li><li>Pay Bills and Transfer Money between your accounts and others.</li><li>Send and receive money from other people.</li><li>Make transactions for your banking, credit, loan, and investment accounts.</li></ul> <p>Tap Learn More to see all the things you can do, or just get started  by <a href=\"#\" class=\"text-info\">signing in</a>.</p>",
+		"buttons": {
+			"learn": "Sign In",
+			"close": "Close"
+		}
+	}
+}

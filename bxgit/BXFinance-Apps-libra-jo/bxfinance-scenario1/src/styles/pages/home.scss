@@ -1,0 +1,107 @@
+/* HeroHome */
+
+@import '../../styles/variables.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/bootstrap-grid';
+
+.jumbotron-hero-home {
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  padding-top: 180px;
+
+  @include media-breakpoint-down(sm) {
+    padding: 1.5rem 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 3;
+
+    h1 {
+      color: white;
+      font-size: 48px;
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 32px;
+        margin-top: 0;
+      }
+    }
+
+    p.lead {
+      color: white;
+      margin-bottom: 2rem;
+      font-size: 16px;
+    }
+
+    .card-rewards {
+      box-shadow: 0px 2px 20px 0px rgba(31, 15, 17, 0.11);
+
+      @include media-breakpoint-up(lg) {
+        height: 480px;
+        margin-bottom: -8rem;
+
+        img.img-credit-card {
+          max-width: 350px;
+          bottom: -10px;
+          right: -2px;
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        margin-top: 3rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 2rem;
+        margin-bottom: 0;
+
+        img.img-credit-card {
+          max-width: 350px;
+          bottom: -120px;
+          right: -80px;
+        }
+      }
+    }
+  }
+}
+
+section.section-home-cta-bar {
+  background: theme-color("secondary");
+  padding-top: 2.1rem;
+  padding-bottom: 2rem;
+
+  h3 {
+    color: white;
+    font-size: 24px;
+
+    @include media-breakpoint-down(md) {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
+      margin-right: 3rem;
+    }
+  }
+}
+
+section.section-home-features {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  h4 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+
+  .btn-link {
+    padding-left: 0;
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

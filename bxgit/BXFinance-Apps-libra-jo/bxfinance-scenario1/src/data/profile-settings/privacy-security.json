@@ -1,0 +1,171 @@
+{
+	"title": "Privacy & Security Settings",
+	"subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": false
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": true,
+      "href": "/banking/profile-settings",
+      "links": [
+        {
+          "title": "Personal Details",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Communications Preferences",
+          "active": false,
+          "href": "/communication-preferences"
+        },
+        {
+          "title": "Privacy & Security Settings",
+          "active": true,
+          "href": "/privacy-security"
+        },
+        {
+          "title": "Sign In & Password",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Alerts",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Account Settings",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+  "dropdown": "Things I Can Do",
+  "steps": [
+    {
+      "title": "Partner Data Sharing",
+      "description": "Let's review settings for how BXFinance partners can access information about your accounts. Please make any adjustments.",
+      "table_title": "Which partners should be able to view your accounts?",
+      "learn_more": "Learn More about this Partner",
+      "partners": [
+        {
+          "name": "mint",
+          "logo": "/images/logo-mint.jpg",
+          "learn_more": "Learn More About This Partner",
+          "modal": "<img src=\"/app/images/logo-mint.jpg\" alt=\"About Intuit Mint\" className=\"img-fluid\" /><p>Intuit Mint is a single view of all your financial and banking information to help stay on top of your bills, create unique and dynamic budgets, and drive towards your savings goals.</p><p><strong>Why Do They Need Account Balance Access?</strong><br />Intuit Mint needs your login username and passwords so they can help you organize and manage your accounts. They use this information to establish a secure connection with BXFinance, which enables them to download and categorize your transaction information securely and automatically.</p><p><strong>What If I Deny Access?</strong><br />Without access to your accounts, Intuit Mint cannot utilize the banking information in your BXFinance account to support your budget and savings goals in their app; there will be an incomplete view of your current financial health.</p>",
+          "permissions_hdr": "Choose which accounts Mint can view:",
+          "permissions": [            
+            {
+              "checked": true,
+              "label": "BXChecking (...4558)"
+            },
+            {
+              "checked": true,
+              "label": "BXSavings (…4278)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…3578)"
+            }
+          ]
+        },
+        {
+          "name": "zelle",
+          "logo": "/images/logo-zelle.jpg",
+          "learn_more": "Learn More About This Partner",
+          "modal": "<img src=\"/app/images/logo-zelle.jpg\" alt=\"About Zelle\" className=\"img-fluid\" /><p>Zelle is an easy way to send money directly between BXFinance and almost any other U.S. bank account, typically within minutes.</p><p><strong>Why Do They Need Account Balance Access?</strong><br />Zelle provides seamless and secure financial transactions between different parties. Once you have granted access, you can easily send and receive money to other Zelle users, all within the comfort and security of your trusted BXFinance app.</p><p><strong>What If I Deny Access?</strong><br />Denying access will mean an inability to transfer money to other Zelle users; additionally, you will not be able to receive any money sent to you from a Zelle user.</p>",
+          "permissions_hdr": "Choose which accounts Zelle can view:",
+          "permissions": [            
+            {
+              "checked": false,
+              "label": "BXChecking (...4558)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…4278)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…3578)"
+            }
+          ]
+        },
+        {
+          "name": "anywealthadvisor",
+          "logo": "/images/logo-anywealthadvisor.jpg",
+          "learn_more": "Learn More About This Partner",
+          "modal": "<img src=\"/app/images/logo-anywealthadvisor.jpg\" alt=\"About AnyWealthAdvisor\" className=\"img-fluid\" /><p>AnyWealthAdvisor provides an array of personal investment advisory services through a close relationship with BXFinance.</p><p><strong>Why Do They Need Account Balance Access?</strong><br />Your personal investment advisor uses the information in the accounts you authorize to make specific recommendations. They do not use this information for any other purpose, nor do they share it with any outside parties.</p><p><strong>What If I Deny Access?</strong><br />Denying access to any account makes it difficult for your personal investment advisor to make accurate recommendations. If you have concerns about sharing this information, please contact your advisor directly.</p>",
+          "permissions_hdr": "Choose which accounts AnyWealthAdvisor can view:",
+          "permissions": [            
+            {
+              "checked": false,
+              "label": "BXChecking (...4558)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…4278)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…3578)"
+            }
+          ]
+        }
+      ],
+      "btn_cancel": "Cancel",
+      "btn_save": "Save"
+    },
+    {
+      "title": "Changes Confirmed",
+      "description": "Your sharing preferences have been modified.",
+      "partners": [
+        {
+          "title": "AnyWealthAdvisor",
+          "permissions": [            
+            {
+              "checked": true,
+              "label": "BXChecking (...4558)"
+            },
+            {
+              "checked": true,
+              "label": "BXSavings (…4278)"
+            },
+            {
+              "checked": false,
+              "label": "BXSavings (…3578)"
+            }
+          ],
+          "banner": "Would you like to visit your AnyWealthAdvisor personal investment portal at www.anywealthadvisor.org?",
+          "cta_text": "Go to my Portal >",
+          "cta_destination": "/app/any-wealth-advisor"
+        }
+      ],
+      "other_things": "<p>Other things you can do</p><ul><li>Review other <a href=\"/app/privacy-security\">Partner Sharing Settings</a></li><li>Review other <a href=\"/app/privacy-security\">Privacy &amp; Security Settings</a></li></ul>",
+      "btn_back": "Close"
+    }
+  ]
+}

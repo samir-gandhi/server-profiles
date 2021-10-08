@@ -1,0 +1,11 @@
+{
+    "pingfederate" : {
+        "profileMgmtURI" : "/pf/idprofile.ping?LocalIdentityProfileID=defaultIdentityProfile"
+    },
+    "datagov" : {
+
+    },
+    "openbanking" : {
+        
+    }
+}

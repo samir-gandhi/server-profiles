@@ -1,0 +1,105 @@
+{
+	"title": "Pay & Transfer",
+	"subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": true,
+      "links": [
+        {
+          "title": "Pay Bills",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Transfer Money",
+          "active": false,
+          "href": "/banking/transfer-money/"
+        },
+        {
+          "title": "Wire Money",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Payment Activity",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Fastpay with Zelle",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": false,
+      "href": "/banking/profile-settings"
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+  "dropdown": "Things I Can Do",
+  "sections": [
+    {
+      "title": "Pay Bills",
+      "description": "Pay nearly anyone using direct online payments from your accounts. One-time or recurring, electronically or by mail.",
+      "white": true,
+      "curved": true,
+      "button_text": "Pay",
+      "button_href": "#"
+    },
+    {
+      "title": "Transfer Money",
+      "description": "Move money between your BXFinance accounts, with the high-level assurance of transaction approvals pushed to your mobile app.",
+      "white": false,
+      "curved": false,
+      "button_text": "Transfer",
+      "button_href": "/banking/transfer-money"
+    },
+    {
+      "title": "Wire Money",
+      "description": "Send money to recipients around the world, domestically or internationally. It’s an instant way to get cash just about anywhere.",
+      "white": true,
+      "curved": false,
+      "button_text": "Wire",
+      "button_href": "#"
+    },
+    {
+      "title": "Payment Activity",
+      "description": "Set, edit, and monitor your payments through any of your BXFinance accounts.",
+      "white": false,
+      "curved": false,
+      "button_text": "Review",
+      "button_href": "#"
+    },
+    {
+      "title": "Fastpay with Zelle",
+      "description": "Fastpay makes it easy to send and receive money from anyone—no matter where they bank in the U.S.",
+      "white": true,
+      "curved": false,
+      "button_text": "Review",
+      "button_href": "#"
+    }
+  ]
+}

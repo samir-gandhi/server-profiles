@@ -1,0 +1,17 @@
+# This YAML file is used development containers only.
+# The Dev environment has its own DockerFile and Compose YAML file because we want 
+# a React dev build that allows for hot code reloading and volume mounted source for
+# development with VSCode Remote.
+version: '3.3'
+services:
+    bxfinance:
+        stdin_open: true # docker run -i -> Dev only. These two lines are required so
+        tty: true        # docker run -t -> react-scripts does not exit after the container starts.
+        environment:
+            - REACT_APP_ENV=development
+        volumes:
+            - '.:/app'
+            - '/app/node_modules'
+        ports:
+            - '5000:5000'
+        image: 'bxfinanceapp-dev:latest'

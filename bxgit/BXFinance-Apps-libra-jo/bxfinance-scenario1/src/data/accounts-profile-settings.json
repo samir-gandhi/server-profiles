@@ -1,0 +1,119 @@
+{
+	"title": "Profile & Settings",
+	"subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": false
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": true,
+      "href": "/banking/profile-settings",
+      "links": [
+        {
+          "title": "Personal Details",
+          "active": true,
+          "href": "#"
+        },
+        {
+          "title": "Communications Preferences",
+          "active": false,
+          "href": "/communication-preferences"
+        },
+        {
+          "title": "Privacy & Security Settings",
+          "active": false,
+          "href": "/privacy-security"
+        },
+        {
+          "title": "Sign In & Password",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Alerts",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Account Settings",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+  "dropdown": "Things I Can Do",
+  "sections": [
+    {
+      "pfProfileMgmtURI": "/pf/idprofile.ping?LocalIdentityProfileID=defaultIdentityProfile",
+      "title": "Personal Details",
+      "description": "Make changes to your name, address, phone number and other details of your account.",
+      "white": true,
+      "curved": true,
+      "button_text": "Update",
+      "button_href": "#"
+    },
+    {
+      "title": "Communications Preferences",
+      "description": "Review and modify how we communicate with you about your account.",
+      "white": false,
+      "curved": false,
+      "button_text": "Modify",
+      "button_href": "/communication-preferences"
+    },
+    {
+      "title": "Privacy & Security Settings",
+      "description": "Review and update the tools you use to keep your account secure. ",
+      "white": true,
+      "curved": false,
+      "button_text": "Review",
+      "button_href": "/privacy-security"
+    },
+    {
+      "title": "Sign In & Password",
+      "description": "Make secure changes to your username and password. ",
+      "white": false,
+      "curved": false,
+      "button_text": "Modify",
+      "button_href": "#"
+    },
+    {
+      "title": "Alerts",
+      "description": "Review and modify how you get alerts about activites on your account. ",
+      "white": true,
+      "curved": false,
+      "button_text": "Set",
+      "button_href": "#"
+    },
+    {
+      "title": "Account Settings",
+      "description": "Customize how accounts are presented across your BXFinance apps. ",
+      "white": false,
+      "curved": false,
+      "button_text": "Customize",
+      "button_href": "#"
+    }
+  ]
+}

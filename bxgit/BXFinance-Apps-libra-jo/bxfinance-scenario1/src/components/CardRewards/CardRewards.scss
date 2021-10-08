@@ -1,0 +1,60 @@
+/* HeroHome */
+
+@import '../../styles/variables.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/bootstrap-grid';
+
+.card-rewards {
+  height: 400px;
+  border: 0;
+  border-radius: 13px;
+  overflow: hidden;
+
+  .card-body {
+    padding: 2rem;
+
+    h3.card-title {
+      font-size: 24px;
+      font-weight: 500;
+
+      @include media-breakpoint-down(md) {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .btn-link {
+      padding-left: 0;
+    }
+  }
+
+  img.img-credit-card {
+    max-width: 450px;
+    position: absolute;
+    bottom: -120px;
+    right: -120px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 400px;
+
+    img.img-credit-card {
+      max-width: 400px;
+      bottom: -100px;
+      right: -120px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: 300px;
+    margin-top: 2rem;
+
+    img.img-credit-card {
+      bottom: -170px;
+      right: -100px;
+    }
+  }
+}

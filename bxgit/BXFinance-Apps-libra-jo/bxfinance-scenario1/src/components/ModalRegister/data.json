@@ -1,0 +1,63 @@
+{
+	"title": "Let's Create Your Online Account",
+	"form": {
+		"fields": {
+			"account_type": {
+				"label": "Which type of account would you like to access online?",
+				"options": {
+					"personal": "Personal",
+					"business": "Business",
+					"corporate": "Corporate"
+				}
+			},
+			"account_number": {
+				"label": "Account Number",
+				"placeholder": "Account Number"
+			},
+			"username": {
+				"label": "Username",
+				"placeholder": "Username"
+			},
+			"firstname": {
+				"label": "First Name",
+				"placeholder": "First Name"
+			},
+			"lastname": {
+				"label": "Last Name",
+				"placeholder": "Last Name"
+			},
+			"email": {
+				"label": "Email Address",
+				"placeholder": "Email"
+			},
+			"phone": {
+				"label": "Phone Number",
+				"placeholder": "(555) 555-5555"
+			},
+			"password": {
+				"label": "Password",
+				"placeholder": "Enter Password"
+			},
+			"password_confirm": {
+				"label": "Confirm Password",
+				"placeholder": "Confirm Password"
+			},
+			"login": {
+				"label": "How would you like to sign in?",
+				"popover": {
+					"title": "Sign in method",
+					"content": "Choose to sign in between mobile device or your password."
+				},
+				"options": {
+					"default": "Choose your Method",
+					"mobile": "With my Mobile Device or One-Time Passcode",
+					"password": "With my Password"
+				}
+			}
+		},
+		"buttons": {
+			"submit": "Submit",
+			"cancel": "Cancel"
+		}
+	}
+}

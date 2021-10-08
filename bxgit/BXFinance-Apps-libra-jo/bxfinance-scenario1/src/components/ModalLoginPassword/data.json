@@ -1,0 +1,55 @@
+{
+	"pfPwdChangeURI": "/ext/pwdchange/Identify?AdapterId=HTMLFormWithLIP",
+	"pfAcctRecoveryURI": "/ext/idrecovery/Recover?AdapterId=HTMLFormWithLIP",
+	"pfPwdResetURI": "/ext/pwdreset/Identify?AdapterId=HTMLFormWithLIP",
+	"titles": {
+		"welcome": "Welcome back",
+		"login_method": "How would you like to sign in?",
+		"recover_username_success": "Email sent!",
+		"otp_success": "OTP received! We're signing you in...",
+		"mobile_success": "We Ping'd you at your BXFinance mobile app. Please check now..."
+	},
+	"form": {
+		"fields": {
+			"email": {
+				"label": "Email",
+				"placeholder": ""
+			},
+			"username": {
+				"label": "Username",
+				"placeholder": ""
+			},
+			"password": {
+				"label": "Password",
+				"placeholder": ""
+			},
+			"remember": {
+				"label": "Remember Me"
+			},
+			"login_method": {
+				"options": {
+					"email": "Email me a one-time passcode",
+					"text": "Text me a one-time passcode",
+					"faceid": "With the BXfinance mobile app",
+					"totp": "With my authenticator app (I.e. Google Authenticator)"
+				}
+			},
+			"otp": {
+				"label": "One-time Passcode",
+				"placeholder": "123456"
+			}
+		},
+		"buttons": {
+			"next": "Next",
+			"reset": "Forgot your username?",
+			"reset_password": "Forgot your password?",
+			"login": "Sign In",
+			"help": "Need help signing in?",
+			"recover_username": "Recover Username",
+			"recover_password": "Recover Password"
+		}
+	},
+	"mobile": {
+		"loading": "Please check your selected device to continue sign in."
+	}
+}

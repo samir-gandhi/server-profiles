@@ -1,0 +1,114 @@
+{
+	"title": "Communications Preferences",
+	"subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": false
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": true,
+      "href": "/banking/profile-settings",
+      "links": [
+        {
+          "title": "Personal Details",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Communications Preferences",
+          "active": true,
+          "href": "/communication-preferences"
+        },
+        {
+          "title": "Privacy & Security Settings",
+          "active": false,
+          "href": "/privacy-security"
+        },
+        {
+          "title": "Sign In & Password",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Alerts",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Account Settings",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+  "dropdown": "Things I Can Do",
+  "steps": [
+    {
+      "title": "How should we communicate with you?",
+      "description": "Let's review settings for how we communicate with you about loan offers, mortgage rates, and other products we offer.",
+      "table_title": "Marketing Communications",
+      "communication_types": [
+        {
+          "name": "sms",
+          "label": "SMS/Text Messages "
+        },
+        {
+          "name": "email",
+          "label": "Email "
+        },
+        {
+          "name": "mail",
+          "label": "Mail "
+        }
+      ],
+      "btn_cancel": "Cancel",
+      "btn_save": "Save"
+    },
+    {
+      "title": "Changes Confirmed",
+      "description": "Your communications preferences now are as follows:",
+      "communication_types": [            
+        {
+          "checked": true,
+          "name": "sms",
+          "label": "SMS/Text Messages (555.239.9685)"
+        },
+        {
+          "checked": true,
+          "name": "email",
+          "label": "Email (janelakesmith@gmail.com)"
+        },
+        {
+          "checked": false,
+          "name": "mail",
+          "label": "Mail (1278 Sutherland Dr. Roebuck, IL 60610)"
+        }
+      ],
+      "other_things": "<p>Other things you can do</p><ul><li>Review other <a href=\"privacy-security\">Privacy &amp; Security Settings</a></li></ul>",
+      "btn_back": "Close"
+    }
+  ]
+}

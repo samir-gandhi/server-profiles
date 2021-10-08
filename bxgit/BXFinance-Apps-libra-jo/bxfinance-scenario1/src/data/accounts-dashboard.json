@@ -1,0 +1,113 @@
+{
+	"title": "Accounts Dashboard",
+  "dropdown": "Things I Can Do",
+  "subnav": [
+    {
+      "title": "Pay & Transfer",
+      "href": "/banking/pay-and-transfer",
+      "open": false,
+      "links": [
+        {
+          "title": "Pay Bills",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Transfer Money",
+          "active": false,
+          "href": "/banking/transfer-money/"
+        },
+        {
+          "title": "Wire Money",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Payment Activity",
+          "active": false,
+          "href": "#"
+        },
+        {
+          "title": "Fastpay with Zelle",
+          "active": false,
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "title": "Banking & Credit Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Loans & Lines of Credit",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Investment Accounts",
+      "open": false,
+      "href": "#"
+    },
+    {
+      "title": "Profile & Settings",
+      "open": false,
+      "href": "/banking/profile-settings"
+    },
+    {
+      "title": "Messages",
+      "open": false,
+      "href": "#"
+    }
+  ],
+  "balances": [
+    {
+      "title": "Banking Account Balances",
+      "cta": "See All Activity",
+      "accounts": [
+        {
+          "account": "Checking (…8585)",
+          "href": "#",
+          "balance": "$1,567.82"
+        },
+        {
+          "account": "Savings (…0231)",
+          "href": "#",
+          "balance": "$286,856.37"
+        }
+      ]
+    },
+    {
+      "title": "Investment Account Balances",
+      "cta": "See All Activity",
+      "accounts": [
+        {
+          "account": "IRA (…2842)",
+          "href": "#",
+          "balance": "$375,219"
+        },
+        {
+          "account": "Mutual Funds (…3021)",
+          "href": "#",
+          "balance": "$38,034.22"
+        }
+      ]
+    },
+    {
+      "title": "Credit Account Balances",
+      "cta": "See All Activity",
+      "accounts": [
+        {
+          "account": "BXFinance Rewards Visa (…1337)",
+          "href": "#",
+          "balance": "$0"
+        },
+        {
+          "account": "HELOC (…1258)",
+          "href": "#",
+          "balance": "$12,503.12"
+        }
+      ]
+    }
+  ]
+}

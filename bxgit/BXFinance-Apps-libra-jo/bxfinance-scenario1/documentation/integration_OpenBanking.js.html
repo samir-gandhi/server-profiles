@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: integration/OpenBanking.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: integration/OpenBanking.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+PING INTEGRATION:
+This entire component is Ping-developed.
+Implements functions to integrate with 
+David Babbit's mock OpenBanking APIs, hosted on Heroku.
+I like to call it the OpenBabbitt API.
+
+@author Michael Sanchez
+@see {@link https://github.com/babbtx/mock-simple-aspsp}
+*/
+
+class OpenBanking {
+
+    /**
+    Configurations for the OpenBanking API. 
+
+    @property {string} mockOBConsentHost Consent OpenBanking host /OpenBanking pointing to DataGovernance to secure data for consent enforcement.
+    @property {string} mockOBhost OpenBaking API host.
+    @property {string} mockOBAPIver OpenBanking API version.
+    @property {string} mockOBbalURI OpenBanking API account balances path.
+    @property {string} mockOBacctsURI OpenBanking API accounts path.
+    @property {string} xfrMoneyURI OpenBanking API transfer money path.
+    */
+    constructor() {
+        // Didn't abstract these since they shouldn't ever change. I say that now.
+        this.mockOBhost = "https://babbtx-aspsp.herokuapp.com/OpenBanking";
+        this.mockOBAPIver = "/v2";
+        this.mockOBbalURI = "/balances";
+        this.mockOBacctsURI = "/accounts";
+        this.xfrMoneyURI = "/transferMoney?amount=";
+    }
+
+    /** 
+      Provision Banking Accounts:
+      Provisions new accounts and balances and updates the user entry in PingDirectory.
+      Design pattern debate: Whether to just return the accounts response (strict single responsiblilty), or
+      or as is now, fulfills all tasks of "provisioning an acct", which should include upating the user entry.
+
+      @param {string} token The access token for the authenticated user.
+      @return {object} The response JSON object.
+      */
+    async provisionAccounts(token) {
+        //If we had to time to be cool, we could have extracted the uid from the token.
+        console.info("OpenBanking.js", "Provisioning bank accounts.");
+
+        let acctIdsArr = [];
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        const url = this.mockOBhost + this.mockOBAPIver + this.mockOBacctsURI;
+
+        const response = await fetch(url, requestOptions);
+        const jsonData = await response.json();
+        return Promise.resolve(jsonData);
+    }
+
+    /** 
+      Get Account Balances:
+      Retreives account balances to display on the Accounts Dashboard.
+
+      @param {string} token The access token for the authenticated user.
+      @return {object} The response JSON object.
+      */
+    getAccountBalances(token) {
+        console.info("OpenBanking.js", "Getting bank account balances.");
+
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        const url = this.mockOBhost + this.mockOBAPIver + this.mockOBbalURI;
+        return fetch(url, requestOptions);
+    }
+
+    /** 
+    Transfer Money:
+    Initiates a money transfer between accounts.
+
+    @param {number} amount The dollar amount the user wants to transfer.
+    @param {string} token The access token from PF for the authenticated user.
+    @return {boolean} Success state of the transfer.
+    */
+    transferMoney(amount, token) {
+        console.info("OpenBanking.js", "Transferring money.");
+
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+
+        const requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        const url = this.xfrMoneyURI + amount;
+        return fetch(url, requestOptions);
+    }
+};
+
+export default OpenBanking; 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="GeoLocate.html">GeoLocate</a></li><li><a href="JSONSearch.html">JSONSearch</a></li><li><a href="OpenBanking.html">OpenBanking</a></li><li><a href="PingAuthN.html">PingAuthN</a></li><li><a href="PingData.html">PingData</a></li><li><a href="PingOAuth.html">PingOAuth</a></li><li><a href="Session.html">Session</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Jan 13 2021 13:49:06 GMT-0700 (Mountain Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
