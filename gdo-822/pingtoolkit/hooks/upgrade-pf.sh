@@ -17,7 +17,7 @@ pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=gdo-822 --sele
 
 mkdir -p /opt/current /opt/current_bak
 kubectl cp ${pfPodName}:/opt/out /opt/current_bak
-cp /opt/current_bak/instance /opt/current/pingfederate
+cp -r /opt/current_bak/instance /opt/current/pingfederate
 
 cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
 sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
