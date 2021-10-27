@@ -64,5 +64,5 @@ diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data
 
 ##Restart admin
 ##TODO: cleaner resource name, should be var. 
-kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND- STARTUP_FOREGROUND_OPTS-
-kubectl delete pod ${pfPodName}
+# kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND- STARTUP_FOREGROUND_OPTS-
+# kubectl delete pod ${pfPodName}
