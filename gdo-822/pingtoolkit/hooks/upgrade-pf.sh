@@ -39,6 +39,7 @@ _timeout=1000
     fi
     if test ${readyCount} -ge 3 ; then
       echo "INFO: Successfully Deployed."
+      break
     fi
     _timeoutElapsed=$((_timeoutElapsed+6))
   done
