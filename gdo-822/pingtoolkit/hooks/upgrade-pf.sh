@@ -18,20 +18,7 @@ sh /opt/staging/hooks/get-bits.sh -p pingfederate -v "${NEW_PF_VERSION}" -u "${P
 ## cp out-dir from admin
 pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=${RELEASE} --selector=app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].metadata.name}')
 
-## patch pf-admin sts to turn off admin. 
-kubectl 
-
-mkdir -p /opt/current /opt/current_bak
-kubectl cp ${pfPodName}:/opt/out /opt/current_bak
-cp -r /opt/current_bak/instance /opt/current/pingfederate
-
-cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
-sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
-
-diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current/pingfederate/server/default/data
-
-# echo_red "REALLY BAD SECURITY PRACTICE, WHY ARE YOU DOING THIS!?"
-
+## patch pf-admin sts to turn off admin.  
 ##TODO: cleaner resource name, should be var. 
 kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND="tail" STARTUP_FOREGROUND_OPTS="-f /dev/null"
 timeoutElapsed=1
@@ -54,6 +41,19 @@ timeoutElapsed=1
     fi
     _timeoutElapsed=$((_timeoutElapsed+6))
   done
+
+
+mkdir -p /opt/current /opt/current_bak
+kubectl cp ${pfPodName}:/opt/out /opt/current_bak
+cp -r /opt/current_bak/instance /opt/current/pingfederate
+
+cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
+sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
+
+diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current/pingfederate/server/default/data
+
+# echo_red "REALLY BAD SECURITY PRACTICE, WHY ARE YOU DOING THIS!?"
+
 
 
 # kubectl exec -it ${pfPodName} -- rm -rf /opt/out/instance/server/default/default/data/*
