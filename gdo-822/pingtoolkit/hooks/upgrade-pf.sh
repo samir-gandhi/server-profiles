@@ -22,7 +22,7 @@ pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=${RELEASE} --s
 ##TODO: cleaner resource name, should be var. 
 kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND="tail" STARTUP_FOREGROUND_OPTS="-f /dev/null"
 echo "waiting for running pod"
-sleep 30
+sleep 45
 until test "$(kubectl get po "${pfPodName}" -o=jsonpath='{@.status.phase}')" = "Running" ; do
   sleep 2
 done
