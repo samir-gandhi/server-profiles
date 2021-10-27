@@ -21,10 +21,10 @@ pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=${RELEASE} --s
 ## patch pf-admin sts to turn off admin.  
 ##TODO: cleaner resource name, should be var. 
 kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND="tail" STARTUP_FOREGROUND_OPTS="-f /dev/null"
-timeoutElapsed=1
+_timeoutElapsed=1
 _timeout=1000
 ## wait for health
-  while test $timeoutElapsed -lt $_timeout ; do
+  while test $_timeoutElapsed -lt $_timeout ; do
     sleep 6
     if test $(kubectl get pods -l app.kubernetes.io/instance="${RELEASE}" -o go-template='{{range $index, $element := .items}}{{range .status.containerStatuses}}{{if not .ready}}{{$element.metadata.name}}{{"\n"}}{{end}}{{end}}{{end}}' | wc -l ) = 0 ; then
       readyCount=$(( readyCount+1 ))
