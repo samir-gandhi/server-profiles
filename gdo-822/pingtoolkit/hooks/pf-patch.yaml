@@ -1,0 +1,10 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: pingfederate-admin
+        args: ["start-server","tail -f /dev/null"]
+        livenessProbe:
+          exec:
+            command:
+            - ls
