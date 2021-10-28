@@ -22,6 +22,8 @@ pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=${RELEASE} --s
 ##TODO: cleaner resource name, should be var. 
 kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND="tail" STARTUP_FOREGROUND_OPTS="-f /dev/null"
 echo "waiting for running pod"
+
+## TODO: make this better
 sleep 45
 until test "$(kubectl get po "${pfPodName}" -o=jsonpath='{@.status.phase}')" = "Running" ; do
   sleep 2
@@ -60,10 +62,10 @@ diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data
 
 
 
-# kubectl exec -it ${pfPodName} -- rm -rf /opt/out/instance/server/default/default/data/*
-# kubectl cp "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data" ${pfPodName}:/opt/out/instance/server/default/data
+kubectl exec ${pfPodName} -- sh -c 'rm -rf /opt/out/instance/server/default/data/*'
+kubectl cp "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data" ${pfPodName}:/opt/out/instance/server/default/data/.
 
-##Restart admin
+## Ready for helm upgrade 10.3.2 now
 ##TODO: cleaner resource name, should be var. 
 # kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND- STARTUP_FOREGROUND_OPTS-
 # kubectl delete pod ${pfPodName}
