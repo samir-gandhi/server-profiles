@@ -46,7 +46,7 @@ cp -r /opt/current_bak/instance /opt/current/pingfederate
 cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
 sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
 
-diff -r /opt/current/pingfederate/server/default/data /opt/current_bak/pingfederate/server/default/data
+diff -r /opt/current/pingfederate/server/default/data /opt/current_bak/instance/server/default/data
 
 ## Profile Diff:
 set -x
