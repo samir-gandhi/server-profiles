@@ -28,8 +28,9 @@ kubectl patch sts sg-822-pingfederate-admin --patch "$( cat /opt/staging/hooks/p
 echo "waiting for running pod"
 
 ## TODO: make this more efficient
-sleep 45
-until test $(curl -ksS https://${PF_ADMIN_PRIVATE_HOSTNAME}:${PF_ADMIN_PRIVATE_PORT_HTTPS}/pingfederate/app --write-out '%{http_code}' --output /dev/null) -eq 200 ; do
+sleep 45 #sleep isn't good enough for pods that take forever to come up. 
+pfPodIp=$(kubectl get pod "${pfPodName}" -o=wide | grep "${pfPodName}" | awk '{print $6}')
+until test $(curl -ksS https://${pfPodIp}:${PF_ADMIN_PRIVATE_PORT_HTTPS}/pingfederate/app --write-out '%{http_code}' --output /dev/null) -eq 200 ; do
   sleep 2
 done
 
