@@ -8,7 +8,9 @@ env
 # PING_IDENTITY_DEVOPS_USER
 # PING_IDENTITY_DEVOPS_KEY
 NEW_PF_VERSION="${NEW_PF_VERSION:-10.3.2}"
+## TODO: should be able to get release name from helm.
 RELEASE=${RELEASE:-sg-822}
+## TODO: can get this from helm
 PF_ADMIN_PRIVATE_HOSTNAME=${PF_ADMIN_PRIVATE_HOSTNAME:-sg-822-pingfederate-admin}
 PF_ADMIN_PRIVATE_PORT_HTTPS=${PF_ADMIN_PRIVATE_PORT_HTTPS:-9999}
 
@@ -20,7 +22,7 @@ unzip -d /opt/new "/tmp/pingfederate-${NEW_PF_VERSION}.zip"
 sh /opt/staging/hooks/get-bits.sh -p pingfederate -v "${NEW_PF_VERSION}" -u "${PING_IDENTITY_DEVOPS_USER}" -k "${PING_IDENTITY_DEVOPS_KEY}" -l -c
 
 ## get admin pod name
-pfPodName=$(kubectl get pod --selector=app.kubernetes.io/instance=${RELEASE} --selector=app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].metadata.name}')
+pfPodName=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].metadata.name}')
 
 ## patch pf-admin sts to start admin in background mode
 kubectl patch sts sg-822-pingfederate-admin --patch "$( cat /opt/staging/hooks/pf-patch.yaml )"
@@ -47,7 +49,7 @@ cp -r /opt/current_bak/instance /opt/current/pingfederate
 cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
 sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
 
-diff -r /opt/current/pingfederate/server/default/data /opt/current_bak/instance/server/default/data
+diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current_bak/instance/server/default/data
 
 ## Profile Diff:
 set -x
@@ -56,7 +58,7 @@ for f in $stgFiles ; do
   echo "$f" |  cut -d"/" -f5- >> /tmp/stagingFileList
 done
 while read -r line; do 
-  diff "/opt/staging_bak/instance/${line}" "/opt/current/instance/${line}"
+  diff "/opt/staging_bak/instance/${line}" "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/${line}"
 done < /tmp/stagingFileList
 
 
@@ -69,5 +71,7 @@ done < /tmp/stagingFileList
 
 ## Ready for helm upgrade 10.3.2 now
 ##TODO: cleaner resource name, should be var. 
+## unpatch PF admin?
+##  possibly, before running patch, pull values for props that we're changing, so we can change it back. 
 # kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND- STARTUP_FOREGROUND_OPTS-
 # kubectl delete pod ${pfPodName}
