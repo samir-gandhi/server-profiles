@@ -23,9 +23,12 @@ sh /opt/staging/hooks/get-bits.sh -p pingfederate -v "${NEW_PF_VERSION}" -u "${P
 
 ## get admin pod name
 pfPodName=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].metadata.name}')
-
+PF_ADMIN_ARGS=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].spec.containers[0].args}')
+PF_ADMIN_LIVENESS_COMMAND=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].spec.containers[0].livenessProbe.exec.command}')
+export PF_ADMIN_ARGS PF_ADMIN_LIVENESS_COMMAND
+envsusbt < pf-patch-revert.yaml.subst > pf-patch-revert.yaml
 ## patch pf-admin sts to start admin in background mode
-kubectl patch sts sg-822-pingfederate-admin --patch "$( cat /opt/staging/hooks/pf-patch.yaml )"
+kubectl patch sts "${PF_ADMIN_PRIVATE_HOSTNAME}" --patch "$( cat /opt/staging/hooks/pf-patch.yaml )"
 
 echo "waiting for running pod"
 
@@ -49,16 +52,17 @@ cp -r /opt/current_bak/instance /opt/current/pingfederate
 cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
 sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
 
-diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current_bak/instance/server/default/data
+set -x
+## diff returns 1 if differences are found. use `|| true` to allow script to continue
+diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current_bak/instance/server/default/data || true
 
 ## Profile Diff:
-set -x
 stgFiles=$(find /opt/staging_bak/instance/ -type f)
 for f in $stgFiles ; do 
   echo "$f" |  cut -d"/" -f5- >> /tmp/stagingFileList
 done
 while read -r line; do 
-  diff "/opt/staging_bak/instance/${line}" "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/${line}"
+  diff "/opt/staging_bak/instance/${line}" "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/${line}" >> /tmp/stagingDiffs
 done < /tmp/stagingFileList
 
 
@@ -66,12 +70,12 @@ done < /tmp/stagingFileList
 
 
 
-# kubectl exec ${pfPodName} -- sh -c 'rm -rf /opt/out/instance/server/default/data/*'
-# kubectl cp "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data" ${pfPodName}:/opt/out/instance/server/default/data/.
+kubectl exec ${pfPodName} -- sh -c 'rm -rf /opt/out/instance/server/default/data/*'
+kubectl cp "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data" ${pfPodName}:/opt/out/instance/server/default/data/.
 
 ## Ready for helm upgrade 10.3.2 now
 ##TODO: cleaner resource name, should be var. 
 ## unpatch PF admin?
 ##  possibly, before running patch, pull values for props that we're changing, so we can change it back. 
-# kubectl set env sts/sg-822-pingfederate-admin STARTUP_COMMAND- STARTUP_FOREGROUND_OPTS-
-# kubectl delete pod ${pfPodName}
+kubectl patch sts "${PF_ADMIN_PRIVATE_HOSTNAME}" --patch "$( cat /opt/staging/hooks/pf-patch-revert.yaml )"
+kubectl delete pod ${pfPodName}

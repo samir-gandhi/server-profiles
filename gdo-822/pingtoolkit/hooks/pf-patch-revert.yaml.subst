@@ -1,0 +1,10 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: pingfederate-admin
+        args: ${PF_ADMIN_ARGS}
+        livenessProbe:
+          exec:
+            command:
+            - ${PF_ADMIN_LIVENESS_COMMAND}
