@@ -69,7 +69,7 @@ done < /tmp/stagingFileList
 # echo_red "REALLY BAD SECURITY PRACTICE, WHY ARE YOU DOING THIS!?"
 
 
-
+set -x
 kubectl exec ${pfPodName} -- sh -c 'rm -rf /opt/out/instance/server/default/data/*'
 kubectl cp "/opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data" ${pfPodName}:/opt/out/instance/server/default/data/.
 
