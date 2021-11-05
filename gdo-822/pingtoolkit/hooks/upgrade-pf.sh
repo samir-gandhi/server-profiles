@@ -26,7 +26,7 @@ pfPodName=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",a
 PF_ADMIN_ARGS=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].spec.containers[0].args}')
 PF_ADMIN_LIVENESS_COMMAND=$(kubectl get pod --selector="app.kubernetes.io/instance=${RELEASE}",app.kubernetes.io/name=pingfederate-admin -o=jsonpath='{.items[*].spec.containers[0].livenessProbe.exec.command}')
 export PF_ADMIN_ARGS PF_ADMIN_LIVENESS_COMMAND
-envsusbt < /opt/staging/hooks/pf-patch-revert.yaml.tmpl > /opt/staging/hooks/pf-patch-revert.yaml
+envsubst < /opt/staging/hooks/pf-patch-revert.yaml.tmpl > /opt/staging/hooks/pf-patch-revert.yaml
 ## patch pf-admin sts to start admin in background mode
 kubectl patch sts "${PF_ADMIN_PRIVATE_HOSTNAME}" --patch "$( cat /opt/staging/hooks/pf-patch.yaml )"
 
