@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 set -e
-
+set -x
 env
 
 ## ENV VARS: 
@@ -52,7 +52,6 @@ cp -r /opt/current_bak/instance /opt/current/pingfederate
 cd /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/upgrade/bin
 sh upgrade.sh /opt/current -l /tmp/pingfederate.lic --release-notes-reviewed
 
-set -x
 ## diff returns 1 if differences are found. use `|| true` to allow script to continue
 diff -r /opt/new/pingfederate-${NEW_PF_VERSION}/pingfederate/server/default/data /opt/current_bak/instance/server/default/data || true
 
