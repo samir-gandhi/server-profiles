@@ -43,8 +43,8 @@
          See JGroups documentation on S3_PING for further information on the available settings. -->
     
     <S3_PING location="${AWS_BUCKET_NAME}"
-             access_key="${AWS_ACCESS_KEY"
-             secret_access_key="AWS_SECRET_ACCESS_KEY"
+             access_key="${AWS_ACCESS_KEY}"
+             secret_access_key="${AWS_SECRET_ACCESS_KEY}"
              remove_all_data_on_view_change="true"
              write_data_on_find="true"/>
    
