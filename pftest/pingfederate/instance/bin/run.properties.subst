@@ -1,5 +1,6 @@
 pf.admin.https.port=-1
 pf.admin.http.port=9990
+pf.console.http.port=9990
 pf.admin.hostname=${PF_ADMIN_PUBLIC_HOSTNAME}
 pf.admin.baseurl=${PF_ADMIN_PUBLIC_BASEURL}
 pf.console.bind.address=0.0.0.0
