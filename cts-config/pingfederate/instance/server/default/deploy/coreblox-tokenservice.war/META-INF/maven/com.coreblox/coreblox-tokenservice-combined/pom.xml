@@ -25,7 +25,7 @@
         <jdk.version>1.8</jdk.version>
         <dep.jackson>2.9.7</dep.jackson>
         <jetty.version>9.4.8.v20171121</jetty.version>
-        <googleOauth.version>1.26.0</googleOauth.version>
+        <googleOauth.version>1.33.3</googleOauth.version>
         <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
         <commons-codec.version>1.11</commons-codec.version>
     </properties>
