@@ -23,7 +23,7 @@
 <!--        <jetty.plugin.version>8.0.3.v20111011</jetty.plugin.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
-        <dep.jackson>2.9.7</dep.jackson>
+        <dep.jackson>2.12.6.1</dep.jackson>
         <jetty.version>9.4.8.v20171121</jetty.version>
         <googleOauth.version>1.26.0</googleOauth.version>
         <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
