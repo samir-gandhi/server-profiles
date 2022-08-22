@@ -38,7 +38,7 @@
     <pbcast.GMS print_local_addr="true" join_timeout="3000" view_ack_collection_timeout="5000"/>
     <FRAG2 frag_size="60000"/>
     <pbcast.STATE_TRANSFER/>
-    <relay.RELAY2 site="${SITE:west}">
+    <relay.RELAY2 site="${SITE}">
         <RelayConfiguration>
             <sites>
                 <site name="west">
