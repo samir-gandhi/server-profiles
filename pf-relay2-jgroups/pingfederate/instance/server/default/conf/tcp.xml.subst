@@ -43,12 +43,12 @@
             <sites>
                 <site name="west">
                     <bridges>
-                        <bridge name="bridge" config="bridge.xml"/>
+                        <bridge name="bridge" config="bridge.xml" relay_multicasts="true"/>
                     </bridges>
                 </site>
                 <site name="east">
                     <bridges>
-                        <bridge name="bridge" config="bridge.xml"/>
+                        <bridge name="bridge" config="bridge.xml" relay_multicasts="true"/>
                     </bridges>
                 </site>
             </sites>
