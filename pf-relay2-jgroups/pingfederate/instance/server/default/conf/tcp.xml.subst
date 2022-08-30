@@ -22,7 +22,7 @@
             bind_addr="${pf.cluster.bind.address}"
             log_discard_msgs="false"/> -->
     <TCP
-        external_addr="${JGROUPS_EXTERNAL_ADDR:match-interface:eth0}"
+        external_addr="match-interface:eth0"
         bind_addr="site_local,match-interface:eth0"
         bind_port="${TCP_PORT:7600}"
         diagnostics_addr="${pf.cluster.diagnostics.addr}"
