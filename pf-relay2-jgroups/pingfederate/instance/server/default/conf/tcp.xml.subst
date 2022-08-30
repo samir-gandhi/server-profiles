@@ -21,6 +21,9 @@
 
             bind_addr="${pf.cluster.bind.address}"
             log_discard_msgs="false"/>
+    <TCPPING
+        initial_hosts="${TUNNEL_INITIAL_HOSTS}"
+    />
     <dns.DNS_PING
         dns_query="${DNS_QUERY_LOCATION}"
             dns_record_type="${DNS_RECORD_TYPE}" />
