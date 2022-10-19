@@ -17,7 +17,7 @@
         <guice.version>3.0</guice.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.6</jdk.version>
-        <dep.jackson>2.0.0</dep.jackson>
+        <dep.jackson>2.13.4.1</dep.jackson>
     </properties>
 
     <dependencies>
